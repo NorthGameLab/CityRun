@@ -11,6 +11,6 @@ public partial class MainMenu : Node
     }
     private void onStartButtonPressed()
     {
-        GetTree().ChangeSceneToFile("res://scene/GameScene.tscn");
+        GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
     }
 }

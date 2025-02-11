@@ -16,11 +16,11 @@ public partial class GameOver : CanvasLayer
 
 	private void onRetryButtonPressed()
 	{
-		GetTree().ChangeSceneToFile("res://scene/GameScene.tscn");
+		GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
 	}
 
 	private void onMainMenuButtonPressed()
 	{
-		GetTree().ChangeSceneToFile("res://scene/MainMenu.tscn");
+		GetTree().ChangeSceneToFile("res://scene/menu/MainMenu.tscn");
 	}
 }

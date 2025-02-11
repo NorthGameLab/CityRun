@@ -81,7 +81,7 @@ public partial class Player : Area2D
 	{
 		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
 
-		GetTree().ChangeSceneToFile("res://scene/GameOver.tscn");
+		GetTree().ChangeSceneToFile("res://scene/menu/GameOver.tscn");
 	}
 
 	//START

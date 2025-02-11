@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7b71pibpka0n"]
 
-[ext_resource type="Script" path="res://code/GameOver.cs" id="1_o76us"]
+[ext_resource type="Script" path="res://code/menu/GameOver.cs" id="1_gausd"]
 
 [node name="GameOver" type="CanvasLayer"]
-script = ExtResource("1_o76us")
+script = ExtResource("1_gausd")
 
 [node name="Retry" type="Button" parent="."]
 anchors_preset = 8

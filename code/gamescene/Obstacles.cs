@@ -5,9 +5,9 @@ public partial class Obstacles : Node
 {
     public static float _changeWaitTime = 0.0001f;
     public Timer ObstacleSpawnTimer;
-    private PackedScene Walker = ResourceLoader.Load<PackedScene>("res://scene/Walker.tscn");
-    private PackedScene Stroller = ResourceLoader.Load<PackedScene>("res://scene/Stroller.tscn");
-    private PackedScene Scooter = ResourceLoader.Load<PackedScene>("res://scene/Scooter.tscn");
+    private PackedScene Walker = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Walker.tscn");
+    private PackedScene Stroller = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Stroller.tscn");
+    private PackedScene Scooter = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Scooter.tscn");
     public override void _Ready()
     {
         ObstacleSpawnTimer = GetNode<Timer>("ObstacleSpawnTimer");

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cttpgoer0vrcl"]
 
-[ext_resource type="Script" path="res://code/MainMenu.cs" id="1_dwcms"]
+[ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_dwcms")

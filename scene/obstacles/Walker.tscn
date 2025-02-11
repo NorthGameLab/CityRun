@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://dq1em2ytkue1k"]
 
-[ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/Obstacle.tscn" id="1_4rx4p"]
-[ext_resource type="Script" path="res://code/Walker.cs" id="1_tnwr3"]
+[ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/obstacles/Obstacle.tscn" id="1_4rx4p"]
+[ext_resource type="Script" path="res://code/obstacles/Walker.cs" id="1_tnwr3"]
 [ext_resource type="Texture2D" uid="uid://c8os5u2l5sh0n" path="res://icon.svg" id="2_2g4e4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpf08"]

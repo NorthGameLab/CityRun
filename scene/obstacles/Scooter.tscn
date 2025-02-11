@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dqnpsikpr3n1l"]
 
-[ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/Obstacle.tscn" id="1_lrocu"]
-[ext_resource type="Script" path="res://code/Scooter.cs" id="2_et2ix"]
+[ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/obstacles/Obstacle.tscn" id="1_lrocu"]
+[ext_resource type="Script" path="res://code/obstacles/Scooter.cs" id="2_et2ix"]
 [ext_resource type="Texture2D" uid="uid://dgq80gdad7272" path="res://gfx/potkulauta.png" id="3_acjke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpnbw"]

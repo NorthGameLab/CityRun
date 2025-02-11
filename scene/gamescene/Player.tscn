@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://hk4xsoginihl"]
 
-[ext_resource type="Script" path="res://code/Player.cs" id="1_t8vlq"]
+[ext_resource type="Script" path="res://code/gamescene/Player.cs" id="1_t8vlq"]
 [ext_resource type="Texture2D" uid="uid://pu4vb430387y" path="res://gfx/hahmo1.png" id="2_wrc6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxovi"]

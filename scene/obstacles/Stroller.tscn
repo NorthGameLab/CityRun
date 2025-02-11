@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b57l5qv86qeo7"]
 
-[ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/Obstacle.tscn" id="1_4hqmr"]
-[ext_resource type="Script" path="res://code/Stroller.cs" id="1_vcs75"]
+[ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/obstacles/Obstacle.tscn" id="1_4hqmr"]
+[ext_resource type="Script" path="res://code/obstacles/Stroller.cs" id="1_vcs75"]
 [ext_resource type="Texture2D" uid="uid://0xvscumxjctb" path="res://gfx/LastenvaunutKesken.png" id="3_uexdr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pltcx"]
