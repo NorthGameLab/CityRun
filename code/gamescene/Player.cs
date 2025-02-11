@@ -34,7 +34,7 @@ public partial class Player : Area2D
 		//LIIKKUMISKOODI TOIMII JOTENKIN MUTTA PITÄÄ MUUTTAA EHKÄ
 		if (!_moving)
 		{
-			GlobalPosition = new Vector2(_width * _currentLane, GetViewport().GetVisibleRect().Size.Y - _width);
+			GlobalPosition = new Vector2(_width * _currentLane, GetViewport().GetVisibleRect().Size.Y - _width - 40);
 		}
 
 		if (Input.IsActionJustPressed("right") && _currentLane2 < 3)

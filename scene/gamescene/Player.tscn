@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://pu4vb430387y" path="res://gfx/hahmo1.png" id="2_wrc6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxovi"]
-size = Vector2(56.25, 78.125)
+size = Vector2(49.925, 57.7505)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jdyvl"]
 atlas = ExtResource("2_wrc6t")
@@ -71,16 +71,16 @@ animations = [{
 }]
 
 [node name="Player" type="Area2D"]
-position = Vector2(307, 1131)
+position = Vector2(216, 811)
 script = ExtResource("1_t8vlq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(61.2, 71.312)
+position = Vector2(58.0375, 61.1248)
 shape = SubResource("RectangleShape2D_gxovi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(67.2, 106.312)
-scale = Vector2(0.35, 0.276)
+position = Vector2(63, 94)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_at8cf")
 
 [connection signal="area_entered" from="." to="." method="onAreaEntered"]
