@@ -5,7 +5,7 @@ public partial class Player : Area2D
 	private float _width;
 	private int _currentLane;
 	private int _currentLane2;
-	private float _laneChangeSpeed = 1000f;
+	private float _laneChangeSpeed = 1200f;
 	private float _xToGo;
 	private bool _moving = false;
 	// Called when the node enters the scene tree for the first time.
@@ -57,7 +57,7 @@ public partial class Player : Area2D
 				GlobalPosition -= new Vector2((GlobalPosition.X - _xToGo + _laneChangeSpeed) * (float)delta, 0);
 			}
 
-			if (Math.Abs(_xToGo - GlobalPosition.X) < 7)
+			if (Math.Abs(_xToGo - GlobalPosition.X) < 20)
 			{
 				_moving = false;
 				_currentLane = _currentLane2;
@@ -65,9 +65,11 @@ public partial class Player : Area2D
 		}
 	}
 
-	private void _on_body_entered(Node2D body)
+	private void onAreaEntered(Node2D body)
 	{
 		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+
+		GetTree().ChangeSceneToFile("res://scene/GameOver.tscn");
 	}
 
 	public void Start()
@@ -78,5 +80,4 @@ public partial class Player : Area2D
 		_currentLane = 1;
 		_currentLane2 = _currentLane;
 	}
-
 }

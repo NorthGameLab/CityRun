@@ -1,25 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgrctyvsu7pto"]
+[gd_scene load_steps=7 format=3 uid="uid://b57l5qv86qeo7"]
 
+[ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/Obstacle.tscn" id="1_4hqmr"]
 [ext_resource type="Script" path="res://code/Stroller.cs" id="1_vcs75"]
-[ext_resource type="Texture2D" uid="uid://c8os5u2l5sh0n" path="res://icon.svg" id="2_mu26u"]
+[ext_resource type="Texture2D" uid="uid://0xvscumxjctb" path="res://gfx/LastenvaunutKesken.png" id="3_uexdr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7tec"]
-size = Vector2(230.25, 86)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pltcx"]
+size = Vector2(212.5, 88)
 
-[node name="Stroller" type="RigidBody2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdh2e"]
+atlas = ExtResource("3_uexdr")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1ydv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdh2e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Stroller" instance=ExtResource("1_4hqmr")]
 script = ExtResource("1_vcs75")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(118.875, 48)
-shape = SubResource("RectangleShape2D_u7tec")
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(122.75, 49)
+shape = SubResource("RectangleShape2D_pltcx")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(107, 7)
-scale = Vector2(9.75, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(118.5, 48)
-scale = Vector2(1.77344, 0.625)
-texture = ExtResource("2_mu26u")
-
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="screenExited"]
+[node name="Animation" parent="." index="2"]
+position = Vector2(86, 50)
+scale = Vector2(0.384888, 0.331665)
+sprite_frames = SubResource("SpriteFrames_q1ydv")

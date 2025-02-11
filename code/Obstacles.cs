@@ -3,13 +3,11 @@ using System;
 
 public partial class Obstacles : Node
 {
-    public static float _speed = 1000f;
     public static float _changeWaitTime = 0.0001f;
     public Timer ObstacleSpawnTimer;
-    [Export]
-    private PackedScene Walker;
-    [Export]
-    private PackedScene Stroller;
+    private PackedScene Walker = ResourceLoader.Load<PackedScene>("res://scene/Walker.tscn");
+    private PackedScene Stroller = ResourceLoader.Load<PackedScene>("res://scene/Stroller.tscn");
+    private PackedScene Scooter = ResourceLoader.Load<PackedScene>("res://scene/Scooter.tscn");
     public override void _Ready()
     {
         ObstacleSpawnTimer = GetNode<Timer>("ObstacleSpawnTimer");
@@ -20,31 +18,34 @@ public partial class Obstacles : Node
 
     public override void _Process(double delta)
     {
-        _speed += 0.1f;
         ObstacleSpawnTimer.WaitTime -= _changeWaitTime;
     }
 
     private void onObstacleSpawnTimerTimeout()
     {
         Random rand = new Random();
-        int obstacleNum = rand.Next(1, 3);
+        int obstacleNum = rand.Next(1, 4);
+        Obstacle obs;
 
         switch(obstacleNum)
         {
             case 1:
-                Walker walk = Walker.Instantiate<Walker>();
-                AddChild(walk);
+                obs = Walker.Instantiate<Walker>();
                 break;
 
             case 2:
-                Stroller strol = Stroller.Instantiate<Stroller>();
-                AddChild(strol);
+                obs = Stroller.Instantiate<Stroller>();
+                break;
+
+            case 3:
+                obs = Scooter.Instantiate<Scooter>();
                 break;
 
             default:
-                GD.Print("die");
+                obs = Walker.Instantiate<Walker>();
                 break;
         }
+        AddChild(obs);
     }
 
     private void start()
