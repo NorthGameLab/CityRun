@@ -2,7 +2,6 @@ using Godot;
 using System;
 public partial class Player : Area2D
 {
-	private String testi = "testi2";
 	private float _width;
 	private int _currentLane;
 	private int _currentLane2;
@@ -12,11 +11,9 @@ public partial class Player : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_currentLane = 1;
-		_currentLane2 = _currentLane;
 		_width = GetViewport().GetVisibleRect().Size.X / 5;
-		_xToGo = _width;
-		GlobalPosition = new Vector2(_width, GetViewport().GetVisibleRect().Size.Y - _width);
+
+		Start();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -76,6 +73,10 @@ public partial class Player : Area2D
 	public void Start()
 	{
 		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
+
+		_xToGo = _width;
+		_currentLane = 1;
+		_currentLane2 = _currentLane;
 	}
 
 }
