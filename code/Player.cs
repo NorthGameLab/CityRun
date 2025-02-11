@@ -5,7 +5,7 @@ public partial class Player : Area2D
 	private float _width;
 	private int _currentLane;
 	private int _currentLane2;
-	private float _laneChangeSpeed = 800f;
+	private float _laneChangeSpeed = 1000f;
 	private float _xToGo;
 	private bool _moving = false;
 	// Called when the node enters the scene tree for the first time.
@@ -52,11 +52,11 @@ public partial class Player : Area2D
 		{
 			if (GlobalPosition.X < _xToGo)
 			{
-				GlobalPosition += new Vector2((_xToGo - GlobalPosition.X + 60) * 10f * (float)delta, 0);
+				GlobalPosition += new Vector2((_xToGo - GlobalPosition.X + _laneChangeSpeed) * (float)delta, 0);
 			}
 			else if (GlobalPosition.X > _xToGo)
 			{
-				GlobalPosition -= new Vector2((GlobalPosition.X - _xToGo + 60) * 10f * (float)delta, 0);
+				GlobalPosition -= new Vector2((GlobalPosition.X - _xToGo + _laneChangeSpeed) * (float)delta, 0);
 			}
 
 			if (Math.Abs(_xToGo - GlobalPosition.X) < 7)
@@ -65,10 +65,6 @@ public partial class Player : Area2D
 				_currentLane = _currentLane2;
 			}
 		}
-
-		GD.Print("moving: " + _moving);
-		GD.Print("xtogo: " + _xToGo);
-		GD.Print("global: " + GlobalPosition.X);
 	}
 
 	private void _on_body_entered(Node2D body)
