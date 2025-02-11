@@ -2,11 +2,21 @@ using Godot;
 using System;
 public partial class Player : Area2D
 {
+	//KAISTAN LEVEYS
 	private float _width;
+
+	//LANE JOLLA PELAAJA ON
 	private int _currentLane;
+
+	//ELI SIIS LANE JOLLA PITÄISI LIIKKUA MUTTA EI OLE VIELÄ LIIKUTTU
 	private int _currentLane2;
-	private float _laneChangeSpeed = 1200f;
+
+	//KAISTAN VAIHDON NOPEUS
+	private float _laneChangeSpeed = 1100f;
+
+	//EN TIEDÄ
 	private float _xToGo;
+
 	private bool _moving = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -21,6 +31,7 @@ public partial class Player : Area2D
 	{
 		GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play();
 
+		//LIIKKUMISKOODI TOIMII JOTENKIN MUTTA PITÄÄ MUUTTAA EHKÄ
 		if (!_moving)
 		{
 			GlobalPosition = new Vector2(_width * _currentLane, GetViewport().GetVisibleRect().Size.Y - _width);
@@ -65,6 +76,7 @@ public partial class Player : Area2D
 		}
 	}
 
+	//MITÄ TAPAHTUU KUN PELAAJAAN OSUU
 	private void onAreaEntered(Node2D body)
 	{
 		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
@@ -72,6 +84,7 @@ public partial class Player : Area2D
 		GetTree().ChangeSceneToFile("res://scene/GameOver.tscn");
 	}
 
+	//START
 	public void Start()
 	{
 		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
