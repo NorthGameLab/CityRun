@@ -9,6 +9,7 @@ public partial class Player : Area2D
 	private float _laneChangeSpeed = 1000f;
 	private float _xToGo;
 	private bool _moving = false;
+	private String TESTI222222 = "asdasdasdsadd";
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
