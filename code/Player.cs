@@ -2,7 +2,7 @@ using Godot;
 using System;
 public partial class Player : Area2D
 {
-	private String testi = "testi";
+	private String testi = "testi2";
 	private float _width;
 	private int _currentLane;
 	private int _currentLane2;
