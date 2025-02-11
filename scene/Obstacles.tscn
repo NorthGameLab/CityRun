@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr3envvxhju5g"]
+
+[ext_resource type="Script" path="res://code/Obstacles.cs" id="1_lbobd"]
+
+[node name="Obstacles" type="Node"]
+script = ExtResource("1_lbobd")
+
+[node name="ObstacleSpawnTimer" type="Timer" parent="."]
+wait_time = 0.872
+
+[connection signal="timeout" from="ObstacleSpawnTimer" to="." method="onObstacleSpawnTimerTimeout"]
