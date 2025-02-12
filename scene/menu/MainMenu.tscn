@@ -22,4 +22,19 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 100
 text = "Start"
 
+[node name="HighScore" type="Label" parent="Menu"]
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.244
+anchor_right = 0.743
+anchor_bottom = 0.332
+offset_left = -0.180008
+offset_top = -0.240021
+offset_right = -0.220032
+offset_bottom = 0.279968
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "HighScore"
+
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]

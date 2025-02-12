@@ -80,6 +80,10 @@ public partial class Player : Area2D
 	private void onAreaEntered(Node2D body)
 	{
 		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+		if (Test.Score > Test.HighScore)
+		{
+			Test.updateHighScore(Test.Score);
+		}
 
 		GetTree().ChangeSceneToFile("res://scene/menu/GameOver.tscn");
 	}
