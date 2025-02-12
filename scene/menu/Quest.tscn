@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://dt32cqvyqxoqo"]
+[gd_scene load_steps=2 format=3 uid="uid://dt32cqvyqxoqo"]
+
+[ext_resource type="Script" path="res://code/menu/Quest.cs" id="1_6xibc"]
 
 [node name="Quest" type="Node"]
+script = ExtResource("1_6xibc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -46,3 +49,6 @@ offset_bottom = 137.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
 text = "vvvvvvvv"
+
+[connection signal="pressed" from="CanvasLayer/Quest1" to="." method="button1Pressed"]
+[connection signal="pressed" from="CanvasLayer/Quest2" to="." method="button2Pressed"]

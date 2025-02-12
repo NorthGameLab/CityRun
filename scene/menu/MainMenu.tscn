@@ -37,4 +37,16 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "HighScore"
 
+[node name="Label" type="Label" parent="Menu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -226.0
+offset_top = 39.0
+offset_right = 226.0
+offset_bottom = 176.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "CITY RUN"
+
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]

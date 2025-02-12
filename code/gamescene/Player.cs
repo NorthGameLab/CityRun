@@ -84,7 +84,7 @@ public partial class Player : Area2D
 		{
 			Test.updateHighScore(Test.Score);
 		}
-
+		GameScene._lose = true;
 		GetTree().ChangeSceneToFile("res://scene/menu/GameOver.tscn");
 	}
 

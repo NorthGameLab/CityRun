@@ -7,7 +7,6 @@ public partial class Stroller : Obstacle
 	{
 		Random rand = new Random();
 		int spawnPos = rand.Next(1, 3);
-		GD.Print(spawnPos);
 		GlobalPosition = new Vector2(spawnPos * _width, -_width);
 	}
 }
