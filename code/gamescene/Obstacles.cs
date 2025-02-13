@@ -11,9 +11,8 @@ public partial class Obstacles : Node
     public override void _Ready()
     {
         ObstacleSpawnTimer = GetNode<Timer>("ObstacleSpawnTimer");
-        GetNode<Timer>("ObstacleSpawnTimer").Start();
 
-        start();
+        Start();
     }
 
     public override void _Process(double delta)
@@ -24,7 +23,7 @@ public partial class Obstacles : Node
     private void onObstacleSpawnTimerTimeout()
     {
         Random rand = new Random();
-        int obstacleNum = rand.Next(1, 4);
+        int obstacleNum = rand.Next(2, 4);
         Obstacle obs;
 
         switch(obstacleNum)
@@ -48,7 +47,7 @@ public partial class Obstacles : Node
         AddChild(obs);
     }
 
-    private void start()
+    private void Start()
     {
         ObstacleSpawnTimer.Start();
     }

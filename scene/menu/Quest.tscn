@@ -14,14 +14,14 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -174.0
-offset_top = -316.0
+offset_top = -688.0
 offset_right = 175.0
-offset_bottom = -176.0
+offset_bottom = -548.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
-text = "1"
+text = "on"
 
 [node name="Quest2" type="Button" parent="CanvasLayer"]
 anchors_preset = 7
@@ -30,14 +30,14 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -174.0
-offset_top = -159.0
+offset_top = -511.0
 offset_right = 175.0
-offset_bottom = -19.0
+offset_bottom = -371.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
-text = "2"
+text = "ei"
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
@@ -48,7 +48,8 @@ offset_right = 108.0
 offset_bottom = 137.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
-text = "vvvvvvvv"
+text = "onkos?"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/Quest1" to="." method="button1Pressed"]
 [connection signal="pressed" from="CanvasLayer/Quest2" to="." method="button2Pressed"]
