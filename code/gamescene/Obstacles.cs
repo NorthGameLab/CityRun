@@ -8,6 +8,7 @@ public partial class Obstacles : Node
     private PackedScene Walker = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Walker.tscn");
     private PackedScene Stroller = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Stroller.tscn");
     private PackedScene Scooter = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Scooter.tscn");
+    private PackedScene Cyclist = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Cyclist.tscn");
     public override void _Ready()
     {
         ObstacleSpawnTimer = GetNode<Timer>("ObstacleSpawnTimer");
@@ -23,7 +24,7 @@ public partial class Obstacles : Node
     private void onObstacleSpawnTimerTimeout()
     {
         Random rand = new Random();
-        int obstacleNum = rand.Next(1, 4);
+        int obstacleNum = rand.Next(1, 5);
         Obstacle obs;
 
         switch(obstacleNum)
@@ -38,6 +39,10 @@ public partial class Obstacles : Node
 
             case 3:
                 obs = Scooter.Instantiate<Scooter>();
+                break;
+
+            case 4:
+                obs = Cyclist.Instantiate<Cyclist>();
                 break;
 
             default:
