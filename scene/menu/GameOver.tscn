@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7b71pibpka0n"]
+[gd_scene load_steps=3 format=3 uid="uid://c7b71pibpka0n"]
 
 [ext_resource type="Script" path="res://code/menu/GameOver.cs" id="1_gausd"]
+[ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_dirqc"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_gausd")
@@ -17,6 +18,7 @@ offset_right = 153.5
 offset_bottom = 72.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_dirqc")
 theme_override_font_sizes/font_size = 100
 text = "RETRY"
 
@@ -32,6 +34,7 @@ offset_right = 199.0
 offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_dirqc")
 theme_override_font_sizes/font_size = 60
 text = "Main menu"
 
@@ -43,6 +46,7 @@ offset_left = -176.0
 offset_right = 176.0
 offset_bottom = 137.0
 grow_horizontal = 2
+theme = ExtResource("2_dirqc")
 theme_override_font_sizes/font_size = 100
 text = "you die"
 
@@ -58,6 +62,7 @@ offset_right = -0.0400085
 offset_bottom = -0.0400085
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_dirqc")
 theme_override_font_sizes/font_size = 50
 text = "Score: "
 
@@ -73,6 +78,7 @@ offset_right = 0.0999756
 offset_bottom = -0.200012
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_dirqc")
 theme_override_font_sizes/font_size = 50
 text = "HighScore"
 

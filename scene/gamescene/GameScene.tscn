@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqtesoiso12bo"]
+[gd_scene load_steps=7 format=3 uid="uid://cqtesoiso12bo"]
 
 [ext_resource type="Script" path="res://code/gamescene/GameScene.cs" id="1_ihfwl"]
 [ext_resource type="PackedScene" uid="uid://cr3envvxhju5g" path="res://scene/gamescene/Obstacles.tscn" id="1_sd14c"]
 [ext_resource type="PackedScene" uid="uid://hk4xsoginihl" path="res://scene/gamescene/Player.tscn" id="4_m7pp3"]
 [ext_resource type="PackedScene" uid="uid://cua2jxbxq38p7" path="res://scene/gamescene/Environment.tscn" id="5_6vil0"]
+[ext_resource type="PackedScene" uid="uid://cy0f17p6g8i5t" path="res://scene/gamescene/Items.tscn" id="6_ak87t"]
 [ext_resource type="PackedScene" uid="uid://bp8naatv13cke" path="res://scene/gamescene/Hud.tscn" id="6_amhck"]
 
 [node name="GameScene" type="Node"]
@@ -16,3 +17,5 @@ script = ExtResource("1_ihfwl")
 [node name="Hud" parent="." instance=ExtResource("6_amhck")]
 
 [node name="Environment" parent="." instance=ExtResource("5_6vil0")]
+
+[node name="Items" parent="." instance=ExtResource("6_ak87t")]

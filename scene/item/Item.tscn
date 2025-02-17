@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1a358e7mpx2m"]
+
+[ext_resource type="Texture2D" uid="uid://6xljtiexr566" path="res://gfx/coin.png" id="1_kuhe1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c71op"]
+radius = 30.8058
+
+[node name="Item" type="Area2D"]
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kuhe1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c71op")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="screenExited"]

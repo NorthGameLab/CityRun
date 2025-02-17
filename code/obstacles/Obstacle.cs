@@ -13,6 +13,7 @@ public abstract partial class Obstacle : Area2D
 	{
 		_width = GetViewportRect().Size.X / 5;
 		Animation = GetNode<AnimatedSprite2D>("Animation");
+		Connect("area_entered", new Callable(this, nameof(onAreaEntered)));
 
 		Start();
 	}
@@ -22,6 +23,19 @@ public abstract partial class Obstacle : Area2D
 	{
 		Animation.Play();
 		GlobalPosition += (GameScene._speed + _speed) * Vector2.Down * (float)delta;
+	}
+
+	private void onAreaEntered(Node2D body)
+	{
+		if (body is Player player)
+		{
+			if (Test.Score > Test.HighScore)
+			{
+				Test.updateHighScore(Test.Score);
+			}
+			GameScene._lose = true;
+			GetTree().ChangeSceneToFile("res://scene/menu/GameOver.tscn");
+		}
 	}
 
 	public virtual void Start()

@@ -5,6 +5,7 @@ public partial class Test : Node
 {
     public static int Score;
     public static int HighScore;
+    public static int Money;
 
     public static void updateHighScore(int score)
     {
@@ -14,5 +15,10 @@ public partial class Test : Node
     public static void addToScore(int score)
     {
         Score += score;
+    }
+
+    public static void addToMoney(int money)
+    {
+        Money += money;
     }
 }

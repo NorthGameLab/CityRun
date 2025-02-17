@@ -11,6 +11,7 @@ public partial class GameOver : CanvasLayer
 
 		Score.Text = "Score: " + Test.Score;
 		HighScore.Text = "HighScore: " + Test.HighScore;
+		GameScene._speed = 500f;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

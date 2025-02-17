@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5lgcmvsh8uau"]
+
+[ext_resource type="PackedScene" uid="uid://c1a358e7mpx2m" path="res://scene/item/Item.tscn" id="1_hu6t3"]
+[ext_resource type="Script" path="res://code/item/Coin.cs" id="2_wr2p3"]
+[ext_resource type="PackedScene" uid="uid://sxu2ulifuq2p" path="res://scene/TestA.tscn" id="3_wxxg7"]
+
+[node name="Coin" instance=ExtResource("1_hu6t3")]
+z_index = -1
+script = ExtResource("2_wr2p3")
+testA = ExtResource("3_wxxg7")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(53, 43)
+scale = Vector2(0.35, 0.35)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(53, 43)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+position = Vector2(51, 29)

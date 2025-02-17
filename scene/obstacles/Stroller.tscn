@@ -1,36 +1,114 @@
-[gd_scene load_steps=7 format=3 uid="uid://b57l5qv86qeo7"]
+[gd_scene load_steps=18 format=3 uid="uid://b57l5qv86qeo7"]
 
 [ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/obstacles/Obstacle.tscn" id="1_4hqmr"]
 [ext_resource type="Script" path="res://code/obstacles/Stroller.cs" id="1_vcs75"]
-[ext_resource type="Texture2D" uid="uid://0xvscumxjctb" path="res://gfx/LastenvaunutKesken.png" id="3_uexdr"]
+[ext_resource type="Texture2D" uid="uid://btsbq01n43udn" path="res://gfx/LastenvaunutValmis.png" id="3_qq0c5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pltcx"]
 size = Vector2(149.091, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sdh2e"]
-atlas = ExtResource("3_uexdr")
-region = Rect2(0, 0, 1024, 1024)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h66ld"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tiy5"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(1000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skyf6"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(2000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqpve"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(0, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twykl"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(1000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8nii"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(2000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpwcy"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(0, 2000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f0y0"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(1000, 2000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa8ud"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(2000, 2000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68kmv"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(0, 3000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac3aa"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(1000, 3000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33jtk"]
+atlas = ExtResource("3_qq0c5")
+region = Rect2(2000, 3000, 1000, 1000)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q1ydv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sdh2e")
+"texture": SubResource("AtlasTexture_h66ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tiy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skyf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqpve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twykl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8nii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpwcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f0y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa8ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68kmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac3aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33jtk")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [node name="Stroller" instance=ExtResource("1_4hqmr")]
+position = Vector2(7, 0)
 script = ExtResource("1_vcs75")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(138, 81)
+position = Vector2(107, 88)
 scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_pltcx")
 
 [node name="Animation" parent="." index="2"]
-position = Vector2(107, 58)
+position = Vector2(130, 65)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_q1ydv")

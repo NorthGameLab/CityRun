@@ -23,7 +23,7 @@ public partial class Obstacles : Node
     private void onObstacleSpawnTimerTimeout()
     {
         Random rand = new Random();
-        int obstacleNum = rand.Next(2, 4);
+        int obstacleNum = rand.Next(1, 4);
         Obstacle obs;
 
         switch(obstacleNum)

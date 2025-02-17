@@ -44,6 +44,7 @@ animations = [{
 }]
 
 [node name="Scooter" instance=ExtResource("1_lrocu")]
+collision_layer = 2
 script = ExtResource("2_et2ix")
 _speed = 150.0
 

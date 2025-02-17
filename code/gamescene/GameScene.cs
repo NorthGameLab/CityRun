@@ -9,7 +9,10 @@ public partial class GameScene : Node
 
 
     //VAIKUTTAA KAIKEN NOPEUTEEN
-    public static float _speed = 500f;
+    public static float _speed = 0f;
+    public static float _maxSpeed = 500f;
+
+    public static float _acceleration = 200f;
 
     public static bool _lose = false;
 
@@ -32,10 +35,21 @@ public partial class GameScene : Node
     {
         Test.addToScore(1);
         Hud.changeScore(Test.Score);
+        Hud.changeCoins(Test.Money);
 
-        _speed += 0.0001f;
+        _maxSpeed += 0.1f;
+
+        if (_speed < _maxSpeed)
+        {
+        _speed += _acceleration * (float)delta;
+        }
+        else
+        {
+        _speed = _maxSpeed;
+        }
         _distance += _speed * (float)delta;
-        GD.Print(_distance);
+        GD.Print("Speed: " + _speed);
+        GD.Print("maxSpeed: " + _maxSpeed);
 
         if (_distance > 10000 * milestones)
         {

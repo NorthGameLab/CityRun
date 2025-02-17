@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bn35pvktrn0yo"]
 
 [node name="Obstacle" type="Area2D"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

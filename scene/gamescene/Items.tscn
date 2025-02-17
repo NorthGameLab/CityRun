@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy0f17p6g8i5t"]
+
+[ext_resource type="Script" path="res://code/gamescene/Items.cs" id="1_87jn8"]
+
+[node name="Items" type="Node"]
+script = ExtResource("1_87jn8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.039
+
+[connection signal="timeout" from="Timer" to="." method="onTimerTimeout"]

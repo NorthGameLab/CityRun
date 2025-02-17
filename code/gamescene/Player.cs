@@ -18,6 +18,8 @@ public partial class Player : Area2D
 	private float _xToGo;
 
 	private bool _moving = false;
+
+	private AnimatedSprite2D _animation = null;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -29,7 +31,9 @@ public partial class Player : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play();
+		_animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		_animation.Play();
+		_animation.SpeedScale = (float)(GameScene._speed / GameScene._maxSpeed);
 
 		//LIIKKUMISKOODI TOIMII JOTENKIN MUTTA PITÄÄ MUUTTAA EHKÄ
 		if (!_moving)
@@ -76,6 +80,8 @@ public partial class Player : Area2D
 		}
 	}
 
+
+/*
 	//MITÄ TAPAHTUU KUN PELAAJAAN OSUU
 	private void onAreaEntered(Node2D body)
 	{
@@ -87,14 +93,15 @@ public partial class Player : Area2D
 		GameScene._lose = true;
 		GetTree().ChangeSceneToFile("res://scene/menu/GameOver.tscn");
 	}
+	*/
 
 	//START
 	public void Start()
 	{
 		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
 
-		_xToGo = _width;
-		_currentLane = 1;
+		_currentLane = 2;
+		_xToGo = _width * _currentLane;
 		_currentLane2 = _currentLane;
 	}
 }
