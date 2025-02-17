@@ -33,7 +33,7 @@ public partial class Player : Area2D
 	{
 		_animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_animation.Play();
-		_animation.SpeedScale = (float)(GameScene._speed / GameScene._maxSpeed);
+		_animation.SpeedScale = (float)((GameScene._speed / GameScene._maxSpeed) * (GameScene._maxSpeed / 500));
 
 		//LIIKKUMISKOODI TOIMII JOTENKIN MUTTA PITÄÄ MUUTTAA EHKÄ
 		if (!_moving)

@@ -17,6 +17,7 @@ public partial class GameScene : Node
     public static bool _lose = false;
 
     public static float _distance = 0f;
+    public static float _distanceToNext = 100;
     public static int milestones = 1;
     public override void _Ready()
     {
@@ -36,6 +37,7 @@ public partial class GameScene : Node
         Test.addToScore(1);
         Hud.changeScore(Test.Score);
         Hud.changeCoins(Test.Money);
+        Hud.changeDistance((int)_distanceToNext);
 
         _maxSpeed += 0.1f;
 
@@ -47,14 +49,15 @@ public partial class GameScene : Node
         {
         _speed = _maxSpeed;
         }
-        _distance += _speed * (float)delta;
+        _distance += _speed * (float)delta / 100;
+        _distanceToNext -= _speed * (float)delta / 100;
         GD.Print("Speed: " + _speed);
         GD.Print("maxSpeed: " + _maxSpeed);
 
-        if (_distance > 10000 * milestones)
+        if (_distanceToNext <= 0)
         {
-            milestones += 1;
             GetTree().ChangeSceneToFile("res://scene/menu/Quest.tscn");
+            _distanceToNext = 100;
         }
     }
 

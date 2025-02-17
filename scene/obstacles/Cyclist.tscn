@@ -45,7 +45,7 @@ animations = [{
 
 [node name="Cyclist" instance=ExtResource("1_gmp7t")]
 script = ExtResource("2_v65y6")
-_speed = 300.0
+_speed = 350.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(63.09, 100.715)

@@ -73,7 +73,7 @@ animations = [{
 
 [node name="Walker" instance=ExtResource("1_4rx4p")]
 script = ExtResource("1_tnwr3")
-_speed = -100.0
+_speed = -150.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(63.6, 65.704)
