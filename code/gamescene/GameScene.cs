@@ -18,7 +18,6 @@ public partial class GameScene : Node
 
     public static float _distance = 0f;
     public static float _distanceToNext = 100;
-    public static int milestones = 1;
     public override void _Ready()
     {
         Player = GetNode<Player>("Player");
@@ -39,16 +38,25 @@ public partial class GameScene : Node
         Hud.changeCoins(Test.Money);
         Hud.changeDistance((int)_distanceToNext);
 
-        _maxSpeed += 0.1f;
-
-        if (_speed < _maxSpeed)
+        if (_speed == _maxSpeed)
         {
-        _speed += _acceleration * (float)delta;
+            _maxSpeed += 0.1f;
+            _speed = _maxSpeed;
         }
         else
         {
-        _speed = _maxSpeed;
+            _maxSpeed += 0.1f;
         }
+
+        if (_speed < _maxSpeed)
+        {
+            _speed += _acceleration * (float)delta;
+        }
+        else
+        {
+            _speed = _maxSpeed;
+        }
+
         _distance += _speed * (float)delta / 100;
         _distanceToNext -= _speed * (float)delta / 100;
         GD.Print("Speed: " + _speed);
@@ -65,6 +73,5 @@ public partial class GameScene : Node
     {
         Test.Score = 0;
         _distance = 0;
-        milestones = 1;
     }
 }
