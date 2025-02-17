@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cttpgoer0vrcl"]
+[gd_scene load_steps=3 format=3 uid="uid://cttpgoer0vrcl"]
 
 [ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
+[ext_resource type="FontFile" uid="uid://c3718xoe860eq" path="res://gfx/Teko/static/Teko-Regular.ttf" id="2_x6agq"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_dwcms")
@@ -19,6 +20,7 @@ offset_right = 145.0
 offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_x6agq")
 theme_override_font_sizes/font_size = 100
 text = "Start"
 
@@ -34,8 +36,10 @@ offset_right = -0.220032
 offset_bottom = 0.279968
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_x6agq")
 theme_override_font_sizes/font_size = 50
 text = "HighScore"
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Menu"]
 anchors_preset = 5
@@ -46,7 +50,9 @@ offset_top = 39.0
 offset_right = 226.0
 offset_bottom = 176.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_x6agq")
 theme_override_font_sizes/font_size = 100
 text = "CITY RUN"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]

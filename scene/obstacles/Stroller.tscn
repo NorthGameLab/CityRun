@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://0xvscumxjctb" path="res://gfx/LastenvaunutKesken.png" id="3_uexdr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pltcx"]
-size = Vector2(149.5, 74)
+size = Vector2(149.091, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdh2e"]
 atlas = ExtResource("3_uexdr")
@@ -26,11 +26,11 @@ animations = [{
 script = ExtResource("1_vcs75")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(91.25, 42)
+position = Vector2(138, 81)
 scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_pltcx")
 
 [node name="Animation" parent="." index="2"]
-position = Vector2(70, 39)
+position = Vector2(107, 58)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_q1ydv")
