@@ -73,5 +73,8 @@ public partial class GameScene : Node
     {
         Test.Score = 0;
         _distance = 0;
+        _speed = 0;
+        _maxSpeed = 500f;
+        _distanceToNext = 100;
     }
 }

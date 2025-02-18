@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb07ku4gfgoiy"]
+
+[ext_resource type="Texture2D" uid="uid://c74dc4wbxhnxd" path="res://gfx/TieRuohollaValmis.png" id="1_1u4qs"]
+[ext_resource type="Script" path="res://code/Environment/Road.cs" id="2_wo1ft"]
+
+[node name="Road" type="Sprite2D"]
+position = Vector2(0, 426)
+scale = Vector2(0.142, 0.142)
+texture = ExtResource("1_1u4qs")
+offset = Vector2(1901.41, 1901.41)
+script = ExtResource("2_wo1ft")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="onScreenExited"]

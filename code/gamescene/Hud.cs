@@ -12,6 +12,8 @@ public partial class Hud : Node
         coinCont = GetNode<HBoxContainer>("coinCont");
         Distance = GetNode<Label>("distance");
         changeCoins(Test.Money);
+
+        Distance.Hide();
     }
     public void changeScore(int scoreChange)
     {

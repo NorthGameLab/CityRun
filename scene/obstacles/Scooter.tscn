@@ -48,10 +48,13 @@ script = ExtResource("2_et2ix")
 _speed = 200.0
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(64, 73)
+position = Vector2(55, 75)
 shape = SubResource("RectangleShape2D_wpnbw")
 
+[node name="VisibleOnScreenNotifier2D" parent="." index="1"]
+position = Vector2(-7, 2)
+
 [node name="Animation" parent="." index="2"]
-position = Vector2(59, 73)
+position = Vector2(50, 75)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_meed3")

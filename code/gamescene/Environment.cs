@@ -3,22 +3,51 @@ using System;
 
 public partial class Environment : Node
 {
-    //TESTI
-    [Export]
-    public PackedScene Rock;
+    public PackedScene Road = ResourceLoader.Load<PackedScene>("res://scene/Environment/Road.tscn");
+    public PackedScene Building = ResourceLoader.Load<PackedScene>("res://scene/Environment/Building.tscn");
+    public float _yRoad;
+    public float _yBuilding;
+    public float _y;
+    private Random rand = new Random();
 
     public override void _Ready()
     {
-        //TESTI
-        GetNode<Timer>("TestRockTimer").Start();
+
+        for (int i = -2; i < 6; i++)
+        {
+            Road r = Road.Instantiate<Road>();
+            AddChild(r);
+            r.GlobalPosition += new Vector2(0, 500 * i);
+        }
+
+        _y = rand.Next(770, 770);
+        for (int i = 0; i < 10; i++)
+        {
+            Building b = Building.Instantiate<Building>();
+            AddChild(b);
+            b.GlobalPosition += new Vector2(0, _y * i);
+        }
     }
 
-    //TESTI
-    private void onRockTimeOut()
+    public override void _Process(double delta)
     {
-        TestRock rock = Rock.Instantiate<TestRock>();
-        AddChild(rock);
-        Random rand = new Random();
-        GetNode<Timer>("TestRockTimer").WaitTime = 0.3 * rand.Next(1, 10);
+        _yRoad += GameScene._speed * (float)delta;
+
+        if (_yRoad >= 500)
+        {
+            Road road = Road.Instantiate<Road>();
+            AddChild(road);
+            _yRoad = 0;
+        }
+
+        _yBuilding += GameScene._speed * (float)delta;
+        if (_yBuilding >= _y)
+        {
+            Building building = Building.Instantiate<Building>();
+            AddChild(building);
+            MoveChild(building, 0);
+            _yBuilding = 0;
+            _y = rand.Next(770, 770);
+        }
     }
 }

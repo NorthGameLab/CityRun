@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddcnueuxsi6om"]
+
+[ext_resource type="Texture2D" uid="uid://dn4l86ixohgi1" path="res://gfx/TalotVäliaikanen.png" id="1_b6384"]
+[ext_resource type="Script" path="res://code/Environment/Building.cs" id="2_ioet5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2shu0"]
+atlas = ExtResource("1_b6384")
+region = Rect2(0, 3072, 1536, 1536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w355i"]
+atlas = ExtResource("1_b6384")
+region = Rect2(0, 1536, 1536, 1536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hath"]
+atlas = ExtResource("1_b6384")
+region = Rect2(0, 0, 1536, 1536)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn1kw"]
+atlas = ExtResource("1_b6384")
+region = Rect2(0, 4608, 1536, 1536)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n22vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2shu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w355i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hath")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn1kw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Building" type="AnimatedSprite2D"]
+position = Vector2(307, -111)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_n22vb")
+offset = Vector2(-286.667, -680)
+script = ExtResource("2_ioet5")
