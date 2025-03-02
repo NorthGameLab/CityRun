@@ -1,48 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt32cqvyqxoqo"]
+[gd_scene load_steps=12 format=3 uid="uid://dt32cqvyqxoqo"]
 
 [ext_resource type="Script" path="res://code/menu/Quest.cs" id="1_6xibc"]
 [ext_resource type="PackedScene" uid="uid://sxu2ulifuq2p" path="res://scene/TestA.tscn" id="2_cpbey"]
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_m3n4j"]
+[ext_resource type="Texture2D" uid="uid://ccdhen11r1ugo" path="res://gfx/nappiNormaali.png" id="4_eks3a"]
+[ext_resource type="Texture2D" uid="uid://cqimvbr4tiqa3" path="res://gfx/nappiPainettu.png" id="5_7ogxr"]
+[ext_resource type="Texture2D" uid="uid://b6dgjtid55cvg" path="res://gfx/KysymysKuva1V2.png" id="6_iah4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls78y"]
+atlas = ExtResource("6_iah4g")
+region = Rect2(0, 0, 2240, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43hgo"]
+atlas = ExtResource("6_iah4g")
+region = Rect2(0, 1600, 2240, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi2e8"]
+atlas = ExtResource("6_iah4g")
+region = Rect2(0, 3200, 2240, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3l5g"]
+atlas = ExtResource("6_iah4g")
+region = Rect2(0, 4800, 2240, 1600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_50deu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls78y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43hgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi2e8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3l5g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
 
 [node name="Quest" type="Node"]
 script = ExtResource("1_6xibc")
 testA = ExtResource("2_cpbey")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Quest1" type="Button" parent="CanvasLayer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -174.0
-offset_top = -688.0
-offset_right = 175.0
-offset_bottom = -548.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-theme = ExtResource("2_m3n4j")
-theme_override_font_sizes/font_size = 109
-text = "on"
-
-[node name="Quest2" type="Button" parent="CanvasLayer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -174.0
-offset_top = -511.0
-offset_right = 175.0
-offset_bottom = -371.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-theme = ExtResource("2_m3n4j")
-theme_override_font_sizes/font_size = 109
-text = "ei"
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
@@ -54,9 +59,86 @@ offset_right = 195.0
 offset_bottom = 223.0
 grow_horizontal = 2
 theme = ExtResource("2_m3n4j")
-theme_override_font_sizes/font_size = 135
-text = "onkos?"
+theme_override_font_sizes/font_size = 45
+text = "Onko tie turvallinen ylittää?"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="CanvasLayer/Quest1" to="." method="button1Pressed"]
-[connection signal="pressed" from="CanvasLayer/Quest2" to="." method="button2Pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -212.0
+offset_top = -417.0
+offset_right = 212.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.45, 0.45)
+pivot_offset = Vector2(480, 720)
+alignment = 1
+
+[node name="Option1" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("4_eks3a")
+texture_pressed = ExtResource("5_7ogxr")
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Option1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(400, 0)
+theme = ExtResource("2_m3n4j")
+text = "On toki, sillä minulla 
+palaa vihreä valo."
+
+[node name="Option2" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_eks3a")
+texture_pressed = ExtResource("5_7ogxr")
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Option2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(700, 150)
+theme = ExtResource("2_m3n4j")
+text = "Ei välttämättä, sillä auto
+näyttää olevan vielä liikkeessä."
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+scale = Vector2(0.22, 0.22)
+pivot_offset = Vector2(0, 400)
+
+[node name="QuestionPicAnimated" type="AnimatedSprite2D" parent="CanvasLayer/Control"]
+sprite_frames = SubResource("SpriteFrames_50deu")
+frame_progress = 0.488635
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Option1" to="." method="button1Pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Option2" to="." method="button2Pressed"]

@@ -1,75 +1,8 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://if6n0d37bars"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://if6n0d37bars"]
 
 [ext_resource type="FontFile" uid="uid://b3r4aq7e3fn1g" path="res://gfx/Teko/static/Teko-Bold.ttf" id="1_606pt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1b5qu"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfhv7"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td4dm"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.133333, 0.619608, 0.0745098, 0.996078)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqfmn"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.368627, 0.968627, 0.309804, 0.996078)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnlct"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3g8xp"]
 
 [resource]
 default_font = ExtResource("1_606pt")
@@ -90,12 +23,9 @@ Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 6
 Button/font_sizes/font_size = 16
-Button/styles/disabled = SubResource("StyleBoxFlat_1b5qu")
-Button/styles/focus = SubResource("StyleBoxFlat_mfhv7")
-Button/styles/hover = SubResource("StyleBoxFlat_td4dm")
-Button/styles/normal = SubResource("StyleBoxFlat_eqfmn")
-Button/styles/pressed = SubResource("StyleBoxFlat_hnlct")
+Button/styles/disabled = SubResource("StyleBoxTexture_3g8xp")
 Label/colors/font_color = Color(0.52549, 0.952941, 0.956863, 1)
 Label/colors/font_outline_color = Color(0, 0, 0.054902, 1)
 Label/constants/outline_size = 29
 Label/font_sizes/font_size = 99
+TextEdit/fonts/font = ExtResource("1_606pt")
