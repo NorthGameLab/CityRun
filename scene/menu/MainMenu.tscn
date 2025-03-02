@@ -1,33 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://cttpgoer0vrcl"]
+[gd_scene load_steps=10 format=3 uid="uid://cttpgoer0vrcl"]
 
 [ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_tjppq"]
 [ext_resource type="FontFile" uid="uid://c3718xoe860eq" path="res://gfx/Teko/static/Teko-Regular.ttf" id="2_x6agq"]
-[ext_resource type="Texture2D" uid="uid://cbvnlxmciux64" path="res://gfx/Tampere.png" id="4_4036s"]
-[ext_resource type="Texture2D" uid="uid://bo8476cigo26m" path="res://gfx/image-1.png (1).png" id="5_2mxth"]
 [ext_resource type="Texture2D" uid="uid://brqc0tv3p17m5" path="res://gfx/building.jpg" id="6_oaygb"]
+[ext_resource type="Texture2D" uid="uid://ccdhen11r1ugo" path="res://gfx/nappiNormaali.png" id="7_3g5b5"]
+[ext_resource type="Texture2D" uid="uid://cqimvbr4tiqa3" path="res://gfx/nappiPainettu.png" id="8_geq2h"]
+[ext_resource type="Texture2D" uid="uid://cfdnfda000thu" path="res://gfx/asetuksetNormaali.png" id="8_h0hen"]
+[ext_resource type="FontFile" uid="uid://b3r4aq7e3fn1g" path="res://gfx/Teko/static/Teko-Bold.ttf" id="9_51565"]
+[ext_resource type="Texture2D" uid="uid://bi1abbke1kcw5" path="res://gfx/asetuksetPainettu.png" id="9_vjg6u"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_dwcms")
 
 [node name="Menu" type="CanvasLayer" parent="."]
-
-[node name="StartButton" type="Button" parent="Menu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = -95.0
-offset_right = 145.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_tjppq")
-theme_override_fonts/font = ExtResource("2_x6agq")
-theme_override_font_sizes/font_size = 100
-text = "Start"
 
 [node name="HighScore" type="Label" parent="Menu"]
 anchors_preset = -1
@@ -61,31 +47,6 @@ theme_override_font_sizes/font_size = 150
 text = "CITY RUN"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Menu"]
-z_index = -1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -187.0
-offset_top = -980.0
-offset_right = 400.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-texture = ExtResource("4_4036s")
-
-[node name="TextureRect2" type="TextureRect" parent="Menu"]
-z_index = -2
-offset_left = -480.0
-offset_top = 363.0
-offset_right = 408.0
-offset_bottom = 902.0
-rotation = -0.527025
-mouse_filter = 2
-texture = ExtResource("5_2mxth")
-
 [node name="TextureRect3" type="TextureRect" parent="Menu"]
 z_index = -3
 offset_left = -120.0
@@ -94,5 +55,57 @@ offset_right = 529.0
 offset_bottom = 948.0
 mouse_filter = 2
 texture = ExtResource("6_oaygb")
+
+[node name="StartButton" type="TextureButton" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -482.0
+offset_top = -206.5
+offset_right = 482.0
+offset_bottom = 206.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(470, 205)
+theme = ExtResource("2_tjppq")
+texture_normal = ExtResource("7_3g5b5")
+texture_pressed = ExtResource("8_geq2h")
+
+[node name="Label" type="Label" parent="Menu/StartButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -71.5
+offset_right = 94.5
+offset_bottom = 71.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tjppq")
+theme_override_fonts/font = ExtResource("9_51565")
+theme_override_font_sizes/font_size = 200
+text = "Start"
+
+[node name="Settings" type="TextureButton" parent="Menu"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -357.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(300, 300)
+texture_normal = ExtResource("8_h0hen")
+texture_pressed = ExtResource("9_vjg6u")
+texture_hover = ExtResource("9_vjg6u")
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]
