@@ -17,7 +17,7 @@ public partial class GameScene : Node
     public static bool _lose = false;
 
     public static float _distance = 0f;
-    public static float _distanceToNext = 100;
+    public static float _distanceToNext = 200;
     public override void _Ready()
     {
         Player = GetNode<Player>("Player");
@@ -65,7 +65,7 @@ public partial class GameScene : Node
         if (_distanceToNext <= 0)
         {
             GetTree().ChangeSceneToFile("res://scene/menu/Quest.tscn");
-            _distanceToNext = 100;
+            _distanceToNext = 1000;
         }
     }
 
@@ -75,6 +75,6 @@ public partial class GameScene : Node
         _distance = 0;
         _speed = 0;
         _maxSpeed = 500f;
-        _distanceToNext = 100;
+        _distanceToNext = 200;
     }
 }

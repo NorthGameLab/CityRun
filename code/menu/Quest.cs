@@ -10,7 +10,7 @@ public partial class Quest : Node
     public TestA test = null;
     public TestA scoreAdd = null;
     public int _scoreAdded = 1000;
-    private AnimatedSprite2D _animaatio = null;
+    private AnimatedSprite2D _animation = null;
     public override void _Ready()
     {
         // Random rand = new Random();
@@ -29,9 +29,9 @@ public partial class Quest : Node
         //         GD.Print("broken");
         //         break;
         // }
-        _animaatio = GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated");
-        _animaatio.Play();
-        _animaatio.SpeedScale = 1;
+        _animation = GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated");
+        _animation.Play();
+        _animation.SpeedScale = 1;
     }
 
     public override void _Process(double delta)
