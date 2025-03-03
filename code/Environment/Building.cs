@@ -8,20 +8,20 @@ public partial class Building : AnimatedSprite2D
 	{
         Random rand = new Random();
 
-        int num = rand.Next(1, 3);
+        int num = rand.Next(0, 6);
         GD.Print(num);
         Frame = num;
 
         //num = rand.Next(0, 2);
-		GlobalPosition = new Vector2(50 + ((num - 1) * 33), -600);
+		GlobalPosition = new Vector2(70, -600);
 		ZIndex = -2;
 
         double numDouble;
         numDouble = rand.NextDouble();
-        Scale += new Vector2(0.45f, 0);
+        Scale += new Vector2(0.12f, 0);
 
         numDouble = rand.NextDouble();
-        Scale += new Vector2(0, 0.5f);
+        Scale += new Vector2(0, 0.26f);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

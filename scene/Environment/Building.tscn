@@ -1,38 +1,52 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddcnueuxsi6om"]
+[gd_scene load_steps=10 format=3 uid="uid://ddcnueuxsi6om"]
 
-[ext_resource type="Texture2D" uid="uid://dn4l86ixohgi1" path="res://gfx/TalotVäliaikanen.png" id="1_b6384"]
+[ext_resource type="Texture2D" uid="uid://cgj7jhdqgpgx3" path="res://gfx/talot.png" id="1_lvjqf"]
 [ext_resource type="Script" path="res://code/Environment/Building.cs" id="2_ioet5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2shu0"]
-atlas = ExtResource("1_b6384")
-region = Rect2(0, 3072, 1536, 1536)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehp7f"]
+atlas = ExtResource("1_lvjqf")
+region = Rect2(0, 0, 1536, 2688)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w355i"]
-atlas = ExtResource("1_b6384")
-region = Rect2(0, 1536, 1536, 1536)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dtev"]
+atlas = ExtResource("1_lvjqf")
+region = Rect2(1536, 0, 1536, 2688)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3hath"]
-atlas = ExtResource("1_b6384")
-region = Rect2(0, 0, 1536, 1536)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf4cs"]
+atlas = ExtResource("1_lvjqf")
+region = Rect2(3072, 0, 1536, 2688)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wn1kw"]
-atlas = ExtResource("1_b6384")
-region = Rect2(0, 4608, 1536, 1536)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxbch"]
+atlas = ExtResource("1_lvjqf")
+region = Rect2(0, 2688, 1536, 2688)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaann"]
+atlas = ExtResource("1_lvjqf")
+region = Rect2(1536, 2688, 1536, 2688)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4osl"]
+atlas = ExtResource("1_lvjqf")
+region = Rect2(3072, 2688, 1536, 2688)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n22vb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2shu0")
+"texture": SubResource("AtlasTexture_ehp7f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w355i")
+"texture": SubResource("AtlasTexture_1dtev")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3hath")
+"texture": SubResource("AtlasTexture_lf4cs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wn1kw")
+"texture": SubResource("AtlasTexture_mxbch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaann")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4osl")
 }],
 "loop": true,
 "name": &"default",
@@ -40,8 +54,8 @@ animations = [{
 }]
 
 [node name="Building" type="AnimatedSprite2D"]
-position = Vector2(307, -111)
+position = Vector2(349, -116)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_n22vb")
-offset = Vector2(-286.667, -680)
+offset = Vector2(-566.667, -646.667)
 script = ExtResource("2_ioet5")

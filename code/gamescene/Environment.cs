@@ -20,7 +20,7 @@ public partial class Environment : Node
             r.GlobalPosition += new Vector2(0, 500 * i);
         }
 
-        _y = rand.Next(770, 770);
+        _y = rand.Next(350, 400);
         for (int i = 0; i < 10; i++)
         {
             Building b = Building.Instantiate<Building>();
@@ -47,7 +47,7 @@ public partial class Environment : Node
             AddChild(building);
             MoveChild(building, 0);
             _yBuilding = 0;
-            _y = rand.Next(770, 770);
+            _y = rand.Next(350, 400);
         }
     }
 }
