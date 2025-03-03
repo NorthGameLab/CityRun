@@ -16,6 +16,7 @@ public abstract partial class Item : Area2D
     public override void _Process(double delta)
     {
         GlobalPosition += GameScene._speed * Vector2.Down * (float)delta;
+        GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play();
     }
 
     public virtual void Start()
