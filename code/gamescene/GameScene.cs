@@ -59,8 +59,8 @@ public partial class GameScene : Node
 
         _distance += _speed * (float)delta / 100;
         _distanceToNext -= _speed * (float)delta / 100;
-        GD.Print("Speed: " + _speed);
-        GD.Print("maxSpeed: " + _maxSpeed);
+        // GD.Print("Speed: " + _speed);
+        // GD.Print("maxSpeed: " + _maxSpeed);
 
         if (_distanceToNext <= 0)
         {

@@ -2,6 +2,14 @@ using Godot;
 using System;
 public partial class Player : Area2D
 {
+	public enum Direction
+	{
+		None = 0,
+		Left,
+		Right,
+		Up,
+		Down
+	}
 	//KAISTAN LEVEYS
 	private float _width;
 
@@ -28,8 +36,34 @@ public partial class Player : Area2D
 		Start();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	#region Swipe data
+	private Vector2 _touchStartPosition = default(Vector2);
+	private float _swipeThreshold = 30.0f;
+	private Direction _swipeDirection = Direction.None;
+
+	#endregion
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        base._Input(@event);
+		if (@event is InputEventScreenTouch touchEvent)
+		{
+			// input recieved
+			if(touchEvent.Pressed)
+			{
+				// save the touch starting position
+				_touchStartPosition = touchEvent.Position;
+			}
+			else
+			{
+				Vector2 touchEndPosition = touchEvent.Position;
+				DetectSwipe(_touchStartPosition, touchEndPosition);
+			}
+		}
+    }
+
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
 	{
 		_animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_animation.Play();
@@ -41,7 +75,7 @@ public partial class Player : Area2D
 			GlobalPosition = new Vector2(_width * _currentLane, GetViewport().GetVisibleRect().Size.Y - _width - 40);
 		}
 
-		if (Input.IsActionJustPressed("right") && _currentLane2 < 3)
+		if (_swipeDirection == Direction.Right && _currentLane2 < 3)
 		{
 			_xToGo += _width;
 			_currentLane2 += 1;
@@ -49,9 +83,10 @@ public partial class Player : Area2D
 			{
 				_moving = true;
 			}
+			_swipeDirection = Direction.None;
 		}
 
-		if (Input.IsActionJustPressed("left") && _currentLane2 > 1)
+		if (_swipeDirection == Direction.Left && _currentLane2 > 1)
 		{
 			_xToGo -= _width;
 			_currentLane2 -= 1;
@@ -59,6 +94,7 @@ public partial class Player : Area2D
 			{
 				_moving = true;
 			}
+			_swipeDirection = Direction.None;
 		}
 
 		if(_moving)
@@ -76,6 +112,48 @@ public partial class Player : Area2D
 			{
 				_moving = false;
 				_currentLane = _currentLane2;
+			}
+		}
+	}
+
+	private void DetectSwipe(Vector2 swipeStart, Vector2 swipeEnd)
+	{
+		Vector2 swipeVector = swipeEnd - swipeStart;
+
+		if(swipeVector.Length() > _swipeThreshold)
+		{
+			// swipe is correct
+			float lengthX = Mathf.Abs(swipeVector.X);
+			float lengthY = Mathf.Abs(swipeVector.Y);
+
+			if (lengthX > lengthY)
+			{
+
+				if (swipeVector.X > 0)
+				{
+					_swipeDirection = Direction.Right;
+					GD.Print("liikkuu oikealle");
+				}
+				else
+				{
+					_swipeDirection = Direction.Left;
+					GD.Print("liikkuu vasemmalle");
+				}
+			}
+			else
+			{
+				if (swipeVector.Y > 0)
+				{
+					// down
+					_swipeDirection = Direction.Down;
+					GD.Print("alas");
+				}
+				else
+				{
+					// up
+					_swipeDirection = Direction.Up;
+					GD.Print("ylös");
+				}
 			}
 		}
 	}
