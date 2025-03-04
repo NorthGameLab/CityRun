@@ -2,45 +2,45 @@
 
 [ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/obstacles/Obstacle.tscn" id="1_gmp7t"]
 [ext_resource type="Script" path="res://code/obstacles/Cyclist.cs" id="2_v65y6"]
-[ext_resource type="Texture2D" uid="uid://ds43scl2ovnem" path="res://gfx/PyöräilijäValmis.png" id="3_kl7r4"]
+[ext_resource type="Texture2D" uid="uid://bo3xvll0tv32d" path="res://gfx/PyöräilijäValmisV2.png" id="3_1aujf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5oxq"]
 size = Vector2(59.5, 78.25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nec0l"]
-atlas = ExtResource("3_kl7r4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyvwm"]
+atlas = ExtResource("3_1aujf")
 region = Rect2(0, 0, 1024, 1024)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hxwkl"]
-atlas = ExtResource("3_kl7r4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b47ly"]
+atlas = ExtResource("3_1aujf")
 region = Rect2(0, 1024, 1024, 1024)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h48bu"]
-atlas = ExtResource("3_kl7r4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c5wx"]
+atlas = ExtResource("3_1aujf")
 region = Rect2(0, 2048, 1024, 1024)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l7ux7"]
-atlas = ExtResource("3_kl7r4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0y2e"]
+atlas = ExtResource("3_1aujf")
 region = Rect2(0, 3072, 1024, 1024)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_lic2p"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_5qism"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nec0l")
+"texture": SubResource("AtlasTexture_hyvwm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hxwkl")
+"texture": SubResource("AtlasTexture_b47ly")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h48bu")
+"texture": SubResource("AtlasTexture_7c5wx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l7ux7")
+"texture": SubResource("AtlasTexture_h0y2e")
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 5.0
 }]
 
 [node name="Cyclist" instance=ExtResource("1_gmp7t")]
@@ -54,4 +54,5 @@ shape = SubResource("RectangleShape2D_n5oxq")
 [node name="Animation" parent="." index="2"]
 position = Vector2(65.84, 86.84)
 scale = Vector2(0.32, 0.32)
-sprite_frames = SubResource("SpriteFrames_lic2p")
+sprite_frames = SubResource("SpriteFrames_5qism")
+frame_progress = 0.901466

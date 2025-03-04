@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://sxu2ulifuq2p"]
 
-[ext_resource type="Script" path="res://TestA.cs" id="1_2dxue"]
+[ext_resource type="Script" path="res://code/TestA.cs" id="1_2dxue"]
 
 [node name="TestA" type="Label"]
 anchors_preset = -1
