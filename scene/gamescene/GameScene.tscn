@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqtesoiso12bo"]
+[gd_scene load_steps=9 format=3 uid="uid://cqtesoiso12bo"]
 
 [ext_resource type="Script" path="res://code/gamescene/GameScene.cs" id="1_ihfwl"]
 [ext_resource type="PackedScene" uid="uid://cr3envvxhju5g" path="res://scene/gamescene/Obstacles.tscn" id="1_sd14c"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cua2jxbxq38p7" path="res://scene/gamescene/Environment.tscn" id="5_6vil0"]
 [ext_resource type="PackedScene" uid="uid://cy0f17p6g8i5t" path="res://scene/gamescene/Items.tscn" id="6_ak87t"]
 [ext_resource type="PackedScene" uid="uid://bp8naatv13cke" path="res://scene/gamescene/Hud.tscn" id="6_amhck"]
+[ext_resource type="Texture2D" uid="uid://bcyovdkl282xw" path="res://gfx/pause (1).png" id="7_57afq"]
+[ext_resource type="Texture2D" uid="uid://c7oxrourskfoy" path="res://gfx/pausePainettu.png" id="8_uyhyy"]
 
 [node name="GameScene" type="Node"]
 script = ExtResource("1_ihfwl")
@@ -19,3 +21,18 @@ script = ExtResource("1_ihfwl")
 [node name="Environment" parent="." instance=ExtResource("5_6vil0")]
 
 [node name="Items" parent="." instance=ExtResource("6_ak87t")]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = -1
+anchor_left = 0.985
+anchor_top = 0.013
+anchor_right = 0.985
+anchor_bottom = 0.013
+offset_left = -75.9001
+offset_top = -2.48
+offset_right = 436.1
+offset_bottom = 509.52
+grow_horizontal = 0
+scale = Vector2(0.17, 0.17)
+texture_normal = ExtResource("7_57afq")
+texture_pressed = ExtResource("8_uyhyy")

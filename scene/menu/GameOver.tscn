@@ -4,6 +4,8 @@
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_dirqc"]
 
 [node name="GameOver" type="CanvasLayer"]
+offset = Vector2(0, 70)
+transform = Transform2D(1, 0, 0, 1, 0, 70)
 script = ExtResource("1_gausd")
 
 [node name="Retry" type="Button" parent="."]
@@ -13,9 +15,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -153.5
-offset_top = -72.5
+offset_top = -20.0
 offset_right = 153.5
-offset_bottom = 72.5
+offset_bottom = 132.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_dirqc")
@@ -28,10 +30,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -211.0
-offset_top = 179.0
-offset_right = 199.0
-offset_bottom = 280.0
+offset_left = -205.0
+offset_top = 170.0
+offset_right = 205.0
+offset_bottom = 271.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_dirqc")

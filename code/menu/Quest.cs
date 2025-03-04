@@ -11,6 +11,7 @@ public partial class Quest : Node
     public TestA scoreAdd = null;
     public int _scoreAdded = 1000;
     private AnimatedSprite2D _animation = null;
+    private AnimatedSprite2D _backGroundAnimation = null;
     public override void _Ready()
     {
         // Random rand = new Random();
@@ -30,8 +31,13 @@ public partial class Quest : Node
         //         break;
         // }
         _animation = GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated");
+        _backGroundAnimation = GetNode<AnimatedSprite2D>("CanvasLayer/Control2/AnimatedSprite2D");
+
         _animation.Play();
+        _backGroundAnimation.Play();
+
         _animation.SpeedScale = 1;
+        _backGroundAnimation.SpeedScale = 2;
     }
 
     public override void _Process(double delta)

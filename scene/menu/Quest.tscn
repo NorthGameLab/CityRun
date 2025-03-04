@@ -1,11 +1,48 @@
-[gd_scene load_steps=12 format=3 uid="uid://dt32cqvyqxoqo"]
+[gd_scene load_steps=18 format=3 uid="uid://dt32cqvyqxoqo"]
 
 [ext_resource type="Script" path="res://code/menu/Quest.cs" id="1_6xibc"]
 [ext_resource type="PackedScene" uid="uid://sxu2ulifuq2p" path="res://scene/TestA.tscn" id="2_cpbey"]
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_m3n4j"]
+[ext_resource type="Texture2D" uid="uid://cg5nn0gwg8dpu" path="res://gfx/KysymysTausta.png" id="3_iwpqg"]
 [ext_resource type="Texture2D" uid="uid://ccdhen11r1ugo" path="res://gfx/nappiNormaali.png" id="4_eks3a"]
 [ext_resource type="Texture2D" uid="uid://cqimvbr4tiqa3" path="res://gfx/nappiPainettu.png" id="5_7ogxr"]
 [ext_resource type="Texture2D" uid="uid://b6dgjtid55cvg" path="res://gfx/KysymysKuva1V2.png" id="6_iah4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7x3o"]
+atlas = ExtResource("3_iwpqg")
+region = Rect2(0, 0, 1440, 2560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyw3p"]
+atlas = ExtResource("3_iwpqg")
+region = Rect2(0, 2560, 1440, 2560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y3n5"]
+atlas = ExtResource("3_iwpqg")
+region = Rect2(0, 5120, 1440, 2560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt4yt"]
+atlas = ExtResource("3_iwpqg")
+region = Rect2(0, 7680, 1440, 2560)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_voldl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7x3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyw3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt4yt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ls78y"]
 atlas = ExtResource("6_iah4g")
@@ -48,6 +85,25 @@ script = ExtResource("1_6xibc")
 testA = ExtResource("2_cpbey")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control2"]
+position = Vector2(0, 1)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_voldl")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
