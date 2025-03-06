@@ -3,6 +3,7 @@ using System;
 
 public partial class MainMenu : Node
 {
+    [Export] public Window PopupWindow;
     private AnimatedSprite2D _animation = null;
     public CanvasLayer Menu;
     public Label HighScore;
@@ -18,7 +19,18 @@ public partial class MainMenu : Node
         _animation.Play();
         _animation.SpeedScale = 1;
 
+        PopupWindow = GetNode<Window>("SettingsPopup");
+        PopupWindow.Visible = false;
 
+    }
+
+    private void OnSettingsButtonPressed()
+    {
+        PopupWindow.Visible = true;
+    }
+    private void OnSettingsPopupCloseRequested()
+    {
+        PopupWindow.Visible = false;
     }
     public override void _Process(double delta)
     {
