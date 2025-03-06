@@ -1,11 +1,12 @@
 using Godot;
 using System;
 
-public partial class Road : Sprite2D
+public partial class Road : AnimatedSprite2D
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Frame = 0;
 		GlobalPosition = new Vector2(0, -600);
 		ZIndex = -3;
 	}

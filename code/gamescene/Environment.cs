@@ -17,7 +17,7 @@ public partial class Environment : Node
         {
             Road r = Road.Instantiate<Road>();
             AddChild(r);
-            r.GlobalPosition += new Vector2(0, 500 * i);
+            r.GlobalPosition += new Vector2(0, 525 * i);
         }
 
         _y = rand.Next(350, 400);
@@ -33,15 +33,20 @@ public partial class Environment : Node
     {
         _yRoad += GameScene._speed * (float)delta;
 
-        if (_yRoad >= 500)
+        if (_yRoad >= 525)
         {
             Road road = Road.Instantiate<Road>();
             AddChild(road);
             _yRoad = 0;
+
+            if (GameScene._distanceToNext <= 0 && GameScene._distanceToNext >= -500)
+            {
+                road.Frame = 1;
+            }
         }
 
         _yBuilding += GameScene._speed * (float)delta;
-        if (_yBuilding >= _y)
+        if (_yBuilding >= _y && (GameScene._distanceToNext >= 200 || GameScene._distanceToNext <= -150))
         {
             Building building = Building.Instantiate<Building>();
             AddChild(building);
