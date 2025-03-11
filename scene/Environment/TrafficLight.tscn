@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq3o4h2h7aasr"]
+
+[ext_resource type="Script" path="res://code/Environment/TrafficLight.cs" id="1_5qs4l"]
+[ext_resource type="Texture2D" uid="uid://b24sk5bq3dec5" path="res://gfx/Environment/LiikennevaloPunainenValmis.png" id="1_53yj6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6hf2"]
+atlas = ExtResource("1_53yj6")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydhvv"]
+atlas = ExtResource("1_53yj6")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rowan"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6hf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydhvv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TrafficLight" type="AnimatedSprite2D"]
+position = Vector2(19, 12)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_rowan")
+offset = Vector2(156.667, 326.667)
+script = ExtResource("1_5qs4l")

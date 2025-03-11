@@ -5,6 +5,7 @@ public partial class Environment : Node
 {
     public PackedScene Road = ResourceLoader.Load<PackedScene>("res://scene/Environment/Road.tscn");
     public PackedScene Building = ResourceLoader.Load<PackedScene>("res://scene/Environment/Building.tscn");
+    public PackedScene TrafficLight = ResourceLoader.Load<PackedScene>("res://scene/Environment/TrafficLight.tscn");
     public float _yRoad;
     public float _yBuilding;
     public float _y;
@@ -42,6 +43,8 @@ public partial class Environment : Node
             if (GameScene._distanceToNext <= 0 && GameScene._distanceToNext >= -500)
             {
                 road.Frame = 1;
+                TrafficLight light = TrafficLight.Instantiate<TrafficLight>();
+                AddChild(light);
             }
         }
 

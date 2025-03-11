@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://cb07ku4gfgoiy"]
 
-[ext_resource type="Texture2D" uid="uid://c74dc4wbxhnxd" path="res://gfx/TieRuohollaValmis.png" id="1_1u4qs"]
-[ext_resource type="Texture2D" uid="uid://l1m7rp2an5yf" path="res://gfx/TestiSuojatie.png" id="2_3kshm"]
+[ext_resource type="Texture2D" uid="uid://c044fqrlipti3" path="res://gfx/Environment/TieRuohollaValmisV2.png" id="1_nb53u"]
+[ext_resource type="Texture2D" uid="uid://bimsbc7sel1m" path="res://gfx/Environment/RisteysAlueValmis.png" id="2_uunxy"]
 [ext_resource type="Script" path="res://code/Environment/Road.cs" id="2_wo1ft"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xidfv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_1u4qs")
+"texture": ExtResource("1_nb53u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3kshm")
+"texture": ExtResource("2_uunxy")
 }],
 "loop": true,
 "name": &"default",
