@@ -92,4 +92,4 @@ Label/colors/font_outline_color = Color(0, 0, 0.054902, 1)
 Label/constants/outline_size = 29
 Label/font_sizes/font_size = 99
 TextEdit/fonts/font = ExtResource("1_606pt")
-VBoxContainer/constants/separation = 30
+VBoxContainer/constants/separation = 0

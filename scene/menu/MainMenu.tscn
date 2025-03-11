@@ -692,6 +692,8 @@ mode = 3
 title = "Settings"
 initial_position = 2
 size = Vector2i(300, 500)
+min_size = Vector2i(300, 500)
+max_size = Vector2i(300, 500)
 theme = ExtResource("2_tjppq")
 theme_override_font_sizes/title_font_size = 26
 

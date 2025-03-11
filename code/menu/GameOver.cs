@@ -19,12 +19,12 @@ public partial class GameOver : CanvasLayer
 	{
 	}
 
-	private void onRetryButtonPressed()
+	private void OnRetryButtonPressed()
 	{
 		GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
 	}
 
-	private void onMainMenuButtonPressed()
+	private void OnMainMenuButtonPressed()
 	{
 		GetTree().ChangeSceneToFile("res://scene/menu/MainMenu.tscn");
 	}
