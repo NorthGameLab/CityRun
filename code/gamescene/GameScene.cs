@@ -23,6 +23,7 @@ public partial class GameScene : Node
     private bool _goingToQuest = false;
     private float _deceleration;
     private float _distanceToQuest = 650;
+
     public override void _Ready()
     {
         Player = GetNode<Player>("Player");
