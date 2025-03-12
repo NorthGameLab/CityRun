@@ -10,6 +10,8 @@ public partial class MainMenu : Node
 
     public override void _Ready()
     {
+        Test.loadGame();
+
         Menu = GetNode<CanvasLayer>("Menu");
         HighScore = Menu.GetNode<Label>("HighScore");
 
@@ -21,7 +23,6 @@ public partial class MainMenu : Node
 
         PopupWindow = GetNode<Window>("SettingsPopup");
         PopupWindow.Visible = false;
-
     }
 
     private void OnSettingsButtonPressed()

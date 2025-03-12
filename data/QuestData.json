@@ -1,0 +1,19 @@
+{
+	"questions": [
+	{
+		"question": "Mikä on kevyenliikenteen yleisin onnettomuustyyppi?",
+		"correctAnswer": "pyörä onnettomuus",
+		"wrongAnswer": "sähköpotkulauta onnettomuus"
+	},
+	{
+		"question": "Kuinka kovaa polkupyörällä saa kulkea kevyessä liikenteessä?",
+		"correctAnswer": "20 km/h",
+		"wrongAnswer": "30 km/h"
+	},
+	{
+		"question": "Onko tie turvallinen ylittää?",
+		"correctAnswer": "Ei välttämättä, sillä auto näyttää olevan vielä liikkeessä.",
+		"wrongAnswer": "On toki, sillä minulla palaa vihreä valo."
+	}
+	]
+}

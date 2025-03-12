@@ -11,6 +11,7 @@ public partial class Quest : Node
     public TestA scoreAdd = null;
     public int _scoreAdded = 1000;
     private AnimatedSprite2D _animation = null;
+
     public override void _Ready()
     {
         // Random rand = new Random();
@@ -33,44 +34,45 @@ public partial class Quest : Node
 
         _animation.Play();
         _animation.SpeedScale = 1;
+
+        TextureButton option1 = GetNode<TextureButton>("CanvasLayer/VBoxContainer/Option1");
+        TextureButton option2 = GetNode<TextureButton>("CanvasLayer/VBoxContainer/Option2");
+        Label text1 = option1.GetNode<Label>("Label");
+        Label text2 = option2.GetNode<Label>("Label");
+        Label question = GetNode<Label>("CanvasLayer/Label");
+
+        Random rand = new Random();
+        int questionNum = 0;
+
+        Godot.Collections.Dictionary data = File.getQuestions();
+        questionNum = rand.Next(0, data["questions"].AsGodotArray().Count);
+
+        question.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["question"].AsString();
+
+        int flip = rand.Next(0, 2);
+        if (flip == 0)
+        {
+            text1.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["wrongAnswer"].AsString();
+            text2.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["correctAnswer"].AsString();
+            oneIsCorrect = false;
+        }
+        else
+        {
+            text1.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["correctAnswer"].AsString();
+            text2.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["wrongAnswer"].AsString();
+            oneIsCorrect = true;
+        }
     }
 
     public override void _Process(double delta)
     {
+
     }
 
     private void button1Pressed()
     {
-        // if (oneIsCorrect)
-        // {
-        //     test = testA.Instantiate<TestA>();
-        //     test.Text = "OIKEIN";
-        //     GetParent().AddChild(test);
-
-        //     scoreAdd = testA.Instantiate<TestA>();
-        //     scorePlusSet();
-        //     GetParent().AddChild(scoreAdd);
-        // }
-        // else
-        // {
-            test = testA.Instantiate<TestA>();
-            test.Text = "VÄÄRIN";
-            GetParent().AddChild(test);
-        // }
-        test.Position += new Vector2(-150, 600);
-        GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
-    }
-
-    private void button2Pressed()
-    {
-        // if (oneIsCorrect)
-        // {
-        //     test = testA.Instantiate<TestA>();
-        //     test.Text = "VÄÄRIN";
-        //     GetParent().AddChild(test);
-        // }
-        // else
-        // {
+        if (oneIsCorrect)
+        {
             test = testA.Instantiate<TestA>();
             test.Text = "OIKEIN";
             GetParent().AddChild(test);
@@ -78,7 +80,35 @@ public partial class Quest : Node
             scoreAdd = testA.Instantiate<TestA>();
             scorePlusSet();
             GetParent().AddChild(scoreAdd);
-        // }
+        }
+        else
+        {
+            test = testA.Instantiate<TestA>();
+            test.Text = "VÄÄRIN";
+            GetParent().AddChild(test);
+        }
+        test.Position += new Vector2(-150, 600);
+        GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
+    }
+
+    private void button2Pressed()
+    {
+        if (oneIsCorrect)
+        {
+            test = testA.Instantiate<TestA>();
+            test.Text = "VÄÄRIN";
+            GetParent().AddChild(test);
+        }
+        else
+        {
+            test = testA.Instantiate<TestA>();
+            test.Text = "OIKEIN";
+            GetParent().AddChild(test);
+
+            scoreAdd = testA.Instantiate<TestA>();
+            scorePlusSet();
+            GetParent().AddChild(scoreAdd);
+        }
         test.Position += new Vector2(-150, 600);
         GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
     }

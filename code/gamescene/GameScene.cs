@@ -71,8 +71,8 @@ public partial class GameScene : Node
             _speed += _deceleration * (float)delta;
         }
 
-        GD.Print("Speed: " + _speed);
-        GD.Print("distanceToQuest: " + _distanceToQuest);
+        //GD.Print("Speed: " + _speed);
+        //GD.Print("distanceToQuest: " + _distanceToQuest);
 
         _distance += _speed * (float)delta;
         _distanceToNext -= _speed * (float)delta;

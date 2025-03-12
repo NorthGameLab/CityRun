@@ -61,15 +61,17 @@ anchor_left = 0.5
 anchor_top = 0.065
 anchor_right = 0.5
 anchor_bottom = 0.065
-offset_left = -242.0
-offset_top = -0.400005
-offset_right = 245.0
-offset_bottom = 70.6
+offset_left = -262.0
+offset_top = -71.4
+offset_right = 262.0
+offset_bottom = 68.6
 grow_horizontal = 2
 theme = ExtResource("2_m3n4j")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 40
 text = "Onko tie turvallinen ylittää?"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 12
@@ -101,16 +103,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -415.0
+offset_top = -168.5
+offset_right = 443.0
+offset_bottom = 167.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.9, 0.9)
-pivot_offset = Vector2(400, 0)
-text = "On toki, sillä minulla 
-palaa vihreä valo."
+pivot_offset = Vector2(439.527, 2.30139)
+theme_override_font_sizes/font_size = 90
+text = "sdfsdf"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Option2" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -125,16 +129,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -415.0
+offset_top = -168.5
+offset_right = 443.0
+offset_bottom = 167.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.7, 0.7)
-pivot_offset = Vector2(700, 150)
-text = "Ei välttämättä, sillä auto
-näyttää olevan vielä liikkeessä."
+pivot_offset = Vector2(419.667, 16.7778)
+theme_override_font_sizes/font_size = 90
+text = "in"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3

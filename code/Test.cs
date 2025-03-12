@@ -21,4 +21,20 @@ public partial class Test : Node
     {
         Money += money;
     }
+
+    public static void saveGame()
+    {
+        Data data = new Data();
+        data.HighScore = Test.HighScore;
+        data.Money = Test.Money;
+
+        File.SaveGame(data);
+    }
+
+    public static void loadGame()
+    {
+        Data data = File.LoadGame();
+        HighScore = data.HighScore;
+        Money = data.Money;
+    }
 }

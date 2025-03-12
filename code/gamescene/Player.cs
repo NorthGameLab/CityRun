@@ -132,12 +132,12 @@ public partial class Player : Area2D
 				if (swipeVector.X > 0)
 				{
 					_swipeDirection = Direction.Right;
-					GD.Print("liikkuu oikealle");
+					//GD.Print("liikkuu oikealle");
 				}
 				else
 				{
 					_swipeDirection = Direction.Left;
-					GD.Print("liikkuu vasemmalle");
+					//GD.Print("liikkuu vasemmalle");
 				}
 			}
 			else
@@ -146,13 +146,13 @@ public partial class Player : Area2D
 				{
 					// down
 					_swipeDirection = Direction.Down;
-					GD.Print("alas");
+					//GD.Print("alas");
 				}
 				else
 				{
 					// up
 					_swipeDirection = Direction.Up;
-					GD.Print("ylös");
+					//GD.Print("ylös");
 				}
 			}
 		}
