@@ -1,52 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7b71pibpka0n"]
+[gd_scene load_steps=8 format=3 uid="uid://c7b71pibpka0n"]
 
 [ext_resource type="Script" path="res://code/menu/GameOver.cs" id="1_gausd"]
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_dirqc"]
+[ext_resource type="Texture2D" uid="uid://l7rm2j8jeebq" path="res://gfx/LopetusTaustaValmis.png" id="2_k3hgi"]
+[ext_resource type="Texture2D" uid="uid://cboslawev1x2l" path="res://gfx/PlayRetryNappi.png" id="4_htd1c"]
+[ext_resource type="Texture2D" uid="uid://3fnp8xmnravw" path="res://gfx/PlayRetryNappiPainettu.png" id="5_jynun"]
+[ext_resource type="Texture2D" uid="uid://ccdhen11r1ugo" path="res://gfx/nappiNormaali.png" id="6_00td7"]
+[ext_resource type="Texture2D" uid="uid://cqimvbr4tiqa3" path="res://gfx/nappiPainettu.png" id="7_3qkhs"]
 
 [node name="GameOver" type="CanvasLayer"]
 offset = Vector2(0, 70)
 transform = Transform2D(1, 0, 0, 1, 0, 70)
 script = ExtResource("1_gausd")
 
-[node name="Retry" type="Button" parent="."]
+[node name="Tausta" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -153.5
-offset_top = -20.0
-offset_right = 153.5
-offset_bottom = 132.0
+offset_left = -272.0
+offset_top = -560.0
+offset_right = 1776.0
+offset_bottom = 3024.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_dirqc")
-theme_override_font_sizes/font_size = 100
-text = "RETRY"
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("2_k3hgi")
 
-[node name="MainMenu" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -205.0
-offset_top = 170.0
-offset_right = 205.0
-offset_bottom = 271.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_dirqc")
-theme_override_font_sizes/font_size = 60
-text = "Main menu"
-
-[node name="Died" type="Label" parent="."]
+[node name="GameOverLabel" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -176.0
-offset_right = 176.0
-offset_bottom = 137.0
+offset_left = -207.0
+offset_top = 17.0
+offset_right = 208.0
+offset_bottom = 161.0
 grow_horizontal = 2
 theme = ExtResource("2_dirqc")
 theme_override_font_sizes/font_size = 100
@@ -60,9 +49,9 @@ anchor_top = 0.196
 anchor_right = 0.776
 anchor_bottom = 0.249
 offset_left = -0.200005
-offset_top = -18.16
+offset_top = 21.34
 offset_right = -0.0400085
-offset_bottom = -0.0400085
+offset_bottom = 42.46
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_dirqc")
@@ -76,14 +65,78 @@ anchor_top = 0.285
 anchor_right = 0.785
 anchor_bottom = 0.37
 offset_left = 0.259995
-offset_top = -17.6
+offset_top = 19.4
 offset_right = 0.0999756
-offset_bottom = -0.200012
+offset_bottom = 36.8
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_dirqc")
 theme_override_font_sizes/font_size = 50
 text = "HighScore"
 
-[connection signal="pressed" from="Retry" to="." method="onRetryButtonPressed"]
-[connection signal="pressed" from="MainMenu" to="." method="onMainMenuButtonPressed"]
+[node name="MainMenuButton" type="TextureButton" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 79.0
+offset_top = -291.0
+offset_right = 1043.0
+offset_bottom = 122.0
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("6_00td7")
+texture_pressed = ExtResource("7_3qkhs")
+
+[node name="Label" type="Label" parent="MainMenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -378.0
+offset_top = -125.5
+offset_right = 396.0
+offset_bottom = 133.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_dirqc")
+theme_override_font_sizes/font_size = 180
+text = "Main Menu"
+
+[node name="RetryButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -30.0
+offset_right = 427.0
+offset_bottom = 239.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.64, 0.64)
+texture_normal = ExtResource("4_htd1c")
+texture_pressed = ExtResource("5_jynun")
+
+[node name="Label2" type="Label" parent="RetryButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.937
+offset_top = -106.375
+offset_right = 191.063
+offset_bottom = 123.625
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_dirqc")
+theme_override_font_sizes/font_size = 160
+text = "Retry
+"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="OnMainMenuButtonPressed"]
+[connection signal="pressed" from="RetryButton" to="." method="OnRetryButtonPressed"]

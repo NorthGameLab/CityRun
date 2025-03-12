@@ -6,6 +6,9 @@ public partial class GameScene : Node
     public Player Player;
     public Obstacles Obstacles;
     public Hud Hud;
+    public Control PauseMenu;
+    public ColorRect Background;
+
 
 
     //VAIKUTTAA KAIKEN NOPEUTEEN
@@ -35,6 +38,10 @@ public partial class GameScene : Node
             resetGame();
             _lose = false;
         }
+        PauseMenu = GetNode<Control>("PauseMenu");
+        PauseMenu.Hide();
+        Background = GetNode<ColorRect>("Background");
+        Background.Hide();
     }
 
     public override void _Process(double delta)
@@ -101,5 +108,34 @@ public partial class GameScene : Node
         _speed = 0;
         _maxSpeed = 500f;
         _distanceToNext = 5050;
+    }
+
+    private void OnPauseButtonPressed()
+    {
+        GetTree().Paused = true;
+        PauseMenu.Show();
+        Background.Show();
+        Background.Color = new Color(0,0,0,0.5f);;
+    }
+    private void OnResumePressed()
+    {
+        PauseMenu.Hide();
+        GetTree().Paused = false;
+        Background.Hide();
+    }
+    private void OnMainMenuPressed()
+    {
+        PauseMenu.Hide();
+        GetTree().Paused = false;
+        resetGame();
+        GetTree().ChangeSceneToFile("res://scene/menu/MainMenu.tscn");
+    }
+    private void OnRetryPressed()
+    {
+        PauseMenu.Hide();
+        GetTree().Paused = false;
+        resetGame();
+        GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
+
     }
 }

@@ -34,7 +34,7 @@ public abstract partial class Obstacle : Area2D
 				Test.updateHighScore(Test.Score);
 			}
 			GameScene._lose = true;
-			Test.saveGame();
+			// Test.saveGame();
 			GetTree().ChangeSceneToFile("res://scene/menu/GameOver.tscn");
 		}
 	}
