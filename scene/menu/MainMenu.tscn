@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://cttpgoer0vrcl"]
+[gd_scene load_steps=102 format=3 uid="uid://cttpgoer0vrcl"]
 
 [ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_tjppq"]
@@ -9,9 +9,18 @@
 [ext_resource type="FontFile" uid="uid://b3r4aq7e3fn1g" path="res://gfx/Teko/static/Teko-Bold.ttf" id="9_51565"]
 [ext_resource type="Texture2D" uid="uid://bsepe1ooimqc8" path="res://gfx/AlotusnayttoAlhaalla (2).png" id="9_sdaq8"]
 [ext_resource type="Texture2D" uid="uid://bi1abbke1kcw5" path="res://gfx/asetuksetPainettu.png" id="9_vjg6u"]
+[ext_resource type="Texture2D" uid="uid://cal101oqvot1t" path="res://gfx/LogoValittu.png" id="10_8n6jg"]
 [ext_resource type="Texture2D" uid="uid://br0lh344mh34n" path="res://gfx/KysymysTaustaV2.png" id="10_c6agh"]
 [ext_resource type="Texture2D" uid="uid://dqhojw3yktn3l" path="res://gfx/LippuSuomi.png" id="11_oupaw"]
 [ext_resource type="Texture2D" uid="uid://yjokaa6mm4vw" path="res://gfx/LippuEnglanti.png" id="12_boub0"]
+[ext_resource type="Texture2D" uid="uid://bj81jjtp3sqir" path="res://gfx/Äänenvoimakkuus.png" id="13_q3tco"]
+[ext_resource type="Texture2D" uid="uid://ceql1wre0f3h8" path="res://gfx/Mute.png" id="14_phfrw"]
+[ext_resource type="Texture2D" uid="uid://boybrxdhga24k" path="res://gfx/MusiikinvoimakkuusNormaali.png" id="15_0jcil"]
+[ext_resource type="Texture2D" uid="uid://djentifbpokxh" path="res://gfx/PlusNappiNormaali.png" id="15_hkhoa"]
+[ext_resource type="Texture2D" uid="uid://sjfeaebwsnbe" path="res://gfx/PlusNappi.png" id="16_brc36"]
+[ext_resource type="Texture2D" uid="uid://b8s11b5rppscw" path="res://gfx/Musiikinvoimakkuus.png" id="16_c0ycw"]
+[ext_resource type="Texture2D" uid="uid://d02fml4vy1rof" path="res://gfx/MiinusNappiNormaali.png" id="17_tbvbu"]
+[ext_resource type="Texture2D" uid="uid://xycwlywsfu2a" path="res://gfx/MiinusNappi.png" id="18_bkpyb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4kp0"]
 atlas = ExtResource("9_sdaq8")
@@ -571,7 +580,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 16.0
+"speed": 30.0
 }]
 
 [node name="MainMenu" type="Node" node_paths=PackedStringArray("PopupWindow")]
@@ -608,10 +617,10 @@ anchor_left = 0.267
 anchor_top = 0.244
 anchor_right = 0.743
 anchor_bottom = 0.332
-offset_left = -0.180008
-offset_top = -0.240021
-offset_right = -0.220032
-offset_bottom = 0.279968
+offset_left = -20.18
+offset_top = 15.76
+offset_right = 19.78
+offset_bottom = 74.28
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_tjppq")
@@ -620,6 +629,7 @@ text = "HighScore"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Menu"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -686,12 +696,22 @@ texture_normal = ExtResource("8_h0hen")
 texture_pressed = ExtResource("9_vjg6u")
 texture_hover = ExtResource("9_vjg6u")
 
+[node name="Logo" type="TextureRect" parent="Menu"]
+offset_left = 85.0
+offset_top = 25.0
+offset_right = 1433.0
+offset_bottom = 808.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_8n6jg")
+
 [node name="SettingsPopup" type="Window" parent="."]
+process_mode = 3
 auto_translate_mode = 1
 mode = 3
 title = "Settings"
 initial_position = 2
 size = Vector2i(300, 500)
+visible = false
 min_size = Vector2i(300, 500)
 max_size = Vector2i(300, 500)
 theme = ExtResource("2_tjppq")
@@ -701,20 +721,78 @@ theme_override_font_sizes/title_font_size = 26
 scale = Vector2(0.42, 0.4)
 texture = ExtResource("10_c6agh")
 
-[node name="TextureButton" type="TextureButton" parent="SettingsPopup"]
+[node name="Suomelippu" type="TextureButton" parent="SettingsPopup"]
 offset_right = 1024.0
 offset_bottom = 1024.0
 scale = Vector2(0.15, 0.15)
 pivot_offset = Vector2(-25, -25)
 texture_normal = ExtResource("11_oupaw")
 
-[node name="TextureButton2" type="TextureButton" parent="SettingsPopup"]
+[node name="Englanti" type="TextureButton" parent="SettingsPopup"]
 offset_left = -23.0
 offset_top = 30.0
 offset_right = 1001.0
 offset_bottom = 1054.0
 scale = Vector2(0.15, 0.15)
 texture_normal = ExtResource("12_boub0")
+
+[node name="Äänenvoimakkuus" type="TextureButton" parent="SettingsPopup"]
+offset_left = 24.0
+offset_top = 140.0
+offset_right = 419.0
+offset_bottom = 499.0
+scale = Vector2(0.14, 0.14)
+toggle_mode = true
+action_mode = 0
+texture_normal = ExtResource("13_q3tco")
+texture_pressed = ExtResource("14_phfrw")
+
+[node name="PlusNappi" type="TextureButton" parent="SettingsPopup"]
+offset_left = 220.0
+offset_top = 145.0
+offset_right = 572.0
+offset_bottom = 493.0
+scale = Vector2(0.13, 0.13)
+texture_normal = ExtResource("15_hkhoa")
+texture_pressed = ExtResource("16_brc36")
+
+[node name="MiinusNappi" type="TextureButton" parent="SettingsPopup"]
+offset_left = 110.0
+offset_top = 145.0
+offset_right = 465.0
+offset_bottom = 497.0
+scale = Vector2(0.13, 0.13)
+texture_normal = ExtResource("17_tbvbu")
+texture_pressed = ExtResource("18_bkpyb")
+
+[node name="Musiikki" type="TextureButton" parent="SettingsPopup"]
+offset_left = 22.0
+offset_top = 210.0
+offset_right = 425.0
+offset_bottom = 561.0
+scale = Vector2(0.12, 0.12)
+toggle_mode = true
+action_mode = 0
+texture_normal = ExtResource("15_0jcil")
+texture_pressed = ExtResource("16_c0ycw")
+
+[node name="PlusNappi2" type="TextureButton" parent="SettingsPopup"]
+offset_left = 220.0
+offset_top = 210.0
+offset_right = 572.0
+offset_bottom = 558.0
+scale = Vector2(0.13, 0.13)
+texture_normal = ExtResource("15_hkhoa")
+texture_pressed = ExtResource("16_brc36")
+
+[node name="MiinusNappi2" type="TextureButton" parent="SettingsPopup"]
+offset_left = 110.0
+offset_top = 210.0
+offset_right = 465.0
+offset_bottom = 562.0
+scale = Vector2(0.13, 0.13)
+texture_normal = ExtResource("17_tbvbu")
+texture_pressed = ExtResource("18_bkpyb")
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]
 [connection signal="pressed" from="Menu/Settings" to="." method="OnSettingsButtonPressed"]
