@@ -8,7 +8,7 @@ public partial class File : Node
 {
 
     private static string SavePath = "res://data/SaveFile.json";
-    private static string QuestPath = "C:/Users/eemil/Documents/GodotProject/cityrun/data/QuestData.json";
+    private static string QuestPath = "res://data/QuestData.json";
 
     public override void _Ready()
     {

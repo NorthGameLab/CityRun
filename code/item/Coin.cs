@@ -13,6 +13,7 @@ public partial class Coin : Item
 		{
 			Test.addToMoney(1);
             test = testA.Instantiate<TestA>();
+            test.Position = new Vector2(110, 15);
             GetParent().AddChild(test);
 		}
 
