@@ -11,7 +11,6 @@ public partial class Quest : Node
     public TestA test = null;
     public TestA scoreAdd = null;
     public int _scoreAdded = 1000;
-    private AnimatedSprite2D _animation = null;
     public TextEdit AnsInfo;
 
     private int questionNum;
@@ -36,11 +35,6 @@ public partial class Quest : Node
         //         GD.Print("broken");
         //         break;
         // }
-
-        _animation = GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated");
-
-        _animation.Play();
-        _animation.SpeedScale = 1;
 
         InfoWindow.Hide();
 
