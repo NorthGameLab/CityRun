@@ -9,7 +9,6 @@ public partial class Building : AnimatedSprite2D
         Random rand = new Random();
 
         int num = rand.Next(0, 6);
-        GD.Print(num);
         Frame = num;
 
         //num = rand.Next(0, 2);

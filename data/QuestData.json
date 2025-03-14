@@ -1,18 +1,27 @@
 {
 	"questions": [
 	{
-		"question": "Mikä on kevyenliikenteen yleisin onnettomuustyyppi Tampereella?",
-		"correctAnswer": "sähköpotkulautaonnettomuus",
-		"wrongAnswer": "polkupyöräonnettomuus",
+		"path": "res://gfx/LogoValittu.png",
+		"frames": "1",
+
+		"question": "Mikä on kevyenliikenteen yleisin onnettomuustyyppi?",
+		"correctAnswer": "pyörä onnettomuus",
+		"wrongAnswer": "sähköpotkulauta onnettomuus",
 		"info": "ei vielä"
 	},
 	{
+		"path": "res://gfx/LogoValittu.png",
+		"frames": "1",
+
 		"question": "Kuinka kovaa polkupyörällä saa kulkea kevyessä liikenteessä?",
 		"correctAnswer": "20 km/h",
 		"wrongAnswer": "30 km/h",
 		"info": "kevyessä liikenteessä saa \nkulkea vain 20 km/h nopeudella"
 	},
 	{
+		"path": "res://gfx/KysymysKuva1V2.png",
+		"frames": "4",
+
 		"question": "Onko tie turvallinen ylittää?",
 		"correctAnswer": "Ei välttämättä, sillä auto näyttää olevan vielä liikkeessä.",
 		"wrongAnswer": "On toki, sillä minulla palaa vihreä valo.",

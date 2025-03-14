@@ -6,6 +6,7 @@ public partial class Test : Node
     public static int Score;
     public static int HighScore;
     public static int Money;
+    public static bool fromQuest = false;
 
     public static void updateHighScore(int score)
     {

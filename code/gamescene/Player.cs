@@ -1,5 +1,6 @@
 using Godot;
 using System;
+
 public partial class Player : Area2D
 {
 	public enum Direction
@@ -32,6 +33,8 @@ public partial class Player : Area2D
 	public override void _Ready()
 	{
 		_width = GetViewport().GetVisibleRect().Size.X / 5;
+		_animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		_animation.Play();
 
 		Start();
 	}
@@ -65,8 +68,6 @@ public partial class Player : Area2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{
-		_animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		_animation.Play();
 		_animation.SpeedScale = (float)((GameScene._speed / GameScene._maxSpeed) * (GameScene._maxSpeed / 500));
 
 		//LIIKKUMISKOODI TOIMII JOTENKIN MUTTA PITÄÄ MUUTTAA EHKÄ

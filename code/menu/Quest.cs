@@ -55,10 +55,25 @@ public partial class Quest : Node
 
         Godot.Collections.Dictionary data = File.getQuestions();
         questionNum = rand.Next(0, data["questions"].AsGodotArray().Count);
-
-
+        //questionNum = 2;
 
         question.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["question"].AsString();
+
+        int frameCount = Int32.Parse(data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["frames"].AsString());
+        Texture2D texture = (Texture2D)ResourceLoader.Load(data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["path"].AsString());
+        Image image = texture.GetImage();
+        SpriteFrames frames = new SpriteFrames();
+        for (int i = 0; i < frameCount; i++)
+        {
+            var frameRegion = new Rect2I(0, i * 1600, 2240, 1600);
+            var frameTexture = ImageTexture.CreateFromImage(image.GetRegion(frameRegion));
+
+            frames.AddFrame("default", frameTexture);
+        }
+        GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated").SpriteFrames = frames;
+        GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated").Show();
+        GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated").Play();
+
 
         int flip = rand.Next(0, 2);
         if (flip == 0)
@@ -115,6 +130,7 @@ public partial class Quest : Node
             GetParent().AddChild(scoreAdd);
 
             test.Position += new Vector2(-150, 600);
+            Test.fromQuest = true;
             GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
         else
@@ -146,6 +162,7 @@ public partial class Quest : Node
             GetParent().AddChild(scoreAdd);
 
             test.Position += new Vector2(-150, 600);
+            Test.fromQuest = true;
             GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
     }

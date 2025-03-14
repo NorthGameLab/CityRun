@@ -24,9 +24,35 @@ public partial class Environment : Node
         _y = rand.Next(350, 400);
         for (int i = 0; i < 10; i++)
         {
-            Building b = Building.Instantiate<Building>();
-            AddChild(b);
-            b.GlobalPosition += new Vector2(0, _y * i);
+
+            if (Test.fromQuest)
+            {
+                if (_y * i <= 1250 || _y * i >= 1600 && !Test.fromQuest)
+                {
+                Building b = Building.Instantiate<Building>();
+                AddChild(b);
+                b.GlobalPosition += new Vector2(0, _y * i);
+                }
+            }
+            else
+            {
+                Building b = Building.Instantiate<Building>();
+                AddChild(b);
+                b.GlobalPosition += new Vector2(0, _y * i);
+            }
+
+        }
+
+        if (Test.fromQuest)
+        {
+            Road crossing = Road.Instantiate<Road>();
+            AddChild(crossing);
+            crossing.GlobalPosition = new Vector2(0, 510);
+            crossing.Frame = 1;
+
+            TrafficLight light = TrafficLight.Instantiate<TrafficLight>();
+            AddChild(light);
+            light.GlobalPosition = crossing.GlobalPosition + new Vector2(415, -35);
         }
     }
 
