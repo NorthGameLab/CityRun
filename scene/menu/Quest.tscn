@@ -44,9 +44,10 @@ animations = [{
 "speed": 9.0
 }]
 
-[node name="Quest" type="Node"]
+[node name="Quest" type="Node" node_paths=PackedStringArray("InfoWindow")]
 script = ExtResource("1_6xibc")
 testA = ExtResource("2_cpbey")
+InfoWindow = NodePath("CanvasLayer/info")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -155,5 +156,21 @@ pivot_offset = Vector2(0, 400)
 sprite_frames = SubResource("SpriteFrames_50deu")
 frame_progress = 0.488635
 
+[node name="info" type="Window" parent="CanvasLayer"]
+process_mode = 3
+position = Vector2i(70, 36)
+size = Vector2i(400, 500)
+min_size = Vector2i(400, 500)
+max_size = Vector2i(400, 500)
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/info"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_m3n4j")
+
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Option1" to="." method="button1Pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Option2" to="." method="button2Pressed"]
+[connection signal="close_requested" from="CanvasLayer/info" to="." method="OnInfoCloseRequested"]

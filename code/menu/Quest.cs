@@ -1,4 +1,5 @@
 using Godot;
+// using Microsoft.VisualBasic;
 using System;
 
 public partial class Quest : Node
@@ -11,6 +12,11 @@ public partial class Quest : Node
     public TestA scoreAdd = null;
     public int _scoreAdded = 1000;
     private AnimatedSprite2D _animation = null;
+    public TextEdit AnsInfo;
+
+    private int questionNum;
+
+    [Export] Window InfoWindow;
 
     public override void _Ready()
     {
@@ -30,10 +36,13 @@ public partial class Quest : Node
         //         GD.Print("broken");
         //         break;
         // }
+
         _animation = GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated");
 
         _animation.Play();
         _animation.SpeedScale = 1;
+
+        InfoWindow.Hide();
 
         TextureButton option1 = GetNode<TextureButton>("CanvasLayer/VBoxContainer/Option1");
         TextureButton option2 = GetNode<TextureButton>("CanvasLayer/VBoxContainer/Option2");
@@ -42,10 +51,12 @@ public partial class Quest : Node
         Label question = GetNode<Label>("CanvasLayer/Label");
 
         Random rand = new Random();
-        int questionNum = 0;
+        questionNum = 0;
 
         Godot.Collections.Dictionary data = File.getQuestions();
         questionNum = rand.Next(0, data["questions"].AsGodotArray().Count);
+
+
 
         question.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["question"].AsString();
 
@@ -69,8 +80,30 @@ public partial class Quest : Node
 
     }
 
+    private void ShowInfo()
+    {
+
+        GD.Print("Infowindow called");
+        InfoWindow.Visible = true;
+
+        Godot.Collections.Dictionary data = File.getQuestions();
+        AnsInfo = GetNode<TextEdit>("CanvasLayer/info/TextEdit");
+
+        AnsInfo.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["info"].AsString();
+    }
+
+    private void OnInfoCloseRequested()
+    {
+        GD.Print("close called");
+        InfoWindow.Visible = false	;
+        test.Position += new Vector2(-150, 600);
+        GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
+
+    }
+
     private void button1Pressed()
     {
+
         if (oneIsCorrect)
         {
             test = testA.Instantiate<TestA>();
@@ -80,15 +113,17 @@ public partial class Quest : Node
             scoreAdd = testA.Instantiate<TestA>();
             scorePlusSet();
             GetParent().AddChild(scoreAdd);
+
+            test.Position += new Vector2(-150, 600);
+            GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
         else
         {
             test = testA.Instantiate<TestA>();
             test.Text = "VÄÄRIN";
             GetParent().AddChild(test);
+            ShowInfo();
         }
-        test.Position += new Vector2(-150, 600);
-        GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
     }
 
     private void button2Pressed()
@@ -98,6 +133,7 @@ public partial class Quest : Node
             test = testA.Instantiate<TestA>();
             test.Text = "VÄÄRIN";
             GetParent().AddChild(test);
+            ShowInfo();
         }
         else
         {
@@ -108,9 +144,10 @@ public partial class Quest : Node
             scoreAdd = testA.Instantiate<TestA>();
             scorePlusSet();
             GetParent().AddChild(scoreAdd);
+
+            test.Position += new Vector2(-150, 600);
+            GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
-        test.Position += new Vector2(-150, 600);
-        GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
     }
 
     public void scorePlusSet()
