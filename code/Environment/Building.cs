@@ -13,7 +13,7 @@ public partial class Building : AnimatedSprite2D
 
         //num = rand.Next(0, 2);
 		GlobalPosition = new Vector2(70, -600);
-		ZIndex = -2;
+		ZIndex = -1;
 
         double numDouble;
         numDouble = rand.NextDouble();

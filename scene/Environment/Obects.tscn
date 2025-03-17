@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxamohttualg7"]
+
+[ext_resource type="Script" path="res://scene/Environment/Obects.cs" id="1_jnwof"]
+[ext_resource type="Texture2D" uid="uid://dfaq0bwmdattp" path="res://gfx/Environment/PenkkiValmis.png" id="1_o6eio"]
+[ext_resource type="Texture2D" uid="uid://4hpjtip0btsl" path="res://gfx/Environment/PuuValmis (1).png" id="2_ugwoo"]
+[ext_resource type="Texture2D" uid="uid://dnx4me88f85fj" path="res://gfx/Environment/PuuJaPensasValmis (1).png" id="3_yvdgr"]
+
+[node name="Objects" type="Node2D"]
+script = ExtResource("1_jnwof")
+
+[node name="bench" type="Sprite2D" parent="."]
+position = Vector2(496, 497)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_o6eio")
+
+[node name="tree" type="Sprite2D" parent="."]
+position = Vector2(481, 563)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_ugwoo")
+
+[node name="treeshrub" type="Sprite2D" parent="."]
+position = Vector2(481, 239)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_yvdgr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="onScreenExited"]
