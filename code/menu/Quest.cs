@@ -56,14 +56,24 @@ public partial class Quest : Node
         int frameCount = Int32.Parse(data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["frames"].AsString());
         Texture2D texture = (Texture2D)ResourceLoader.Load(data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["path"].AsString());
         Image image = texture.GetImage();
+        Vector2 size = image.GetSize();
         SpriteFrames frames = new SpriteFrames();
         for (int i = 0; i < frameCount; i++)
         {
-            var frameRegion = new Rect2I(0, i * 1600, 2240, 1600);
+            var frameRegion = new Rect2I();
+            if (frameCount > 1)
+            {
+                frameRegion = new Rect2I(0, i * 1600, 2240, 1600);
+            }
+            else
+            {
+                frameRegion = new Rect2I(0, 0, (int)size.X, (int)size.Y);
+            }
             var frameTexture = ImageTexture.CreateFromImage(image.GetRegion(frameRegion));
 
             frames.AddFrame("default", frameTexture);
         }
+
         GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated").SpriteFrames = frames;
         GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated").Show();
         GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated").Play();

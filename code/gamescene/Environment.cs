@@ -26,11 +26,23 @@ public partial class Environment : Node
         }
 
 
-        for (int i = -1; i < 2; i++)
+        if(Test.fromQuest)
         {
-            Obects o = Objects.Instantiate<Obects>();
-            AddChild(o);
-            o.GlobalPosition += new Vector2(0, 525 * i);
+            for (int i = -1; i < 2; i++)
+            {
+                Obects o = Objects.Instantiate<Obects>();
+                AddChild(o);
+                o.GlobalPosition += new Vector2(0, 525 * i);
+            }
+        }
+        else
+        {
+            for (int i = -1; i < 3; i++)
+            {
+                Obects o = Objects.Instantiate<Obects>();
+                AddChild(o);
+                o.GlobalPosition += new Vector2(0, 525 * i);
+            }
         }
 
         _y = rand.Next(350, 400);
