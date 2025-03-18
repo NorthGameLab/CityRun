@@ -4,28 +4,64 @@
 		"path": "res://gfx/LogoValittu.png",
 		"frames": "1",
 
-		"question": "Mikä on kevyenliikenteen yleisin onnettomuustyyppi?",
-		"correctAnswer": "pyörä onnettomuus",
-		"wrongAnswer": "sähköpotkulauta onnettomuus",
-		"info": "ei vielä"
-	},
+		"question": {
+			"fi": "Mikä on kevyenliikenteen yleisin onnettomuustyyppi?",
+			"en": "Which kind of accident is the most common in the walkway?"
+		},
+		"correctAnswer": {
+			"fi": "Polkupyöräonnettomuus",
+			"en": "Bicycle accident"
+		},
+		"wrongAnswer": {
+			"fi": "sähköpotkulauta\nonnettomuus",
+			"en": "Electic scooter accident"
+		},
+		"info": {
+			"fi": "ei vielä",
+			"en": "not yet"
+		}
+		},
 	{
 		"path": "res://gfx/LogoValittu.png",
 		"frames": "1",
 
-		"question": "Kuinka kovaa polkupyörällä saa kulkea kevyessä liikenteessä?",
-		"correctAnswer": "20 km/h",
-		"wrongAnswer": "30 km/h",
-		"info": "kevyessä liikenteessä saa \nkulkea vain 20 km/h nopeudella"
+		"question": {
+			"fi": "Kuinka kovaa polkupyörällä saa kulkea kevyessä liikenteessä?",
+			"en": "How fast are you allowed to ride a bicycle"
+		},
+		"correctAnswer": {
+			"fi": "20 km/h",
+			"en": "20 km/h"
+		},
+		"wrongAnswer": {
+			"fi": "30 km/h",
+			"en": "30 km/h"
+		},
+		"info": {
+			"fi": "kevyessä liikenteessä saa \nkulkea vain 20 km/h nopeudella",
+			"en": "You are only allowed to go 20 km/h"
+		}
 	},
 	{
 		"path": "res://gfx/KysymysKuva1V2.png",
 		"frames": "4",
 
-		"question": "Onko tie turvallinen ylittää?",
-		"correctAnswer": "Ei välttämättä, sillä auto näyttää olevan vielä liikkeessä.",
-		"wrongAnswer": "On toki, sillä minulla palaa vihreä valo.",
-		"info": "Auto näyttää olevan vielä \nliikkeessä. On hyvä varmistaa \nturvallinen ylitys"
+		"question": {
+			"fi": "Onko tie turvallinen ylittää?",
+			"en": "Is the road safe to cross?"
+		},
+		"correctAnswer": {
+			"fi": "Ei välttämättä, sillä auto näyttää olevan vielä liikkeessä.",
+			"en": "You can't be sure because the car seems to be moving"
+		},
+		"wrongAnswer": {
+			"fi": "On toki, sillä minulla palaa vihreä valo.",
+			"en": "Sure, the light is green"
+		},
+		"info": {
+			"fi": "Auto näyttää olevan vielä \nliikkeessä. On hyvä varmistaa \nturvallinen ylitys",
+			"en": "The car seems to be moving. It is best to ensure a safe crossing by waiting"
+		}
 	}
 	]
 }

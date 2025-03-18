@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cttpgoer0vrcl"]
+[gd_scene load_steps=24 format=3 uid="uid://cttpgoer0vrcl"]
 
 [ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
 [ext_resource type="Texture2D" uid="uid://bbsmd6kh80wb7" path="res://gfx/AlotusnayttoAlhaallaYksi.png" id="2_k0x1f"]
@@ -14,9 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dqhojw3yktn3l" path="res://gfx/LippuSuomi.png" id="11_oupaw"]
 [ext_resource type="Texture2D" uid="uid://yjokaa6mm4vw" path="res://gfx/LippuEnglanti.png" id="12_boub0"]
 [ext_resource type="Texture2D" uid="uid://bj81jjtp3sqir" path="res://gfx/Äänenvoimakkuus.png" id="13_q3tco"]
+[ext_resource type="Texture2D" uid="uid://tqho0ga5b1m6" path="res://gfx/LippuSuomiPainettu.png" id="13_wsekp"]
 [ext_resource type="Texture2D" uid="uid://ceql1wre0f3h8" path="res://gfx/Mute.png" id="14_phfrw"]
 [ext_resource type="Texture2D" uid="uid://boybrxdhga24k" path="res://gfx/MusiikinvoimakkuusNormaali.png" id="15_0jcil"]
 [ext_resource type="Texture2D" uid="uid://djentifbpokxh" path="res://gfx/PlusNappiNormaali.png" id="15_hkhoa"]
+[ext_resource type="Texture2D" uid="uid://8ro3xlbqjuh0" path="res://gfx/LippuEnglantiPainettu.png" id="15_u01sd"]
 [ext_resource type="Texture2D" uid="uid://sjfeaebwsnbe" path="res://gfx/PlusNappi.png" id="16_brc36"]
 [ext_resource type="Texture2D" uid="uid://b8s11b5rppscw" path="res://gfx/Musiikinvoimakkuus.png" id="16_c0ycw"]
 [ext_resource type="Texture2D" uid="uid://d02fml4vy1rof" path="res://gfx/MiinusNappiNormaali.png" id="17_tbvbu"]
@@ -155,19 +157,25 @@ scale = Vector2(0.42, 0.4)
 texture = ExtResource("10_c6agh")
 
 [node name="Suomelippu" type="TextureButton" parent="SettingsPopup"]
-offset_right = 1024.0
-offset_bottom = 1024.0
+offset_left = 40.0
+offset_top = 50.0
+offset_right = 1064.0
+offset_bottom = 1074.0
 scale = Vector2(0.15, 0.15)
 pivot_offset = Vector2(-25, -25)
+toggle_mode = true
 texture_normal = ExtResource("11_oupaw")
+texture_pressed = ExtResource("13_wsekp")
 
 [node name="Englanti" type="TextureButton" parent="SettingsPopup"]
-offset_left = -23.0
-offset_top = 30.0
-offset_right = 1001.0
-offset_bottom = 1054.0
+offset_left = 18.0
+offset_top = 82.0
+offset_right = 1042.0
+offset_bottom = 1106.0
 scale = Vector2(0.15, 0.15)
+toggle_mode = true
 texture_normal = ExtResource("12_boub0")
+texture_pressed = ExtResource("15_u01sd")
 
 [node name="Äänenvoimakkuus" type="TextureButton" parent="SettingsPopup"]
 offset_left = 24.0
@@ -230,3 +238,5 @@ texture_pressed = ExtResource("18_bkpyb")
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]
 [connection signal="pressed" from="Menu/Settings" to="." method="OnSettingsButtonPressed"]
 [connection signal="close_requested" from="SettingsPopup" to="." method="OnSettingsPopupCloseRequested"]
+[connection signal="pressed" from="SettingsPopup/Suomelippu" to="." method="OnFinnishFlagPressed"]
+[connection signal="pressed" from="SettingsPopup/Englanti" to="." method="OnEnglishFlagPressed"]

@@ -12,6 +12,7 @@ public partial class Quest : Node
     public TestA scoreAdd = null;
     public int _scoreAdded = 1000;
     public TextEdit AnsInfo;
+    string language = Global.Language;
 
     private int questionNum;
 
@@ -50,8 +51,9 @@ public partial class Quest : Node
         Godot.Collections.Dictionary data = File.getQuestions();
         questionNum = rand.Next(0, data["questions"].AsGodotArray().Count);
         //questionNum = 2;
+        var questionData = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary();
 
-        question.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["question"].AsString();
+        question.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["question"].AsGodotDictionary()[language].AsString();
 
         int frameCount = Int32.Parse(data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["frames"].AsString());
         Texture2D texture = (Texture2D)ResourceLoader.Load(data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["path"].AsString());
@@ -82,14 +84,14 @@ public partial class Quest : Node
         int flip = rand.Next(0, 2);
         if (flip == 0)
         {
-            text1.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["wrongAnswer"].AsString();
-            text2.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["correctAnswer"].AsString();
+            text1.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["wrongAnswer"].AsGodotDictionary()[language].AsString();
+            text2.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["correctAnswer"].AsGodotDictionary()[language].AsString();
             oneIsCorrect = false;
         }
         else
         {
-            text1.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["correctAnswer"].AsString();
-            text2.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["wrongAnswer"].AsString();
+            text1.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["correctAnswer"].AsGodotDictionary()[language].AsString();
+            text2.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["wrongAnswer"].AsGodotDictionary()[language].AsString();
             oneIsCorrect = true;
         }
     }
@@ -108,7 +110,7 @@ public partial class Quest : Node
         Godot.Collections.Dictionary data = File.getQuestions();
         AnsInfo = GetNode<TextEdit>("CanvasLayer/info/TextEdit");
 
-        AnsInfo.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["info"].AsString();
+        AnsInfo.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["info"].AsGodotDictionary()[language].AsString();
     }
 
     private void OnInfoCloseRequested()

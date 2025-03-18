@@ -9,6 +9,7 @@ public partial class MainMenu : Node
     public CanvasLayer Menu;
     public Label HighScore;
 
+
     public override void _Ready()
     {
         Test.loadGame();
@@ -37,6 +38,15 @@ public partial class MainMenu : Node
     private void OnSettingsPopupCloseRequested()
     {
         PopupWindow.Visible = false;
+    }
+
+    private void OnFinnishFlagPressed()
+    {
+        Global.Language = "fi";
+    }
+    private void OnEnglishFlagPressed()
+    {
+        Global.Language = "en";
     }
 
     public override void _Process(double delta)

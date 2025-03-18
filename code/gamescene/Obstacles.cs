@@ -24,7 +24,7 @@ public partial class Obstacles : Node
     private void onObstacleSpawnTimerTimeout()
     {
         Random rand = new Random();
-        int obstacleNum = rand.Next(1, 5);
+        int obstacleNum = rand.Next(1, 7);
         Obstacle obs;
 
         switch(obstacleNum)
@@ -37,11 +37,11 @@ public partial class Obstacles : Node
                 obs = Stroller.Instantiate<Stroller>();
                 break;
 
-            case 3:
+            case int n when (n >= 3 && n <= 4):
                 obs = Scooter.Instantiate<Scooter>();
                 break;
 
-            case 4:
+            case int n when (n >= 5):
                 obs = Cyclist.Instantiate<Cyclist>();
                 break;
 
