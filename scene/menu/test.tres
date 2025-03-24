@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://if6n0d37bars"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://if6n0d37bars"]
 
 [ext_resource type="FontFile" uid="uid://b3r4aq7e3fn1g" path="res://gfx/Teko/static/Teko-Bold.ttf" id="1_606pt"]
 
@@ -61,6 +61,8 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4v8vx"]
+
 [resource]
 default_font = ExtResource("1_606pt")
 Button/colors/font_color = Color(0.0117647, 0.141176, 0.141176, 1)
@@ -91,8 +93,15 @@ Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0.054902, 1)
 Label/constants/outline_size = 29
 Label/font_sizes/font_size = 99
-TextEdit/colors/background_color = Color(1, 1, 1, 0)
+TextEdit/colors/background_color = Color(0, 0, 0, 0)
+TextEdit/colors/current_line_color = Color(0.25098, 0.25098, 0.258824, 1)
+TextEdit/colors/font_color = Color(1, 1, 1, 1)
+TextEdit/colors/font_placeholder_color = Color(0.87451, 0.87451, 0.87451, 1)
+TextEdit/colors/font_readonly_color = Color(0.87451, 0.87451, 0.87451, 1)
+TextEdit/colors/font_selected_color = Color(0, 0, 0, 1)
+TextEdit/colors/search_result_border_color = Color(0.301961, 0.301961, 0.301961, 1)
+TextEdit/colors/word_highlighted_color = Color(0.501961, 0.501961, 0.501961, 1)
 TextEdit/font_sizes/font_size = 30
 TextEdit/fonts/font = ExtResource("1_606pt")
-TextEdit/styles/focus = null
+TextEdit/styles/focus = SubResource("StyleBoxFlat_4v8vx")
 VBoxContainer/constants/separation = 0
