@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cta3xb011iijw"]
+
+[ext_resource type="Texture2D" uid="uid://s2ejdukxusuu" path="res://gfx/Mainmenu/AlotusnayttoV2TalotTakana.png" id="1_y5hn1"]
+
+[node name="TalotTakana" type="Sprite2D"]
+scale = Vector2(1.1, 1)
+texture = ExtResource("1_y5hn1")

@@ -64,7 +64,6 @@ public partial class GameScene : Node
 
         if (!_goingToQuest)
         {
-            GD.Print(_maxSpeed);
             if (_maxSpeed < _maxMaxSpeed)
             {
                 if (_speed == _maxSpeed)
@@ -128,6 +127,9 @@ public partial class GameScene : Node
         _distanceToNext = 5050;
         _timesQuest = 0;
         Test.fromQuest = false;
+        Test.NextArea = 0;
+        Test.CurrentArea = 0;
+        Test.LastArea = 0;
     }
 
     private void OnPauseButtonPressed()

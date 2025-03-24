@@ -1,4 +1,0 @@
-[gd_scene format=3 uid="uid://c4jjmocxux26i"]
-
-[node name="Settings1" type="Window"]
-position = Vector2i(0, 36)

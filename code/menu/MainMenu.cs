@@ -32,12 +32,13 @@ public partial class MainMenu : Node
 
         _texture = GetNode<Sprite2D>("Menu/Control/Sprite2D");
 
+        /*
         _texture2 = new Sprite2D();
         _texture2.Texture = _texture.Texture;
         _texture2.Scale = _texture.Scale;
         _texture2.Position = _texture.Position - new Vector2(540, 0);
         GetNode<Control>("Menu/Control").AddChild(_texture2);
-
+        */
         PopupWindow = GetNode<Window>("SettingsPopup");
         PopupWindow.Visible = false;
 
@@ -72,6 +73,7 @@ public partial class MainMenu : Node
 
     public override void _Process(double delta)
     {
+        /*
         _texture.Position += new Vector2(1, 0);
         _texture2.Position += new Vector2(1, 0);
 
@@ -83,6 +85,7 @@ public partial class MainMenu : Node
         {
             _texture2.Position = new Vector2(-540, 0);
         }
+        */
     }
 
     private void onStartButtonPressed()

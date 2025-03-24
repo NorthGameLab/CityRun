@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drmgxckhcpoti"]
+
+[ext_resource type="Texture2D" uid="uid://cnvn5x1x2od2i" path="res://gfx/Mainmenu/AlotusnayttoV2TaustaStaattinen.png" id="1_38hxe"]
+
+[node name="Tausta" type="Sprite2D"]
+texture = ExtResource("1_38hxe")

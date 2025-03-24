@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1uom1rhhhndb"]
+
+[ext_resource type="Texture2D" uid="uid://bhuvyt2w5shp6" path="res://gfx/Mainmenu/AlotusnayttoV2PilviNopea.png" id="1_q3ahc"]
+
+[node name="PilviNopea" type="Sprite2D"]
+position = Vector2(64, 164)
+texture = ExtResource("1_q3ahc")

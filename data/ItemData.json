@@ -70,7 +70,7 @@
 		"frames": 8,
 		"framesX": 2,
 		"framesY": 4,
-		"name": "Skin8"
+		"name": "Skin9"
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin10.png",
@@ -78,7 +78,7 @@
 		"frames": 8,
 		"framesX": 2,
 		"framesY": 4,
-		"name": "Skin8"
+		"name": "Skin10"
 	}
 	]
 }

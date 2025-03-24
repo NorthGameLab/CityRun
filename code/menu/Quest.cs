@@ -40,6 +40,12 @@ public partial class Quest : Node
         //         GD.Print("broken");
         //         break;
         // }
+
+        Test.fromQuest = true;
+        Test.LastArea = Test.CurrentArea;
+        Test.CurrentArea = Test.NextArea;
+        Test.NextArea = Test.LastArea;
+
         CorrectSound = GetNode<AudioStreamPlayer2D>("Correct");
 		WrongSound = GetNode<AudioStreamPlayer2D>("Wrong");
 
@@ -123,13 +129,16 @@ public partial class Quest : Node
     private void OnInfoExitPressed()
     {
         GD.Print("close called");
-        InfoWindow.Visible = false	;
+        InfoWindow.QueueFree();
+        test = testA.Instantiate<TestA>();
+        test.Text = "VÄÄRIN";
+        GetParent().AddChild(test);
         test.Position += new Vector2(-150, 600);
         GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
 
     }
 
-    private async void button1Pressed()
+    private void button1Pressed()
     {
 
         if (oneIsCorrect)
@@ -143,33 +152,23 @@ public partial class Quest : Node
             GetParent().AddChild(scoreAdd);
 
             test.Position += new Vector2(-150, 600);
-            Test.fromQuest = true;
-            Test.LastArea = Test.CurrentArea;
-            Test.CurrentArea = Test.NextArea;
-            Test.NextArea = Test.LastArea;
-            CorrectSound.Play();
+            //CorrectSound.Play();
 
-            await ToSignal(CorrectSound, "finished");
+            //wait ToSignal(CorrectSound, "finished");
             GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
         else
         {
             WrongSound.Play();
-            test = testA.Instantiate<TestA>();
-            test.Text = "VÄÄRIN";
-            GetParent().AddChild(test);
             ShowInfo();
         }
     }
 
-    private async void button2Pressed()
+    private void button2Pressed()
     {
         if (oneIsCorrect)
         {
             WrongSound.Play();
-            test = testA.Instantiate<TestA>();
-            test.Text = "VÄÄRIN";
-            GetParent().AddChild(test);
             ShowInfo();
         }
         else
@@ -183,13 +182,9 @@ public partial class Quest : Node
             GetParent().AddChild(scoreAdd);
 
             test.Position += new Vector2(-150, 600);
-            Test.fromQuest = true;
-            Test.LastArea = Test.CurrentArea;
-            Test.CurrentArea = Test.NextArea;
-            Test.NextArea = Test.LastArea;
-            CorrectSound.Play();
+            //CorrectSound.Play();
 
-            await ToSignal(CorrectSound, "finished");
+            //wait ToSignal(CorrectSound, "finished");
             GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
     }

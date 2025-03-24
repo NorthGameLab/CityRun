@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cttpgoer0vrcl"]
+[gd_scene load_steps=29 format=3 uid="uid://cttpgoer0vrcl"]
 
 [ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
 [ext_resource type="Texture2D" uid="uid://bbsmd6kh80wb7" path="res://gfx/AlotusnayttoAlhaallaYksi.png" id="2_k0x1f"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://x0u5e2oenguy" path="res://gfx/RaksiNappiPainettu.png" id="25_ycjpa"]
 [ext_resource type="AudioStream" uid="uid://b1eot2ans5aqm" path="res://Audio/SelectButton (1).mp3" id="26_26ri3"]
 [ext_resource type="AudioStream" uid="uid://1lwbh4nnogqa" path="res://Audio/BackButton.mp3" id="27_pymr3"]
+[ext_resource type="PackedScene" uid="uid://g61wenycagm0" path="res://scene/menu/MainMenuBackground/MainMenuBackground.tscn" id="28_bxub2"]
 
 [node name="MainMenu" type="Node" node_paths=PackedStringArray("PopupWindow")]
 script = ExtResource("1_dwcms")
@@ -47,6 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Menu/Control"]
+visible = false
 visibility_layer = 513
 scale = Vector2(0.226891, 0.230769)
 texture = ExtResource("2_k0x1f")
@@ -256,6 +258,8 @@ bus = &"SFX"
 
 [node name="BackButton" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("27_pymr3")
+
+[node name="MainMenuBackground" parent="." instance=ExtResource("28_bxub2")]
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]
 [connection signal="pressed" from="Menu/Settings" to="." method="OnSettingsButtonPressed"]

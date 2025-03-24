@@ -84,24 +84,33 @@ public partial class Player : Area2D
 
 	#endregion
 
-    public override void _UnhandledInput(InputEvent @event)
+   private bool _swipeDetected = false; // Tracks if a swipe has already been detected
+
+public override void _UnhandledInput(InputEvent @event)
+{
+    base._UnhandledInput(@event);
+
+    if (@event is InputEventScreenTouch touchEvent)
     {
-        base._Input(@event);
-		if (@event is InputEventScreenTouch touchEvent)
-		{
-			// input recieved
-			if(touchEvent.Pressed)
-			{
-				// save the touch starting position
-				_touchStartPosition = touchEvent.Position;
-			}
-			else
-			{
-				Vector2 touchEndPosition = touchEvent.Position;
-				DetectSwipe(_touchStartPosition, touchEndPosition);
-			}
-		}
+        if (touchEvent.Pressed)
+        {
+            _swipeDetected = false;
+            _touchStartPosition = touchEvent.Position;
+        }
     }
+    else if (@event is InputEventScreenDrag dragEvent && !_swipeDetected)
+    {
+        Vector2 touchCurrentPosition = dragEvent.Position;
+
+        float swipeThreshold = 50.0f;
+
+        if (_touchStartPosition.DistanceTo(touchCurrentPosition) > swipeThreshold)
+        {
+            DetectSwipe(_touchStartPosition, touchCurrentPosition);
+            _swipeDetected = true;
+        }
+    }
+}
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)

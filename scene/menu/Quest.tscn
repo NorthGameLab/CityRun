@@ -10,11 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://dyvwdypkxpeun" path="res://gfx/RaksiNappi.png" id="7_w51wn"]
 [ext_resource type="Texture2D" uid="uid://x0u5e2oenguy" path="res://gfx/RaksiNappiPainettu.png" id="8_5enwu"]
 [ext_resource type="Texture2D" uid="uid://db7drxd2os58s" path="res://gfx/KysymysNappi2UusiPainettu (1).png" id="8_smc5s"]
-[ext_resource type="Texture2D" uid="uid://b8g8yutejmjcu" path="res://gfx/InfoPopup.png" id="9_2qiid"]
 [ext_resource type="AudioStream" uid="uid://c8vwpvih2j223" path="res://Audio/CorrectSound.mp3" id="9_pupce"]
 [ext_resource type="AudioStream" uid="uid://3spn4r3jgorn" path="res://Audio/WrongSound.mp3" id="10_r0mbp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gt0p5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o4k16"]
 
 [node name="Quest" type="Node" node_paths=PackedStringArray("InfoWindow")]
 script = ExtResource("1_6xibc")
@@ -132,7 +133,7 @@ sprite_frames = SubResource("SpriteFrames_gt0p5")
 [node name="info" type="Window" parent="CanvasLayer"]
 process_mode = 3
 mode = 3
-position = Vector2i(70, 26)
+position = Vector2i(70, 430)
 size = Vector2i(400, 500)
 unresizable = true
 borderless = true
@@ -145,19 +146,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_2qiid")
 
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer/info"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 240.0
+offset_left = 25.0
+offset_top = 40.0
+offset_right = -25.0
+offset_bottom = 440.0
 grow_horizontal = 2
 theme = ExtResource("2_m3n4j")
-<<<<<<< HEAD
-editable = false
-=======
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o4k16")
 placeholder_text = "hthtrhtrhht"
 editable = false
+wrap_mode = 1
 
 [node name="ExitButton" type="TextureButton" parent="CanvasLayer/info"]
 offset_left = 310.0
@@ -175,7 +177,6 @@ bus = &"SFX"
 [node name="Wrong" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_r0mbp")
 bus = &"SFX"
->>>>>>> b79df2774dae221ba005834578562a328d259dd2
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Option1" to="." method="button1Pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Option2" to="." method="button2Pressed"]
