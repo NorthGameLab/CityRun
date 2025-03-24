@@ -61,11 +61,18 @@ public partial class File : Node
         GD.Print("Loaded JSON: " + json);
         Data loadedData = JsonSerializer.Deserialize<Data>(json);
 
-        // TÄSSÄ ON ONGELMA
         using Godot.FileAccess initDataFile = Godot.FileAccess.Open(SavePath, Godot.FileAccess.ModeFlags.Read);
         string initDataString = initDataFile.GetAsText();
         GD.Print("Initial JSON: " + initDataString);
         Data initData = JsonSerializer.Deserialize<Data>(initDataString);
+
+        if (loadedData.OwnedSkins == null)
+        {
+            GD.Print("UserSavePath: " + UserSavePath);
+            GD.Print("SavePath: " + SavePath);
+            CopyFileToUser(SavePath, UserSavePath);
+            return initData;
+        }
 
         if (loadedData.OwnedSkins.Length != initData.OwnedSkins.Length)
         {

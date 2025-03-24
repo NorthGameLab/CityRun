@@ -21,6 +21,7 @@ public partial class GameOver : CanvasLayer
 
 	private void OnRetryButtonPressed()
 	{
+		GameScene.resetGame();
 		GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
 	}
 
