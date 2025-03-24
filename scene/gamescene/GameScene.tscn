@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://bp8naatv13cke" path="res://scene/gamescene/Hud.tscn" id="6_amhck"]
 [ext_resource type="Texture2D" uid="uid://bcyovdkl282xw" path="res://gfx/pause (1).png" id="7_57afq"]
 [ext_resource type="Texture2D" uid="uid://c7oxrourskfoy" path="res://gfx/pausePainettu.png" id="8_uyhyy"]
+[ext_resource type="Texture2D" uid="uid://c4m2a5sni53c" path="res://gfx/PunainenNappi.png" id="9_5fnon"]
 [ext_resource type="Texture2D" uid="uid://cboslawev1x2l" path="res://gfx/PlayRetryNappi.png" id="9_6rawh"]
 [ext_resource type="Texture2D" uid="uid://3fnp8xmnravw" path="res://gfx/PlayRetryNappiPainettu.png" id="10_110l3"]
+[ext_resource type="Texture2D" uid="uid://bh7lqor3ekdsy" path="res://gfx/PunainenNappiPainettu.png" id="10_ey6xb"]
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="11_kwxe0"]
-[ext_resource type="Texture2D" uid="uid://ccdhen11r1ugo" path="res://gfx/nappiNormaali.png" id="12_qsgjg"]
-[ext_resource type="Texture2D" uid="uid://cqimvbr4tiqa3" path="res://gfx/nappiPainettu.png" id="13_fkyfw"]
 [ext_resource type="Texture2D" uid="uid://c57n7y2k1nkc8" path="res://gfx/MuuNappi.png" id="14_5y2yd"]
 [ext_resource type="Texture2D" uid="uid://b75x5viflckcy" path="res://gfx/MuuNappiPainettu.png" id="15_4wu4f"]
 
@@ -66,18 +66,18 @@ grow_vertical = 2
 layout_mode = 2
 offset_left = 105.0
 offset_top = 640.0
-offset_right = 1129.0
-offset_bottom = 1053.0
-scale = Vector2(0.35, 0.35)
-texture_normal = ExtResource("12_qsgjg")
-texture_pressed = ExtResource("13_fkyfw")
+offset_right = 1013.0
+offset_bottom = 981.0
+scale = Vector2(0.38, 0.38)
+texture_normal = ExtResource("9_5fnon")
+texture_pressed = ExtResource("10_ey6xb")
 
 [node name="Label" type="Label" parent="PauseMenu/MainMenu"]
 layout_mode = 0
-offset_left = 214.286
-offset_top = 117.143
-offset_right = 801.286
-offset_bottom = 319.143
+offset_left = 166.917
+offset_top = 77.6696
+offset_right = 753.917
+offset_bottom = 279.67
 theme = ExtResource("11_kwxe0")
 theme_override_font_sizes/font_size = 140
 text = "Main Menu"

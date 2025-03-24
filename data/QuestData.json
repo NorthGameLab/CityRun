@@ -1,7 +1,7 @@
 {
 	"questions": [
 	{
-		"path": "res://gfx/LogoValittu.png",
+		"path": "res://gfx/KysymysKuvaPotkuVaiPyörä.png",
 		"frames": "1",
 
 		"question": {
@@ -22,7 +22,7 @@
 		}
 		},
 	{
-		"path": "res://gfx/LogoValittu.png",
+		"path": "res://gfx/KysymysKuvaPolkNR.png",
 		"frames": "1",
 
 		"question": {
@@ -60,8 +60,53 @@
 		},
 		"info": {
 			"fi": "Auto näyttää olevan vielä \nliikkeessä. On hyvä varmistaa \nturvallinen ylitys",
-			"en": "The car seems to be moving. It is best to ensure a safe crossing by waiting"
+			"en": "The car seems to be moving.\nIt is best to ensure\na safe crossing by waiting"
+		}
+	},
+	{
+		"path":"res://gfx/KysymysKuvaSuojatie.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Saako tämän suojatien ylittää pyöräilemällä?",
+			"en": "Are you allowed to cycle\nover the crosswalk?"
+		},
+		"correctAnswer": {
+			"fi": "Et saa",
+			"en": "No, you are not"
+		},
+		"wrongAnswer": {
+			"fi": "Kyllä saat",
+			"en": "Yes you are"
+		},
+		"info": {
+			"fi": "Suojatie ei ole pyörätien jatke,\njoten sitä ei saa ylittää \npyöräilemällä. Jatkeen tunnistaa\nomasta pyöräkaistasta",
+			"en": "There is no bicycle lane\non the crosswalk"
+
+		}
+	},
+	{
+		"path":"res://gfx/KysymysKuvaSuojatiePyörä.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Saako tämän suojatien ylittää pyöräilemällä?",
+			"en": "Are you allowed to cycle\nover the crosswalk?"
+		},
+		"correctAnswer": {
+			"fi": "Kyllä saat",
+			"en": "Yes you are"
+		},
+		"wrongAnswer": {
+			"fi": "Et saa",
+			"en": "No you aren't"
+		},
+		"info": {
+			"fi": "Suojatie on pyörätien jatke,\njoten sen saa ylittää \npyöräilemällä. Jatkeen tunnistaa\nomasta pyöräkaistasta",
+			"en": "There is a bicycle lane\non the crosswalk"
+
 		}
 	}
+
 	]
 }

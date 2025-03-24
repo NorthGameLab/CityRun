@@ -1,11 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://cttpgoer0vrcl"]
+[gd_scene load_steps=28 format=3 uid="uid://cttpgoer0vrcl"]
 
 [ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
 [ext_resource type="Texture2D" uid="uid://bbsmd6kh80wb7" path="res://gfx/AlotusnayttoAlhaallaYksi.png" id="2_k0x1f"]
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_tjppq"]
 [ext_resource type="FontFile" uid="uid://c3718xoe860eq" path="res://gfx/Teko/static/Teko-Regular.ttf" id="2_x6agq"]
-[ext_resource type="Texture2D" uid="uid://ccdhen11r1ugo" path="res://gfx/nappiNormaali.png" id="7_3g5b5"]
-[ext_resource type="Texture2D" uid="uid://cqimvbr4tiqa3" path="res://gfx/nappiPainettu.png" id="8_geq2h"]
+[ext_resource type="Texture2D" uid="uid://nojqu731jykd" path="res://gfx/VihreäNappi.png" id="5_upw3f"]
+[ext_resource type="Texture2D" uid="uid://bjfw87xi4lnuk" path="res://gfx/VihreäNappiPainettu.png" id="6_46foy"]
 [ext_resource type="Texture2D" uid="uid://cfdnfda000thu" path="res://gfx/asetuksetNormaali.png" id="8_h0hen"]
 [ext_resource type="FontFile" uid="uid://b3r4aq7e3fn1g" path="res://gfx/Teko/static/Teko-Bold.ttf" id="9_51565"]
 [ext_resource type="Texture2D" uid="uid://bi1abbke1kcw5" path="res://gfx/asetuksetPainettu.png" id="9_vjg6u"]
@@ -23,6 +23,10 @@
 [ext_resource type="Texture2D" uid="uid://b8s11b5rppscw" path="res://gfx/Musiikinvoimakkuus.png" id="16_c0ycw"]
 [ext_resource type="Texture2D" uid="uid://d02fml4vy1rof" path="res://gfx/MiinusNappiNormaali.png" id="17_tbvbu"]
 [ext_resource type="Texture2D" uid="uid://xycwlywsfu2a" path="res://gfx/MiinusNappi.png" id="18_bkpyb"]
+[ext_resource type="Texture2D" uid="uid://dyvwdypkxpeun" path="res://gfx/RaksiNappi.png" id="24_hknia"]
+[ext_resource type="Texture2D" uid="uid://x0u5e2oenguy" path="res://gfx/RaksiNappiPainettu.png" id="25_ycjpa"]
+[ext_resource type="AudioStream" uid="uid://b1eot2ans5aqm" path="res://Audio/SelectButton (1).mp3" id="26_26ri3"]
+[ext_resource type="AudioStream" uid="uid://1lwbh4nnogqa" path="res://Audio/BackButton.mp3" id="27_pymr3"]
 
 [node name="MainMenu" type="Node" node_paths=PackedStringArray("PopupWindow")]
 script = ExtResource("1_dwcms")
@@ -64,39 +68,19 @@ theme_override_fonts/font = ExtResource("2_x6agq")
 text = "HighScore"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Menu"]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -226.0
-offset_top = 39.0
-offset_right = 226.0
-offset_bottom = 176.0
-grow_horizontal = 2
-theme = ExtResource("2_tjppq")
-theme_override_fonts/font = ExtResource("2_x6agq")
-theme_override_font_sizes/font_size = 150
-text = "CITY RUN"
-horizontal_alignment = 1
-
 [node name="StartButton" type="TextureButton" parent="Menu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -482.0
-offset_top = -206.5
-offset_right = 482.0
-offset_bottom = 206.5
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -189.0
+offset_top = 260.0
+offset_right = 177.0
+offset_bottom = 598.0
 grow_horizontal = 2
-grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 pivot_offset = Vector2(470, 205)
 theme = ExtResource("2_tjppq")
-texture_normal = ExtResource("7_3g5b5")
-texture_pressed = ExtResource("8_geq2h")
+texture_normal = ExtResource("5_upw3f")
+texture_pressed = ExtResource("6_46foy")
 
 [node name="Label" type="Label" parent="Menu/StartButton"]
 layout_mode = 1
@@ -165,6 +149,8 @@ mode = 3
 title = "Settings"
 initial_position = 2
 size = Vector2i(300, 500)
+visible = false
+borderless = true
 min_size = Vector2i(300, 500)
 max_size = Vector2i(300, 500)
 theme = ExtResource("2_tjppq")
@@ -253,8 +239,27 @@ scale = Vector2(0.13, 0.13)
 texture_normal = ExtResource("17_tbvbu")
 texture_pressed = ExtResource("18_bkpyb")
 
+[node name="ExitButton" type="TextureButton" parent="SettingsPopup"]
+offset_left = 230.0
+offset_top = 20.0
+offset_right = 559.0
+offset_bottom = 339.0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("24_hknia")
+texture_pressed = ExtResource("25_ycjpa")
+
+[node name="SelectButton" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_26ri3")
+volume_db = -7.975
+attenuation = 1.07177
+bus = &"SFX"
+
+[node name="BackButton" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_pymr3")
+
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]
 [connection signal="pressed" from="Menu/Settings" to="." method="OnSettingsButtonPressed"]
 [connection signal="close_requested" from="SettingsPopup" to="." method="OnSettingsPopupCloseRequested"]
 [connection signal="pressed" from="SettingsPopup/Suomelippu" to="." method="OnFinnishFlagPressed"]
 [connection signal="pressed" from="SettingsPopup/Englanti" to="." method="OnEnglishFlagPressed"]
+[connection signal="pressed" from="SettingsPopup/ExitButton" to="." method="OnExitButtonPressed"]

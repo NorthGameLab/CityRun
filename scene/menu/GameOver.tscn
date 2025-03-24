@@ -4,9 +4,9 @@
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_dirqc"]
 [ext_resource type="Texture2D" uid="uid://l7rm2j8jeebq" path="res://gfx/LopetusTaustaValmis.png" id="2_k3hgi"]
 [ext_resource type="Texture2D" uid="uid://cboslawev1x2l" path="res://gfx/PlayRetryNappi.png" id="4_htd1c"]
+[ext_resource type="Texture2D" uid="uid://c4m2a5sni53c" path="res://gfx/PunainenNappi.png" id="4_sgqof"]
 [ext_resource type="Texture2D" uid="uid://3fnp8xmnravw" path="res://gfx/PlayRetryNappiPainettu.png" id="5_jynun"]
-[ext_resource type="Texture2D" uid="uid://ccdhen11r1ugo" path="res://gfx/nappiNormaali.png" id="6_00td7"]
-[ext_resource type="Texture2D" uid="uid://cqimvbr4tiqa3" path="res://gfx/nappiPainettu.png" id="7_3qkhs"]
+[ext_resource type="Texture2D" uid="uid://bh7lqor3ekdsy" path="res://gfx/PunainenNappiPainettu.png" id="5_w68y0"]
 
 [node name="GameOver" type="CanvasLayer"]
 offset = Vector2(0, 70)
@@ -78,14 +78,14 @@ text = "HighScore"
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 79.0
+offset_left = 76.0
 offset_top = -291.0
-offset_right = 1043.0
+offset_right = 1040.0
 offset_bottom = 122.0
 grow_vertical = 0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("6_00td7")
-texture_pressed = ExtResource("7_3qkhs")
+scale = Vector2(0.45, 0.45)
+texture_normal = ExtResource("4_sgqof")
+texture_pressed = ExtResource("5_w68y0")
 
 [node name="Label" type="Label" parent="MainMenuButton"]
 layout_mode = 1
@@ -94,10 +94,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -378.0
-offset_top = -125.5
-offset_right = 396.0
-offset_bottom = 133.5
+offset_left = -402.798
+offset_top = -157.318
+offset_right = 371.202
+offset_bottom = 101.682
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_dirqc")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://b57l5qv86qeo7"]
+[gd_scene load_steps=19 format=3 uid="uid://b57l5qv86qeo7"]
 
 [ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/obstacles/Obstacle.tscn" id="1_4hqmr"]
 [ext_resource type="Script" path="res://code/obstacles/Stroller.cs" id="1_vcs75"]
 [ext_resource type="Texture2D" uid="uid://bwtl7pnrcio3s" path="res://gfx/LastenvaunutValmisV2.png" id="3_33qku"]
+[ext_resource type="AudioStream" uid="uid://ym6jsvfkiotu" path="res://Audio/571420__aniovino__baby-cry-short.wav" id="4_k6wi0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pltcx"]
 size = Vector2(149.091, 60)
@@ -114,3 +115,8 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_n451k")
 frame = 8
 frame_progress = 0.72924
+
+[node name="SoundEffect2" parent="." index="4"]
+stream = ExtResource("4_k6wi0")
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="OnScreenEntered"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqnpsikpr3n1l"]
+[gd_scene load_steps=11 format=3 uid="uid://dqnpsikpr3n1l"]
 
 [ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/obstacles/Obstacle.tscn" id="1_lrocu"]
 [ext_resource type="Script" path="res://code/obstacles/Scooter.cs" id="2_et2ix"]
 [ext_resource type="Texture2D" uid="uid://dgq80gdad7272" path="res://gfx/potkulauta.png" id="3_acjke"]
+[ext_resource type="AudioStream" uid="uid://by777r2r7bgfo" path="res://Audio/ScooterSound.mp3" id="4_2e7en"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpnbw"]
 size = Vector2(59.5, 70)
@@ -58,3 +59,9 @@ position = Vector2(-7, 2)
 position = Vector2(50, 75)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_meed3")
+
+[node name="SoundEffect" parent="." index="3"]
+stream = ExtResource("4_2e7en")
+volume_db = -15.801
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="OnScreenEntered"]

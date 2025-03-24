@@ -1,6 +1,7 @@
 using Godot;
 // using Microsoft.VisualBasic;
 using System;
+using System.Threading.Tasks;
 
 public partial class Quest : Node
 {
@@ -16,6 +17,8 @@ public partial class Quest : Node
 
     private int questionNum;
     private static string QuestPath = "res://data/QuestData.json";
+    private AudioStreamPlayer2D CorrectSound;
+	private AudioStreamPlayer2D WrongSound;
 
     [Export] Window InfoWindow;
 
@@ -37,6 +40,8 @@ public partial class Quest : Node
         //         GD.Print("broken");
         //         break;
         // }
+        CorrectSound = GetNode<AudioStreamPlayer2D>("Correct");
+		WrongSound = GetNode<AudioStreamPlayer2D>("Wrong");
 
         InfoWindow.Hide();
 
@@ -49,7 +54,6 @@ public partial class Quest : Node
         Random rand = new Random();
         questionNum = 0;
 
-        string QuestPath = "res://data/QuestData.json";
         Godot.Collections.Dictionary data = File.getDictionary(QuestPath);
         questionNum = rand.Next(0, data["questions"].AsGodotArray().Count);
         //questionNum = 2;
@@ -103,6 +107,7 @@ public partial class Quest : Node
 
     }
 
+    // Info popup, jos vastaa väärin
     private void ShowInfo()
     {
 
@@ -115,7 +120,7 @@ public partial class Quest : Node
         AnsInfo.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["info"].AsGodotDictionary()[language].AsString();
     }
 
-    private void OnInfoCloseRequested()
+    private void OnInfoExitPressed()
     {
         GD.Print("close called");
         InfoWindow.Visible = false	;
@@ -124,7 +129,7 @@ public partial class Quest : Node
 
     }
 
-    private void button1Pressed()
+    private async void button1Pressed()
     {
 
         if (oneIsCorrect)
@@ -142,10 +147,14 @@ public partial class Quest : Node
             Test.LastArea = Test.CurrentArea;
             Test.CurrentArea = Test.NextArea;
             Test.NextArea = Test.LastArea;
+            CorrectSound.Play();
+
+            await ToSignal(CorrectSound, "finished");
             GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
         else
         {
+            WrongSound.Play();
             test = testA.Instantiate<TestA>();
             test.Text = "VÄÄRIN";
             GetParent().AddChild(test);
@@ -153,10 +162,11 @@ public partial class Quest : Node
         }
     }
 
-    private void button2Pressed()
+    private async void button2Pressed()
     {
         if (oneIsCorrect)
         {
+            WrongSound.Play();
             test = testA.Instantiate<TestA>();
             test.Text = "VÄÄRIN";
             GetParent().AddChild(test);
@@ -177,6 +187,9 @@ public partial class Quest : Node
             Test.LastArea = Test.CurrentArea;
             Test.CurrentArea = Test.NextArea;
             Test.NextArea = Test.LastArea;
+            CorrectSound.Play();
+
+            await ToSignal(CorrectSound, "finished");
             GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
     }

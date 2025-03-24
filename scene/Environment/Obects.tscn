@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxamohttualg7"]
+[gd_scene load_steps=5 format=3 uid="uid://j478ftri8ha7"]
 
 [ext_resource type="Script" path="res://scene/Environment/Obects.cs" id="1_jnwof"]
 [ext_resource type="Texture2D" uid="uid://dfaq0bwmdattp" path="res://gfx/Environment/PenkkiValmis.png" id="1_o6eio"]
