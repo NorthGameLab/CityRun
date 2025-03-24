@@ -3,8 +3,6 @@ using System;
 
 public partial class GameScene : Node
 {
-    public Player Player;
-    public Obstacles Obstacles;
     public Hud Hud;
     public Control PauseMenu;
     public ColorRect Background;
@@ -14,6 +12,7 @@ public partial class GameScene : Node
     //VAIKUTTAA KAIKEN NOPEUTEEN
     public static float _speed = 0f;
     public static float _maxSpeed = 500f;
+    public static float _maxMaxSpeed = 1000f;
 
     public static float _acceleration = 200f;
 
@@ -30,8 +29,6 @@ public partial class GameScene : Node
 
     public override void _Ready()
     {
-        Player = GetNode<Player>("Player");
-        Obstacles = GetNode<Obstacles>("Obstacles");
         Hud = GetNode<Hud>("Hud");
 
         if (_lose)
@@ -43,6 +40,15 @@ public partial class GameScene : Node
         PauseMenu.Hide();
         Background = GetNode<ColorRect>("Background");
         Background.Hide();
+
+        if (_timesQuest / 2 == 1 && Test.NextArea == 0)
+        {
+            Test.NextArea = 1;
+        }
+        else if (_timesQuest / 2 == 1 && Test.NextArea == 1)
+        {
+            Test.NextArea = 0;
+        }
     }
 
     public override void _Process(double delta)
@@ -58,14 +64,18 @@ public partial class GameScene : Node
 
         if (!_goingToQuest)
         {
-            if (_speed == _maxSpeed)
+            GD.Print(_maxSpeed);
+            if (_maxSpeed < _maxMaxSpeed)
             {
-                _maxSpeed += 0.1f;
-                _speed = _maxSpeed;
-            }
-            else
-            {
-                _maxSpeed += 0.1f;
+                if (_speed == _maxSpeed)
+                {
+                    _maxSpeed += 0.1f;
+                    _speed = _maxSpeed;
+                }
+                else
+                {
+                    _maxSpeed += 0.1f;
+                }
             }
 
             if (_speed < _maxSpeed)
@@ -116,6 +126,8 @@ public partial class GameScene : Node
         _speed = 0;
         _maxSpeed = 500f;
         _distanceToNext = 5050;
+        _timesQuest = 0;
+        Test.fromQuest = false;
     }
 
     private void OnPauseButtonPressed()
@@ -136,6 +148,7 @@ public partial class GameScene : Node
         PauseMenu.Hide();
         GetTree().Paused = false;
         resetGame();
+        Test.saveGame();
         GetTree().ChangeSceneToFile("res://scene/menu/MainMenu.tscn");
     }
     private void OnRetryPressed()

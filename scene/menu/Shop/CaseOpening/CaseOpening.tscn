@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjbo03e31pvs1"]
+
+[ext_resource type="Script" path="res://code/menu/CaseOpening/CaseOpening.cs" id="1_vtppn"]
+
+[node name="CaseOpening" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vtppn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 420.0
+offset_right = 272.0
+offset_bottom = 561.0
+color = Color(0, 0, 0, 1)
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.078
+anchor_bottom = 0.075
+offset_left = 189.0
+offset_top = 638.0
+offset_right = 310.88
+offset_bottom = 633.0
+theme_override_font_sizes/font_size = 40
+text = "Confirm"
