@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dt32cqvyqxoqo"]
+[gd_scene load_steps=16 format=3 uid="uid://dt32cqvyqxoqo"]
 
 [ext_resource type="Script" path="res://code/menu/Quest.cs" id="1_6xibc"]
 [ext_resource type="PackedScene" uid="uid://sxu2ulifuq2p" path="res://scene/TestA.tscn" id="2_cpbey"]
@@ -10,11 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://dyvwdypkxpeun" path="res://gfx/RaksiNappi.png" id="7_w51wn"]
 [ext_resource type="Texture2D" uid="uid://x0u5e2oenguy" path="res://gfx/RaksiNappiPainettu.png" id="8_5enwu"]
 [ext_resource type="Texture2D" uid="uid://db7drxd2os58s" path="res://gfx/KysymysNappi2UusiPainettu (1).png" id="8_smc5s"]
-[ext_resource type="Texture2D" uid="uid://b8g8yutejmjcu" path="res://gfx/InfoPopup.png" id="9_2qiid"]
 [ext_resource type="AudioStream" uid="uid://c8vwpvih2j223" path="res://Audio/CorrectSound.mp3" id="9_pupce"]
+[ext_resource type="Texture2D" uid="uid://cbe4igpoa5fs4" path="res://gfx/InfoPopupV2.png" id="9_whq83"]
 [ext_resource type="AudioStream" uid="uid://3spn4r3jgorn" path="res://Audio/WrongSound.mp3" id="10_r0mbp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gt0p5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o4k16"]
 
 [node name="Quest" type="Node" node_paths=PackedStringArray("InfoWindow")]
 script = ExtResource("1_6xibc")
@@ -145,16 +147,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_2qiid")
+texture = ExtResource("9_whq83")
 
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer/info"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 240.0
+offset_left = 25.0
+offset_top = 40.0
+offset_right = -25.0
+offset_bottom = 440.0
 grow_horizontal = 2
 theme = ExtResource("2_m3n4j")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o4k16")
 placeholder_text = "hthtrhtrhht"
 editable = false
+wrap_mode = 1
 
 [node name="ExitButton" type="TextureButton" parent="CanvasLayer/info"]
 offset_left = 310.0

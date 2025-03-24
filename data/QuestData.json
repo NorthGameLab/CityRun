@@ -13,7 +13,7 @@
 			"en": "Bicycle accident"
 		},
 		"wrongAnswer": {
-			"fi": "sähköpotkulauta\nonnettomuus",
+			"fi": "sähköpotkulauta onnettomuus",
 			"en": "Electic scooter accident"
 		},
 		"info": {
@@ -38,7 +38,7 @@
 			"en": "30 km/h"
 		},
 		"info": {
-			"fi": "kevyessä liikenteessä saa \nkulkea vain 20 km/h nopeudella",
+			"fi": "kevyessä liikenteessä saa kulkea vain 20 km/h nopeudella",
 			"en": "You are only allowed to go 20 km/h"
 		}
 	},
@@ -59,8 +59,8 @@
 			"en": "Sure, the light is green"
 		},
 		"info": {
-			"fi": "Auto näyttää olevan vielä \nliikkeessä. On hyvä varmistaa \nturvallinen ylitys",
-			"en": "The car seems to be moving.\nIt is best to ensure\na safe crossing by waiting"
+			"fi": "Auto näyttää olevan vielä liikkeessä. On hyvä varmistaa turvallinen ylitys",
+			"en": "The car seems to be moving. It is best to ensure a safe crossing by waiting"
 		}
 	},
 	{
@@ -69,7 +69,7 @@
 
 		"question": {
 			"fi": "Saako tämän suojatien ylittää pyöräilemällä?",
-			"en": "Are you allowed to cycle\nover the crosswalk?"
+			"en": "Are you allowed to cycle over this crosswalk?"
 		},
 		"correctAnswer": {
 			"fi": "Et saa",
@@ -80,8 +80,8 @@
 			"en": "Yes you are"
 		},
 		"info": {
-			"fi": "Suojatie ei ole pyörätien jatke,\njoten sitä ei saa ylittää \npyöräilemällä. Jatkeen tunnistaa\nomasta pyöräkaistasta",
-			"en": "There is no bicycle lane\non the crosswalk"
+			"fi": "Suojatie ei ole pyörätien jatke, joten sitä ei saa ylittää pyöräilemällä. Jatkeen tunnistaa omasta pyöräkaistasta",
+			"en": "There is no bicycle lane on the crosswalk"
 
 		}
 	},
@@ -91,7 +91,7 @@
 
 		"question": {
 			"fi": "Saako tämän suojatien ylittää pyöräilemällä?",
-			"en": "Are you allowed to cycle\nover the crosswalk?"
+			"en": "Are you allowed to cycle over this crosswalk?"
 		},
 		"correctAnswer": {
 			"fi": "Kyllä saat",
@@ -102,8 +102,8 @@
 			"en": "No you aren't"
 		},
 		"info": {
-			"fi": "Suojatie on pyörätien jatke,\njoten sen saa ylittää \npyöräilemällä. Jatkeen tunnistaa\nomasta pyöräkaistasta",
-			"en": "There is a bicycle lane\non the crosswalk"
+			"fi": "Suojatie on pyörätien jatke, joten sen saa ylittää \npyöräilemällä. Jatkeen tunnistaa omasta pyöräkaistasta",
+			"en": "There is a bicycle lane on the crosswalk"
 
 		}
 	}
