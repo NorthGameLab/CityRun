@@ -117,6 +117,7 @@ public partial class Player : Area2D
 		}
 	}
 
+	// Tarkistaa swipen onko oikea
 	private void DetectSwipe(Vector2 swipeStart, Vector2 swipeEnd)
 	{
 		Vector2 swipeVector = swipeEnd - swipeStart;

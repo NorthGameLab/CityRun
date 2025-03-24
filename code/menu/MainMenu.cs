@@ -3,11 +3,20 @@ using System;
 
 public partial class MainMenu : Node
 {
+    public enum EffectType
+    {
+        none = 0,
+        Select,
+        Back,
+    }
     [Export] public Window PopupWindow;
+    [Export] private AudioStreamPlayer2D _selectButton = null;
+    [Export] private AudioStreamPlayer2D _backButton = null;
     private Sprite2D _texture = null;
     private Sprite2D _texture2 = null;
     public CanvasLayer Menu;
     public Label HighScore;
+
 
 
     public override void _Ready()
@@ -34,19 +43,23 @@ public partial class MainMenu : Node
     private void OnSettingsButtonPressed()
     {
         PopupWindow.Visible = true;
+        PlayAudioEffect(EffectType.Select);
     }
-    private void OnSettingsPopupCloseRequested()
+    private void OnExitButtonPressed()
     {
+        PlayAudioEffect(EffectType.Back);
         PopupWindow.Visible = false;
     }
 
     private void OnFinnishFlagPressed()
     {
         Global.Language = "fi";
+        PlayAudioEffect(EffectType.Select);
     }
     private void OnEnglishFlagPressed()
     {
         Global.Language = "en";
+        PlayAudioEffect(EffectType.Select);
     }
 
     public override void _Process(double delta)
@@ -68,4 +81,28 @@ public partial class MainMenu : Node
     {
         GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
     }
+
+    public void PlayAudioEffect(EffectType effectType)
+    {
+        switch (effectType)
+        {
+        case EffectType.Select:
+        if(_selectButton != null)
+        {
+            _selectButton.Play();
+        }
+        break;
+        case EffectType.Back:
+        if(_backButton != null)
+        {
+            _backButton.Play();
+        }
+        break;
+
+        default:
+        break;
+        }
+
+    }
 }
+

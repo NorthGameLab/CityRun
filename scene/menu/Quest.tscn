@@ -1,11 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt32cqvyqxoqo"]
+[gd_scene load_steps=15 format=3 uid="uid://dt32cqvyqxoqo"]
 
 [ext_resource type="Script" path="res://code/menu/Quest.cs" id="1_6xibc"]
 [ext_resource type="PackedScene" uid="uid://sxu2ulifuq2p" path="res://scene/TestA.tscn" id="2_cpbey"]
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_m3n4j"]
 [ext_resource type="Texture2D" uid="uid://br0lh344mh34n" path="res://gfx/KysymysTaustaV2.png" id="3_2aum3"]
-[ext_resource type="Texture2D" uid="uid://ccdhen11r1ugo" path="res://gfx/nappiNormaali.png" id="4_eks3a"]
-[ext_resource type="Texture2D" uid="uid://cqimvbr4tiqa3" path="res://gfx/nappiPainettu.png" id="5_7ogxr"]
+[ext_resource type="Texture2D" uid="uid://bl474ye2ncxk" path="res://gfx/KysymysNappi1Uusi (1).png" id="5_46s0t"]
+[ext_resource type="Texture2D" uid="uid://b4ggc8w76yw5i" path="res://gfx/KysymysNappi1UusiPainettu (1).png" id="6_gx8wk"]
+[ext_resource type="Texture2D" uid="uid://crysx4eb4rdc4" path="res://gfx/KysymysNappi2Uusi (1).png" id="7_k2kqr"]
+[ext_resource type="Texture2D" uid="uid://dyvwdypkxpeun" path="res://gfx/RaksiNappi.png" id="7_w51wn"]
+[ext_resource type="Texture2D" uid="uid://x0u5e2oenguy" path="res://gfx/RaksiNappiPainettu.png" id="8_5enwu"]
+[ext_resource type="Texture2D" uid="uid://db7drxd2os58s" path="res://gfx/KysymysNappi2UusiPainettu (1).png" id="8_smc5s"]
+[ext_resource type="Texture2D" uid="uid://b8g8yutejmjcu" path="res://gfx/InfoPopup.png" id="9_2qiid"]
+[ext_resource type="AudioStream" uid="uid://c8vwpvih2j223" path="res://Audio/CorrectSound.mp3" id="9_pupce"]
+[ext_resource type="AudioStream" uid="uid://3spn4r3jgorn" path="res://Audio/WrongSound.mp3" id="10_r0mbp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gt0p5"]
 
@@ -44,12 +51,13 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -212.0
-offset_top = -417.0
-offset_right = 212.0
+offset_left = -195.0
+offset_top = -890.0
+offset_right = 229.0
+offset_bottom = 166.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.45, 0.45)
+scale = Vector2(0.4, 0.4)
 pivot_offset = Vector2(480, 720)
 theme = ExtResource("2_m3n4j")
 alignment = 1
@@ -59,8 +67,8 @@ clip_contents = true
 layout_mode = 2
 theme = ExtResource("2_m3n4j")
 action_mode = 0
-texture_normal = ExtResource("4_eks3a")
-texture_pressed = ExtResource("5_7ogxr")
+texture_normal = ExtResource("5_46s0t")
+texture_pressed = ExtResource("6_gx8wk")
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Option1"]
 layout_mode = 1
@@ -69,9 +77,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -415.0
+offset_left = -462.5
 offset_top = -168.5
-offset_right = 443.0
+offset_right = 395.5
 offset_bottom = 167.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -85,8 +93,8 @@ autowrap_mode = 2
 [node name="Option2" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_m3n4j")
-texture_normal = ExtResource("4_eks3a")
-texture_pressed = ExtResource("5_7ogxr")
+texture_normal = ExtResource("7_k2kqr")
+texture_pressed = ExtResource("8_smc5s")
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Option2"]
 layout_mode = 1
@@ -95,9 +103,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -415.0
+offset_left = -450.0
 offset_top = -168.5
-offset_right = 443.0
+offset_right = 408.0
 offset_bottom = 167.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -123,19 +131,50 @@ sprite_frames = SubResource("SpriteFrames_gt0p5")
 
 [node name="info" type="Window" parent="CanvasLayer"]
 process_mode = 3
-position = Vector2i(70, 36)
+mode = 3
+position = Vector2i(70, 26)
 size = Vector2i(400, 500)
+unresizable = true
+borderless = true
 min_size = Vector2i(400, 500)
 max_size = Vector2i(400, 500)
 
-[node name="TextEdit" type="TextEdit" parent="CanvasLayer/info"]
+[node name="InfoBackground" type="TextureRect" parent="CanvasLayer/info"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("9_2qiid")
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/info"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 240.0
+grow_horizontal = 2
 theme = ExtResource("2_m3n4j")
+placeholder_text = "hthtrhtrhht"
+editable = false
+
+[node name="ExitButton" type="TextureButton" parent="CanvasLayer/info"]
+offset_left = 310.0
+offset_top = 410.0
+offset_right = 639.0
+offset_bottom = 729.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("7_w51wn")
+texture_pressed = ExtResource("8_5enwu")
+
+[node name="Correct" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_pupce")
+bus = &"SFX"
+
+[node name="Wrong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_r0mbp")
+bus = &"SFX"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Option1" to="." method="button1Pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Option2" to="." method="button2Pressed"]
 [connection signal="close_requested" from="CanvasLayer/info" to="." method="OnInfoCloseRequested"]
+[connection signal="pressed" from="CanvasLayer/info/ExitButton" to="." method="OnInfoExitPressed"]
+[connection signal="finished" from="Correct" to="." method="OnCorrectFinished"]
