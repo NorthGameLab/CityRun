@@ -135,6 +135,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_m3n4j")
+editable = false
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Option1" to="." method="button1Pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Option2" to="." method="button2Pressed"]

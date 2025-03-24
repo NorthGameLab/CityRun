@@ -15,6 +15,7 @@ public partial class Quest : Node
     string language = Global.Language;
 
     private int questionNum;
+    private static string QuestPath = "res://data/QuestData.json";
 
     [Export] Window InfoWindow;
 
@@ -48,7 +49,8 @@ public partial class Quest : Node
         Random rand = new Random();
         questionNum = 0;
 
-        Godot.Collections.Dictionary data = File.getQuestions();
+        string QuestPath = "res://data/QuestData.json";
+        Godot.Collections.Dictionary data = File.getDictionary(QuestPath);
         questionNum = rand.Next(0, data["questions"].AsGodotArray().Count);
         //questionNum = 2;
         var questionData = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary();
@@ -107,7 +109,7 @@ public partial class Quest : Node
         GD.Print("Infowindow called");
         InfoWindow.Visible = true;
 
-        Godot.Collections.Dictionary data = File.getQuestions();
+        Godot.Collections.Dictionary data = File.getDictionary(QuestPath);
         AnsInfo = GetNode<TextEdit>("CanvasLayer/info/TextEdit");
 
         AnsInfo.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["info"].AsGodotDictionary()[language].AsString();
@@ -137,6 +139,9 @@ public partial class Quest : Node
 
             test.Position += new Vector2(-150, 600);
             Test.fromQuest = true;
+            Test.LastArea = Test.CurrentArea;
+            Test.CurrentArea = Test.NextArea;
+            Test.NextArea = Test.LastArea;
             GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
         else
@@ -169,6 +174,9 @@ public partial class Quest : Node
 
             test.Position += new Vector2(-150, 600);
             Test.fromQuest = true;
+            Test.LastArea = Test.CurrentArea;
+            Test.CurrentArea = Test.NextArea;
+            Test.NextArea = Test.LastArea;
             GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
     }

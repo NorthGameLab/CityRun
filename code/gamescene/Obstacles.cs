@@ -9,6 +9,9 @@ public partial class Obstacles : Node
     private PackedScene Stroller = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Stroller.tscn");
     private PackedScene Scooter = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Scooter.tscn");
     private PackedScene Cyclist = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Cyclist.tscn");
+    private PackedScene Kids = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Puisto/Kids.tscn");
+    private PackedScene Phonewalker = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Puisto/Phonewalker.tscn");
+    private PackedScene Dogwalker = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Puisto/Dogwalker.tscn");
     public override void _Ready()
     {
         ObstacleSpawnTimer = GetNode<Timer>("ObstacleSpawnTimer");
@@ -23,33 +26,82 @@ public partial class Obstacles : Node
 
     private void onObstacleSpawnTimerTimeout()
     {
-        Random rand = new Random();
-        int obstacleNum = rand.Next(1, 7);
-        Obstacle obs;
-
-        switch(obstacleNum)
+        if (Test.CurrentArea == 0)
         {
-            case 1:
-                obs = Walker.Instantiate<Walker>();
-                break;
+            Random rand = new Random();
+            int obstacleNum = rand.Next(1, 9);
+            Obstacle obs;
 
-            case 2:
-                obs = Stroller.Instantiate<Stroller>();
-                break;
+            switch(obstacleNum)
+            {
+                case 1:
+                    obs = Walker.Instantiate<Walker>();
+                    break;
 
-            case int n when (n >= 3 && n <= 4):
-                obs = Scooter.Instantiate<Scooter>();
-                break;
+                case 2:
+                    obs = Stroller.Instantiate<Stroller>();
+                    break;
 
-            case int n when (n >= 5):
-                obs = Cyclist.Instantiate<Cyclist>();
-                break;
+                case int n when (n >= 3 && n <= 4):
+                    obs = Scooter.Instantiate<Scooter>();
+                    break;
 
-            default:
-                obs = Walker.Instantiate<Walker>();
-                break;
+                case int n when (n >= 5):
+                    obs = Cyclist.Instantiate<Cyclist>();
+                    break;
+
+                case 5:
+                    obs = Walker.Instantiate<Walker>();
+                    break;
+
+                case 6:
+                    obs = Scooter.Instantiate<Scooter>();
+                    break;
+
+                case 7:
+                    obs = Scooter.Instantiate<Scooter>();
+                    break;
+
+                case 8:
+                    obs = Walker.Instantiate<Walker>();
+                    break;
+
+                default:
+                    obs = Walker.Instantiate<Walker>();
+                    break;
+            }
+            AddChild(obs);
         }
-        AddChild(obs);
+        else if (Test.CurrentArea == 1)
+        {
+            Random rand = new Random();
+            int obstacleNum = rand.Next(1, 5);
+            Obstacle obs;
+
+            switch(obstacleNum)
+            {
+                case 1:
+                    obs = Kids.Instantiate<Kids>();
+                    break;
+
+                case 2:
+                    obs = Phonewalker.Instantiate<Phonewalker>();
+                    break;
+
+                case 3:
+                    obs = Dogwalker.Instantiate<Dogwalker>();
+                    break;
+
+                case 4:
+                    obs = Cyclist.Instantiate<Cyclist>();
+                    break;
+
+                default:
+                    obs = Walker.Instantiate<Walker>();
+                    break;
+            }
+            AddChild(obs);
+        }
     }
 
     private void Start()

@@ -140,6 +140,24 @@ offset_bottom = 808.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("10_8n6jg")
 
+[node name="TestShopButton" type="Button" parent="Menu"]
+offset_left = 17.0
+offset_top = 856.0
+offset_right = 124.0
+offset_bottom = 945.0
+theme_override_font_sizes/font_size = 20
+text = "Case Opening"
+
+[node name="TestSkinSelectButton" type="Button" parent="Menu"]
+anchors_preset = -1
+anchor_right = 0.117
+offset_left = 189.0
+offset_top = 871.0
+offset_right = 340.82
+offset_bottom = 934.0
+theme_override_font_sizes/font_size = 40
+text = "Skin Select"
+
 [node name="SettingsPopup" type="Window" parent="."]
 process_mode = 3
 auto_translate_mode = 1

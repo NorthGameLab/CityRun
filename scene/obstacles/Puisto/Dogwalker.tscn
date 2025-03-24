@@ -1,0 +1,86 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdrdlle272mnt"]
+
+[ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/obstacles/Obstacle.tscn" id="1_omohl"]
+[ext_resource type="Script" path="res://code/obstacles/Dogwalker.cs" id="2_wbh7x"]
+[ext_resource type="Texture2D" uid="uid://b1876vjgii0kw" path="res://gfx/Character/KoiranUlkoiluttaja.png" id="3_6jm8p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0t3aj"]
+size = Vector2(53, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he7rx"]
+atlas = ExtResource("3_6jm8p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qept6"]
+atlas = ExtResource("3_6jm8p")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0e2s"]
+atlas = ExtResource("3_6jm8p")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg6ha"]
+atlas = ExtResource("3_6jm8p")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni0yy"]
+atlas = ExtResource("3_6jm8p")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aihh4"]
+atlas = ExtResource("3_6jm8p")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3g3u"]
+atlas = ExtResource("3_6jm8p")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa541"]
+atlas = ExtResource("3_6jm8p")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68huu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he7rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qept6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0e2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg6ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni0yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aihh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3g3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa541")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Dogwalker" instance=ExtResource("1_omohl")]
+scale = Vector2(1.2, 1.2)
+script = ExtResource("2_wbh7x")
+_speed = 100.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(41.8333, 89.3333)
+shape = SubResource("RectangleShape2D_0t3aj")
+
+[node name="Animation" parent="." index="2"]
+position = Vector2(45.5, 111.333)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_68huu")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwga8t7qgroiw"]
+
+[ext_resource type="Script" path="res://code/menu/SkinSelect/SkinSelectButton.cs" id="1_fy18q"]
+
+[node name="SkinSelectButton" type="TextureButton"]
+offset_right = 49.78
+offset_bottom = 50.08
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+stretch_mode = 0
+script = ExtResource("1_fy18q")

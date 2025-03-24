@@ -43,7 +43,7 @@ public abstract partial class Obstacle : Area2D
 	{
 		Random rand = new Random();
 		int spawnPos = rand.Next(1, 4);
-		GlobalPosition = new Vector2(spawnPos * _width, -_width);
+		GlobalPosition = new Vector2(spawnPos * _width, -_width * 6);
 	}
 
 	public void screenExited()

@@ -9,6 +9,8 @@ public partial class MainMenu : Node
     public CanvasLayer Menu;
     public Label HighScore;
 
+    private Button TestMenuButton;
+    private Button TestSkinSelectButton;
 
     public override void _Ready()
     {
@@ -29,6 +31,12 @@ public partial class MainMenu : Node
 
         PopupWindow = GetNode<Window>("SettingsPopup");
         PopupWindow.Visible = false;
+
+        TestMenuButton = GetNode<Button>("Menu/TestShopButton");
+        TestMenuButton.Pressed += TestMenuButtonPressed;
+
+        TestSkinSelectButton = GetNode<Button>("Menu/TestSkinSelectButton");
+        TestSkinSelectButton.Pressed += TestSkinSelectButtonPressed;
     }
 
     private void OnSettingsButtonPressed()
@@ -67,5 +75,15 @@ public partial class MainMenu : Node
     private void onStartButtonPressed()
     {
         GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
+    }
+
+    private void TestMenuButtonPressed()
+    {
+        GetTree().ChangeSceneToFile("res://scene/menu/Shop/Shop.tscn");
+    }
+
+    private void TestSkinSelectButtonPressed()
+    {
+        GetTree().ChangeSceneToFile("res://scene/menu/SkinSelect/SkinSelect.tscn");
     }
 }

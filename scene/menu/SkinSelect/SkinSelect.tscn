@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbbgbxt15n33k"]
+
+[ext_resource type="Script" path="res://code/menu/SkinSelect/SkinSelect.cs" id="1_1c8tt"]
+
+[node name="SkinSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1c8tt")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -32.0
+offset_bottom = -582.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+scroll_deadzone = 10
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_direction = 2
+layout_mode = 2
+columns = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ExitButton" type="Button" parent="CanvasLayer"]
+offset_left = 32.0
+offset_top = 849.0
+offset_right = 157.0
+offset_bottom = 931.0
+theme_override_font_sizes/font_size = 70
+text = "Exit"
