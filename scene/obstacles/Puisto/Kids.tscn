@@ -1,0 +1,85 @@
+[gd_scene load_steps=14 format=3 uid="uid://em7q3k0phhk8"]
+
+[ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/obstacles/Obstacle.tscn" id="1_mrx40"]
+[ext_resource type="Script" path="res://code/obstacles/Kids.cs" id="2_1n1gm"]
+[ext_resource type="Texture2D" uid="uid://stoaw3waduy4" path="res://gfx/Character/Koululaiset.png" id="3_kqcox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpyb8"]
+size = Vector2(173.5, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6igya"]
+atlas = ExtResource("3_kqcox")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7qpf"]
+atlas = ExtResource("3_kqcox")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysvt4"]
+atlas = ExtResource("3_kqcox")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnh0l"]
+atlas = ExtResource("3_kqcox")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nokdm"]
+atlas = ExtResource("3_kqcox")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl4u4"]
+atlas = ExtResource("3_kqcox")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31k3i"]
+atlas = ExtResource("3_kqcox")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykgy1"]
+atlas = ExtResource("3_kqcox")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5ory"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6igya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7qpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysvt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnh0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nokdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl4u4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31k3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykgy1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Kids" instance=ExtResource("1_mrx40")]
+script = ExtResource("2_1n1gm")
+_speed = 100.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(106.6, 102.6)
+shape = SubResource("RectangleShape2D_bpyb8")
+
+[node name="Animation" parent="." index="2"]
+position = Vector2(91.6, 97.6)
+scale = Vector2(4.3, 4.3)
+sprite_frames = SubResource("SpriteFrames_p5ory")

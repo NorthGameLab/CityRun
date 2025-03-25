@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://f0b1umy1mm4h"]
+
+[ext_resource type="Script" path="res://code/Environment/Area2Objects.cs" id="1_fwwin"]
+[ext_resource type="Texture2D" uid="uid://den5r4yjlx38s" path="res://gfx/Environment/Puisto/KoivuValmis.png" id="2_afwmf"]
+[ext_resource type="Texture2D" uid="uid://bkkn5acvudlyb" path="res://gfx/Environment/Puisto/KuusiValmis (1).png" id="3_hqcgm"]
+[ext_resource type="Texture2D" uid="uid://qageu4gp57h7" path="res://gfx/Environment/Puisto/KatuvaloOikea (1).png" id="4_da65y"]
+
+[node name="Area2Objects" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_fwwin")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+position = Vector2(-35, 228)
+scale = Vector2(0.4, 0.4)
+
+[node name="Kuusi3" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(75, -920)
+scale = Vector2(1.068, 1)
+texture = ExtResource("3_hqcgm")
+
+[node name="Koivu3" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(172.5, -437.5)
+scale = Vector2(1, 1)
+texture = ExtResource("2_afwmf")
+
+[node name="Kuusi" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(45, -55)
+scale = Vector2(1.068, 1)
+texture = ExtResource("3_hqcgm")
+
+[node name="Koivu2" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(92.5, 405)
+scale = Vector2(1, 1)
+texture = ExtResource("2_afwmf")
+
+[node name="Kuusi2" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(137.5, 710)
+scale = Vector2(1.068, 1)
+texture = ExtResource("3_hqcgm")
+
+[node name="Koivu" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(230, 1085)
+scale = Vector2(1, 1)
+texture = ExtResource("2_afwmf")
+
+[node name="Kuusi4" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(175, 1362.5)
+scale = Vector2(1.068, 1)
+texture = ExtResource("3_hqcgm")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -317)
+
+[node name="Katuvalo" type="Sprite2D" parent="."]
+position = Vector2(391, 286)
+scale = Vector2(0.35, 0.45)
+texture = ExtResource("4_da65y")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="onScreenExited"]

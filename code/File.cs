@@ -2,21 +2,24 @@ using Godot;
 using System;
 using System.Data.Common;
 using System.IO;
+using System.Net;
 using System.Text.Json;
 
 public partial class File : Node
 {
-    private static string SavePath = "res://data/SaveFile.json";
-    private static string QuestPath = "res://data/QuestData.json";
-
+    public static string SavePath = "res://data/SaveFile.json";
+    public static string UserSavePath = OS.GetUserDataDir() + "/SaveFile.json";
+    public static string ItemPath = "res://data/ItemData.json";
+    public static string UserSaveItemPath = OS.GetUserDataDir() + "/ItemSaveData.json";
 
     public override void _Ready()
     {
+
     }
 
-    public static Godot.Collections.Dictionary getQuestions()
+    public static Godot.Collections.Dictionary getDictionary(string path)
     {
-        string loadedData = LoadQuestions();
+        string loadedData = LoadText(path);
 
         Json jsonLoader = new Json();
 
@@ -33,27 +36,64 @@ public partial class File : Node
         return data;
     }
 
+    public static string LoadText(string path)
+    {
+        var file = Godot.FileAccess.Open(path, Godot.FileAccess.ModeFlags.Read);
+        string data = file.GetAsText();
+        return data;
+    }
+
     public static void SaveGame(Data data)
     {
         string json = JsonSerializer.Serialize(data);
-        using Godot.FileAccess file = Godot.FileAccess.Open(SavePath, Godot.FileAccess.ModeFlags.Write);
+        using Godot.FileAccess file = Godot.FileAccess.Open(UserSavePath, Godot.FileAccess.ModeFlags.Write);
         file.StoreString(json);
     }
 
     public static Data LoadGame()
     {
-        if (!Godot.FileAccess.FileExists(SavePath))
-            return new Data();
-
-        using Godot.FileAccess file = Godot.FileAccess.Open(SavePath, Godot.FileAccess.ModeFlags.Read);
+        if (!Godot.FileAccess.FileExists(UserSavePath))
+        {
+            CopyFileToUser(SavePath, UserSavePath);
+        }
+        using Godot.FileAccess file = Godot.FileAccess.Open(UserSavePath, Godot.FileAccess.ModeFlags.Read);
         string json = file.GetAsText();
-        return JsonSerializer.Deserialize<Data>(json);
+        GD.Print("Loaded JSON: " + json);
+        Data loadedData = JsonSerializer.Deserialize<Data>(json);
+
+        // TÄSSÄ ON ONGELMA
+        using Godot.FileAccess initDataFile = Godot.FileAccess.Open(SavePath, Godot.FileAccess.ModeFlags.Read);
+        string initDataString = initDataFile.GetAsText();
+        GD.Print("Initial JSON: " + initDataString);
+        Data initData = JsonSerializer.Deserialize<Data>(initDataString);
+
+        if (loadedData.OwnedSkins.Length != initData.OwnedSkins.Length)
+        {
+            GD.Print("UserSavePath: " + UserSavePath);
+            GD.Print("SavePath: " + SavePath);
+            CopyFileToUser(SavePath, UserSavePath);
+            return initData;
+        }
+
+        return loadedData;
     }
 
-    public static string LoadQuestions()
+
+    private static void CopyFileToUser(string path1, string path2)
     {
-        var file = Godot.FileAccess.Open(QuestPath, Godot.FileAccess.ModeFlags.Read);
-        string data = file.GetAsText();
-        return data;
+        if (ResourceLoader.Exists(path1))
+        {
+            Godot.FileAccess file = Godot.FileAccess.Open(path1, Godot.FileAccess.ModeFlags.Read);
+            string content = file.GetAsText();
+            file.Close();
+
+            System.IO.File.WriteAllText(path2, content);
+            GD.Print("File copied to: " + path2);
+        }
+        else
+        {
+            GD.PrintErr("File not found in res://");
+        }
     }
+
 }

@@ -33,8 +33,46 @@ public partial class Player : Area2D
 	public override void _Ready()
 	{
 		_width = GetViewport().GetVisibleRect().Size.X / 5;
+
 		_animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		var currentSkinData = Test.ItemData[Test.CurrentSkinId].AsGodotDictionary();
+		SpriteFrames frames = new SpriteFrames();
+		int frameCount = (int)currentSkinData["frames"];
+		Texture2D textureInit = (Texture2D)ResourceLoader.Load((string)currentSkinData["animPath"]);
+		Image textureImage = textureInit.GetImage();
+		if (frameCount > 1)
+		{
+			var frameRegion = new Rect2I();
+			int framesX = (int)currentSkinData["framesX"];
+			int framesY = (int)currentSkinData["framesY"];
+			var size = textureImage.GetSize();
+			var sizeX = size.X / framesX;
+			var sizeY = size.Y / framesY;
+			for(int y = 0; y < framesY ; y++)
+			{
+				for(int x = 0; x < framesX; x++)
+				{
+					frameRegion = new Rect2I(x * sizeX, y * sizeY, sizeX, sizeY);
+					var frameTexture = ImageTexture.CreateFromImage(textureImage.GetRegion(frameRegion));
+					frames.AddFrame("default", frameTexture);
+				}
+			}
+		}
+		else
+		{
+			frames.AddFrame("default", textureInit);
+		}
+		_animation.SpriteFrames = frames;
+		if(frameCount > 1)
+			_animation.Scale = new Vector2(4.4f, 4.4f);
+		else
+			_animation.Scale = new Vector2(1f, 1f);
+		_animation.GlobalPosition = new Vector2(_width * 3 - (_width / 2) - 8, 900);
+        _animation.Show();
 		_animation.Play();
+
+		var shape = GetNode("CollisionShape2D");
+
 
 		Start();
 	}
@@ -46,29 +84,38 @@ public partial class Player : Area2D
 
 	#endregion
 
-    public override void _UnhandledInput(InputEvent @event)
+   private bool _swipeDetected = false; // Tracks if a swipe has already been detected
+
+public override void _UnhandledInput(InputEvent @event)
+{
+    base._UnhandledInput(@event);
+
+    if (@event is InputEventScreenTouch touchEvent)
     {
-        base._Input(@event);
-		if (@event is InputEventScreenTouch touchEvent)
-		{
-			// input recieved
-			if(touchEvent.Pressed)
-			{
-				// save the touch starting position
-				_touchStartPosition = touchEvent.Position;
-			}
-			else
-			{
-				Vector2 touchEndPosition = touchEvent.Position;
-				DetectSwipe(_touchStartPosition, touchEndPosition);
-			}
-		}
+        if (touchEvent.Pressed)
+        {
+            _swipeDetected = false;
+            _touchStartPosition = touchEvent.Position;
+        }
     }
+    else if (@event is InputEventScreenDrag dragEvent && !_swipeDetected)
+    {
+        Vector2 touchCurrentPosition = dragEvent.Position;
+
+        float swipeThreshold = 50.0f;
+
+        if (_touchStartPosition.DistanceTo(touchCurrentPosition) > swipeThreshold)
+        {
+            DetectSwipe(_touchStartPosition, touchCurrentPosition);
+            _swipeDetected = true;
+        }
+    }
+}
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{
-		_animation.SpeedScale = (float)((GameScene._speed / GameScene._maxSpeed) * (GameScene._maxSpeed / 500));
+		_animation.SpeedScale = (float)((GameScene._speed / GameScene._maxSpeed) * (GameScene._maxSpeed / 250));
 
 		//LIIKKUMISKOODI TOIMII JOTENKIN MUTTA PITÄÄ MUUTTAA EHKÄ
 		if (!_moving)

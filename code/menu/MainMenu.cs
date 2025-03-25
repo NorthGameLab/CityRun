@@ -17,6 +17,8 @@ public partial class MainMenu : Node
     public CanvasLayer Menu;
     public Label HighScore;
 
+    private Button TestMenuButton;
+    private Button TestSkinSelectButton;
 
 
     public override void _Ready()
@@ -30,14 +32,21 @@ public partial class MainMenu : Node
 
         _texture = GetNode<Sprite2D>("Menu/Control/Sprite2D");
 
+        /*
         _texture2 = new Sprite2D();
         _texture2.Texture = _texture.Texture;
         _texture2.Scale = _texture.Scale;
         _texture2.Position = _texture.Position - new Vector2(540, 0);
         GetNode<Control>("Menu/Control").AddChild(_texture2);
-
+        */
         PopupWindow = GetNode<Window>("SettingsPopup");
         PopupWindow.Visible = false;
+
+        TestMenuButton = GetNode<Button>("Menu/TestShopButton");
+        TestMenuButton.Pressed += TestMenuButtonPressed;
+
+        TestSkinSelectButton = GetNode<Button>("Menu/TestSkinSelectButton");
+        TestSkinSelectButton.Pressed += TestSkinSelectButtonPressed;
     }
 
     private void OnSettingsButtonPressed()
@@ -64,6 +73,7 @@ public partial class MainMenu : Node
 
     public override void _Process(double delta)
     {
+        /*
         _texture.Position += new Vector2(1, 0);
         _texture2.Position += new Vector2(1, 0);
 
@@ -75,6 +85,7 @@ public partial class MainMenu : Node
         {
             _texture2.Position = new Vector2(-540, 0);
         }
+        */
     }
 
     private void onStartButtonPressed()
@@ -82,6 +93,15 @@ public partial class MainMenu : Node
         GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
     }
 
+    private void TestMenuButtonPressed()
+    {
+        GetTree().ChangeSceneToFile("res://scene/menu/Shop/Shop.tscn");
+    }
+
+    private void TestSkinSelectButtonPressed()
+    {
+        GetTree().ChangeSceneToFile("res://scene/menu/SkinSelect/SkinSelect.tscn");
+    }
     public void PlayAudioEffect(EffectType effectType)
     {
         switch (effectType)

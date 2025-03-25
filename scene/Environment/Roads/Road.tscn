@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cb07ku4gfgoiy"]
+
+[node name="Road" type="AnimatedSprite2D"]
+position = Vector2(0, 426)
+scale = Vector2(0.142, 0.142)
+offset = Vector2(1901.41, 1901.41)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="onScreenExited"]

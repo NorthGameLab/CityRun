@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://21oo8fg82pqk"]
+
+[ext_resource type="Texture2D" uid="uid://b2qscebbjhjl7" path="res://gfx/Mainmenu/AlotusnayttoV2TalotKeskellä.png" id="1_tdblj"]
+
+[node name="Talotkeskellä" type="Sprite2D"]
+scale = Vector2(1.1, 1)
+texture = ExtResource("1_tdblj")

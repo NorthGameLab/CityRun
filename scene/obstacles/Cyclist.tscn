@@ -50,11 +50,11 @@ script = ExtResource("2_v65y6")
 _speed = 350.0
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(63.09, 100.715)
+position = Vector2(55, 101)
 shape = SubResource("RectangleShape2D_n5oxq")
 
 [node name="Animation" parent="." index="2"]
-position = Vector2(65.84, 86.84)
+position = Vector2(60, 87)
 scale = Vector2(0.32, 0.32)
 sprite_frames = SubResource("SpriteFrames_5qism")
 frame_progress = 0.234091

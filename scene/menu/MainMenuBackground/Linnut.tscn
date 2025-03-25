@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://bunc883bqwcw2"]
+
+[ext_resource type="Texture2D" uid="uid://b5vpe0wyxnh3e" path="res://gfx/Mainmenu/AlotusnayttoV2Linnut2.png" id="1_5q0gg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bnku"]
+atlas = ExtResource("1_5q0gg")
+region = Rect2(0, 0, 143, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gscjv"]
+atlas = ExtResource("1_5q0gg")
+region = Rect2(143, 0, 143, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2368t"]
+atlas = ExtResource("1_5q0gg")
+region = Rect2(0, 250, 143, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe6cs"]
+atlas = ExtResource("1_5q0gg")
+region = Rect2(143, 250, 143, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxymi"]
+atlas = ExtResource("1_5q0gg")
+region = Rect2(0, 500, 143, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlh0p"]
+atlas = ExtResource("1_5q0gg")
+region = Rect2(143, 500, 143, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gigb2"]
+atlas = ExtResource("1_5q0gg")
+region = Rect2(0, 750, 143, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87tcw"]
+atlas = ExtResource("1_5q0gg")
+region = Rect2(143, 750, 143, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4k7v"]
+atlas = ExtResource("1_5q0gg")
+region = Rect2(0, 1000, 143, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2nt6"]
+atlas = ExtResource("1_5q0gg")
+region = Rect2(143, 1000, 143, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ctj0"]
+atlas = ExtResource("1_5q0gg")
+region = Rect2(0, 1250, 143, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1nqc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bnku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gscjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2368t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe6cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxymi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlh0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gigb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87tcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4k7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2nt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ctj0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Linnut" type="AnimatedSprite2D"]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_r1nqc")

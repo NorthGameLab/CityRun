@@ -1,0 +1,84 @@
+{
+	"items": [
+	{
+		"animPath": "res://gfx/Skins/Skin1.png",
+		"path": "res://gfx/Skins/Skin1Icon.png",
+		"frames": 8,
+		"framesX": 2,
+		"framesY": 4,
+		"name": "Skin1"
+	},
+	{
+		"animPath": "res://gfx/Skins/Skin2.png",
+		"path": "res://gfx/Skins/Skin2Icon.png",
+		"frames": 8,
+		"framesX": 2,
+		"framesY": 4,
+		"name": "Skin2"
+	},
+	{
+		"animPath": "res://gfx/Skins/Skin3.png",
+		"path": "res://gfx/Skins/Skin3Icon.png",
+		"frames": 8,
+		"framesX": 2,
+		"framesY": 4,
+		"name": "Skin3"
+	},
+	{
+		"animPath": "res://gfx/Skins/Skin4.png",
+		"path": "res://gfx/Skins/Skin4Icon.png",
+		"frames": 8,
+		"framesX": 2,
+		"framesY": 4,
+		"name": "Skin4"
+	},
+	{
+		"animPath": "res://gfx/Skins/Skin5.png",
+		"path": "res://gfx/Skins/Skin5Icon.png",
+		"frames": 8,
+		"framesX": 2,
+		"framesY": 4,
+		"name": "Skin5"
+	},
+	{
+		"animPath": "res://gfx/Skins/Skin6.png",
+		"path": "res://gfx/Skins/Skin6Icon.png",
+		"frames": 8,
+		"framesX": 2,
+		"framesY": 4,
+		"name": "Skin6"
+	},
+	{
+		"animPath": "res://gfx/Skins/Skin7.png",
+		"path": "res://gfx/Skins/Skin7Icon.png",
+		"frames": 8,
+		"framesX": 2,
+		"framesY": 4,
+		"name": "Skin7"
+	},
+	{
+		"animPath": "res://gfx/Skins/Skin8.png",
+		"path": "res://gfx/Skins/Skin8Icon.png",
+		"frames": 8,
+		"framesX": 2,
+		"framesY": 4,
+		"name": "Skin8"
+	},
+	{
+		"animPath": "res://gfx/Skins/Skin9.png",
+		"path": "res://gfx/Skins/Skin9Icon.png",
+		"frames": 8,
+		"framesX": 2,
+		"framesY": 4,
+		"name": "Skin9"
+	},
+	{
+		"animPath": "res://gfx/Skins/Skin10.png",
+		"path": "res://gfx/Skins/Skin10Icon.png",
+		"frames": 8,
+		"framesX": 2,
+		"framesY": 4,
+		"name": "Skin10"
+	}
+	]
+}
