@@ -4,21 +4,21 @@ using System;
 public partial class SkinSelectButton : TextureButton
 {
 	public bool owned;
+	public AnimatedSprite2D RarityBackground;
 	public int id;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Pressed += onPressed;
-	}
+		RarityBackground = GetNode<AnimatedSprite2D>("RarityBackground");
+		if (!owned)
+			RarityBackground.Frame = 0;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+		Pressed += onPressed;
 	}
 
 	private void onPressed()
 	{
 		if (owned)
-		Test.CurrentSkinId = id;
+			Test.CurrentSkinId = id;
 	}
 }

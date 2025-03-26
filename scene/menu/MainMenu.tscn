@@ -128,21 +128,29 @@ texture = ExtResource("10_8n6jg")
 
 [node name="TestShopButton" type="Button" parent="Menu"]
 offset_left = 17.0
-offset_top = 856.0
-offset_right = 124.0
-offset_bottom = 945.0
-theme_override_font_sizes/font_size = 20
+offset_top = 668.0
+offset_right = 290.0
+offset_bottom = 757.0
+theme_override_font_sizes/font_size = 40
 text = "Case Opening"
 
 [node name="TestSkinSelectButton" type="Button" parent="Menu"]
 anchors_preset = -1
 anchor_right = 0.117
-offset_left = 189.0
-offset_top = 871.0
-offset_right = 340.82
-offset_bottom = 934.0
+offset_left = 18.0
+offset_top = 776.0
+offset_right = 169.82
+offset_bottom = 839.0
 theme_override_font_sizes/font_size = 40
 text = "Skin Select"
+
+[node name="ExitGameButton" type="Button" parent="Menu"]
+offset_left = 19.0
+offset_top = 864.0
+offset_right = 215.0
+offset_bottom = 935.0
+theme_override_font_sizes/font_size = 40
+text = "Exit game"
 
 [node name="SettingsPopup" type="Window" parent="."]
 process_mode = 3
@@ -263,6 +271,7 @@ stream = ExtResource("27_pymr3")
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]
 [connection signal="pressed" from="Menu/Settings" to="." method="OnSettingsButtonPressed"]
+[connection signal="pressed" from="Menu/ExitGameButton" to="." method="onExitGamePressed"]
 [connection signal="close_requested" from="SettingsPopup" to="." method="OnSettingsPopupCloseRequested"]
 [connection signal="pressed" from="SettingsPopup/Suomelippu" to="." method="OnFinnishFlagPressed"]
 [connection signal="pressed" from="SettingsPopup/Englanti" to="." method="OnEnglishFlagPressed"]

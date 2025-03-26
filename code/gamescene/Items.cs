@@ -12,14 +12,12 @@ public partial class Items : Node
         timer.Start();
     }
 
-    public override void _Process(double delta)
-    {
-
-    }
-
     private void onTimerTimeout()
     {
-        coin = coins.Instantiate<Coin>();
-        AddChild(coin);
+        if (!GameScene.GetEnvironment().getSpawnedCrosswalk())
+        {
+            coin = coins.Instantiate<Coin>();
+            AddChild(coin);
+        }
     }
 }

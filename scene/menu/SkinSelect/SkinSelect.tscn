@@ -37,3 +37,13 @@ offset_right = 157.0
 offset_bottom = 931.0
 theme_override_font_sizes/font_size = 70
 text = "Exit"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 139.0
+offset_top = -3.0
+offset_right = 394.0
+offset_bottom = 66.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 50
+text = "Skin select"

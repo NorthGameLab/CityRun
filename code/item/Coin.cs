@@ -3,8 +3,7 @@ using System;
 
 public partial class Coin : Item
 {
-    [Export]
-    public PackedScene testA = null;
+    public PackedScene testA = ResourceLoader.Load<PackedScene>("res://scene/TestA.tscn");
     public TestA test = null;
 
     public override void onAreaEntered(Node2D body)
@@ -13,8 +12,9 @@ public partial class Coin : Item
 		{
 			Test.addToMoney(1);
             test = testA.Instantiate<TestA>();
-            test.Position = new Vector2(110, 15);
+            //test.Position = new Vector2(110, 15);
             GetParent().AddChild(test);
+            test.GetNode<Sprite2D>("Sprite2D").Show();
 		}
 
         QueueFree();

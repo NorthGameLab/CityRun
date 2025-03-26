@@ -20,15 +20,17 @@ public partial class GameScene : Node
 
     public static float _distance = 0f;
     public static float _distanceToNext = 10000;
-    private float _distanceToNextUp = 10000;
+    private float _distanceToNextUp = 3000;
     public static int _timesQuest = 0;
 
     private bool _goingToQuest = false;
     private float _deceleration;
     private float _distanceToQuest = 650;
+    private static Environment environment;
 
     public override void _Ready()
     {
+        environment = GetNode<Environment>("Environment");
         Hud = GetNode<Hud>("Hud");
 
         if (_lose)
@@ -160,5 +162,9 @@ public partial class GameScene : Node
         resetGame();
         GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
 
+    }
+    public static Environment GetEnvironment()
+    {
+        return environment;
     }
 }
