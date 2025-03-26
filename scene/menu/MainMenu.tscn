@@ -195,30 +195,28 @@ texture = ExtResource("10_c6agh")
 
 [node name="Suomelippu" type="TextureButton" parent="SettingsPopup"]
 offset_left = 40.0
-offset_top = 50.0
+offset_top = 140.0
 offset_right = 1064.0
-offset_bottom = 1074.0
+offset_bottom = 1164.0
 scale = Vector2(0.15, 0.15)
 pivot_offset = Vector2(-25, -25)
-toggle_mode = true
 texture_normal = ExtResource("11_oupaw")
 texture_pressed = ExtResource("13_wsekp")
 
 [node name="Englanti" type="TextureButton" parent="SettingsPopup"]
 offset_left = 18.0
-offset_top = 82.0
+offset_top = 172.0
 offset_right = 1042.0
-offset_bottom = 1106.0
+offset_bottom = 1196.0
 scale = Vector2(0.15, 0.15)
-toggle_mode = true
 texture_normal = ExtResource("12_boub0")
 texture_pressed = ExtResource("15_u01sd")
 
 [node name="Äänenvoimakkuus" type="TextureButton" parent="SettingsPopup"]
 offset_left = 24.0
-offset_top = 140.0
+offset_top = 230.0
 offset_right = 419.0
-offset_bottom = 499.0
+offset_bottom = 589.0
 scale = Vector2(0.14, 0.14)
 toggle_mode = true
 action_mode = 0
@@ -227,27 +225,27 @@ texture_pressed = ExtResource("14_phfrw")
 
 [node name="PlusNappi" type="TextureButton" parent="SettingsPopup"]
 offset_left = 220.0
-offset_top = 145.0
+offset_top = 235.0
 offset_right = 572.0
-offset_bottom = 493.0
+offset_bottom = 583.0
 scale = Vector2(0.13, 0.13)
 texture_normal = ExtResource("15_hkhoa")
 texture_pressed = ExtResource("16_brc36")
 
 [node name="MiinusNappi" type="TextureButton" parent="SettingsPopup"]
 offset_left = 110.0
-offset_top = 145.0
+offset_top = 235.0
 offset_right = 465.0
-offset_bottom = 497.0
+offset_bottom = 587.0
 scale = Vector2(0.13, 0.13)
 texture_normal = ExtResource("17_tbvbu")
 texture_pressed = ExtResource("18_bkpyb")
 
 [node name="Musiikki" type="TextureButton" parent="SettingsPopup"]
 offset_left = 22.0
-offset_top = 210.0
+offset_top = 300.0
 offset_right = 425.0
-offset_bottom = 561.0
+offset_bottom = 651.0
 scale = Vector2(0.12, 0.12)
 toggle_mode = true
 action_mode = 0
@@ -256,18 +254,18 @@ texture_pressed = ExtResource("16_c0ycw")
 
 [node name="PlusNappi2" type="TextureButton" parent="SettingsPopup"]
 offset_left = 220.0
-offset_top = 210.0
+offset_top = 300.0
 offset_right = 572.0
-offset_bottom = 558.0
+offset_bottom = 648.0
 scale = Vector2(0.13, 0.13)
 texture_normal = ExtResource("15_hkhoa")
 texture_pressed = ExtResource("16_brc36")
 
 [node name="MiinusNappi2" type="TextureButton" parent="SettingsPopup"]
 offset_left = 110.0
-offset_top = 210.0
+offset_top = 300.0
 offset_right = 465.0
-offset_bottom = 562.0
+offset_bottom = 652.0
 scale = Vector2(0.13, 0.13)
 texture_normal = ExtResource("17_tbvbu")
 texture_pressed = ExtResource("18_bkpyb")
@@ -308,6 +306,22 @@ offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
+
+[node name="Control" type="Control" parent="SettingsPopup"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 60.0
+scale = Vector2(0.4, 0.4)
+
+[node name="Label" type="Label" parent="SettingsPopup/Control"]
+offset_right = 355.0
+offset_bottom = 143.0
+theme = ExtResource("2_tjppq")
+theme_override_font_sizes/font_size = 0
+text = "SETTINGS"
 
 [node name="SelectButton" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_26ri3")
