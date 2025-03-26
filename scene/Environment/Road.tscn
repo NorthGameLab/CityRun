@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb07ku4gfgoiy"]
+[gd_scene load_steps=4 format=3 uid="uid://cb07ku4gfgoiy"]
 
 [ext_resource type="Texture2D" uid="uid://c044fqrlipti3" path="res://gfx/Environment/TieRuohollaValmisV2.png" id="1_nb53u"]
 [ext_resource type="Texture2D" uid="uid://bimsbc7sel1m" path="res://gfx/Environment/RisteysAlueValmis.png" id="2_uunxy"]
-[ext_resource type="Script" path="res://code/Environment/Road.cs" id="2_wo1ft"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xidfv"]
 animations = [{
@@ -23,7 +22,6 @@ position = Vector2(0, 426)
 scale = Vector2(0.142, 0.142)
 sprite_frames = SubResource("SpriteFrames_xidfv")
 offset = Vector2(1901.41, 1901.41)
-script = ExtResource("2_wo1ft")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 

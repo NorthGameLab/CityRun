@@ -10,13 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://dyvwdypkxpeun" path="res://gfx/RaksiNappi.png" id="7_w51wn"]
 [ext_resource type="Texture2D" uid="uid://x0u5e2oenguy" path="res://gfx/RaksiNappiPainettu.png" id="8_5enwu"]
 [ext_resource type="Texture2D" uid="uid://db7drxd2os58s" path="res://gfx/KysymysNappi2UusiPainettu (1).png" id="8_smc5s"]
-[ext_resource type="Texture2D" uid="uid://cbe4igpoa5fs4" path="res://gfx/InfoPopupV2.png" id="9_8bv58"]
-[ext_resource type="AudioStream" uid="uid://c8vwpvih2j223" path="res://Audio/SFX/CorrectSound.mp3" id="9_pupce"]
-[ext_resource type="AudioStream" uid="uid://3spn4r3jgorn" path="res://Audio/SFX/WrongSound.mp3" id="10_r0mbp"]
+[ext_resource type="AudioStream" uid="uid://c8vwpvih2j223" path="res://Audio/CorrectSound.mp3" id="9_pupce"]
+[ext_resource type="Texture2D" uid="uid://cbe4igpoa5fs4" path="res://gfx/InfoPopupV2.png" id="9_whq83"]
+[ext_resource type="AudioStream" uid="uid://3spn4r3jgorn" path="res://Audio/WrongSound.mp3" id="10_r0mbp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gt0p5"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jdqmd"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o4k16"]
 
 [node name="Quest" type="Node" node_paths=PackedStringArray("InfoWindow")]
 script = ExtResource("1_6xibc")
@@ -69,6 +69,7 @@ clip_contents = true
 layout_mode = 2
 theme = ExtResource("2_m3n4j")
 action_mode = 0
+keep_pressed_outside = true
 texture_normal = ExtResource("5_46s0t")
 texture_pressed = ExtResource("6_gx8wk")
 
@@ -95,6 +96,8 @@ autowrap_mode = 2
 [node name="Option2" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_m3n4j")
+action_mode = 0
+keep_pressed_outside = true
 texture_normal = ExtResource("7_k2kqr")
 texture_pressed = ExtResource("8_smc5s")
 
@@ -134,7 +137,11 @@ sprite_frames = SubResource("SpriteFrames_gt0p5")
 [node name="info" type="Window" parent="CanvasLayer"]
 process_mode = 3
 mode = 3
-position = Vector2i(70, 0)
+<<<<<<< HEAD
+position = Vector2i(70, 26)
+=======
+position = Vector2i(70, 94)
+>>>>>>> e0a32f978bbeb038cc3dd6fe6808b644260541f1
 size = Vector2i(400, 500)
 unresizable = true
 borderless = true
@@ -147,33 +154,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_8bv58")
+texture = ExtResource("9_whq83")
 
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer/info"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 25.0
-offset_top = 60.0
+offset_top = 40.0
 offset_right = -25.0
-offset_bottom = 460.0
+offset_bottom = 440.0
 grow_horizontal = 2
 theme = ExtResource("2_m3n4j")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_jdqmd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o4k16")
 placeholder_text = "hthtrhtrhht"
 editable = false
 wrap_mode = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/info"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 160.0
-offset_right = 160.0
-offset_bottom = 72.0
-grow_horizontal = 2
-theme = ExtResource("2_m3n4j")
-theme_override_font_sizes/font_size = 50
-text = "Info"
 
 [node name="ExitButton" type="TextureButton" parent="CanvasLayer/info"]
 offset_left = 310.0

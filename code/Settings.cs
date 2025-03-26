@@ -4,7 +4,7 @@ using System;
 	{
 		[Signal] public delegate void LanguageChangedEventHandler(string langCode);
 
-		private SettingsData _data = null;
+		public SettingsData _data = null;
 
 		public override void _Ready()
 		{

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt2p2hwxi3ojg"
-path="res://.godot/imported/HintNappi.png-baf2d7be6b3e1abe91b626938e9d64fc.ctex"
+uid="uid://o1fb2nu2ybxg"
+path="res://.godot/imported/SkinMenu.png-388a9f2527083c776bc2145b2616f925.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/HintNappi.png"
-dest_files=["res://.godot/imported/HintNappi.png-baf2d7be6b3e1abe91b626938e9d64fc.ctex"]
+source_file="res://gfx/SkinMenu.png"
+dest_files=["res://.godot/imported/SkinMenu.png-388a9f2527083c776bc2145b2616f925.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bn35pvktrn0yo" path="res://scene/obstacles/Obstacle.tscn" id="1_gmp7t"]
 [ext_resource type="Script" path="res://code/obstacles/Cyclist.cs" id="2_v65y6"]
 [ext_resource type="Texture2D" uid="uid://bo3xvll0tv32d" path="res://gfx/PyöräilijäValmisV2.png" id="3_1aujf"]
-[ext_resource type="AudioStream" uid="uid://cyckgq4gg36ow" path="res://Audio/BicycleBell.mp3" id="4_nhwnr"]
-[ext_resource type="AudioStream" uid="uid://bf64g2rwvr5t2" path="res://Audio/156192__lau7__bike-chain_2.wav" id="4_qtif8"]
+[ext_resource type="AudioStream" uid="uid://cyckgq4gg36ow" path="res://Audio/SFX/BicycleBell.mp3" id="4_nhwnr"]
+[ext_resource type="AudioStream" uid="uid://bf64g2rwvr5t2" path="res://Audio/SFX/156192__lau7__bike-chain_2.wav" id="4_qtif8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5oxq"]
 size = Vector2(59.5, 78.25)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://f0b1umy1mm4h"]
+[gd_scene load_steps=5 format=3 uid="uid://duffdkccll68o"]
 
 [ext_resource type="Script" path="res://code/Environment/Area2Objects.cs" id="1_fwwin"]
 [ext_resource type="Texture2D" uid="uid://den5r4yjlx38s" path="res://gfx/Environment/Puisto/KoivuValmis.png" id="2_afwmf"]
@@ -20,7 +20,6 @@ texture = ExtResource("3_hqcgm")
 
 [node name="Koivu3" type="Sprite2D" parent="CanvasGroup"]
 position = Vector2(172.5, -437.5)
-scale = Vector2(1, 1)
 texture = ExtResource("2_afwmf")
 
 [node name="Kuusi" type="Sprite2D" parent="CanvasGroup"]
@@ -30,7 +29,6 @@ texture = ExtResource("3_hqcgm")
 
 [node name="Koivu2" type="Sprite2D" parent="CanvasGroup"]
 position = Vector2(92.5, 405)
-scale = Vector2(1, 1)
 texture = ExtResource("2_afwmf")
 
 [node name="Kuusi2" type="Sprite2D" parent="CanvasGroup"]
@@ -40,7 +38,6 @@ texture = ExtResource("3_hqcgm")
 
 [node name="Koivu" type="Sprite2D" parent="CanvasGroup"]
 position = Vector2(230, 1085)
-scale = Vector2(1, 1)
 texture = ExtResource("2_afwmf")
 
 [node name="Kuusi4" type="Sprite2D" parent="CanvasGroup"]
