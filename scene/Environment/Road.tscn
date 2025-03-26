@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d5nrvpn4ft74"]
+[gd_scene load_steps=4 format=3 uid="uid://cb07ku4gfgoiy"]
 
 [ext_resource type="Texture2D" uid="uid://c044fqrlipti3" path="res://gfx/Environment/TieRuohollaValmisV2.png" id="1_nb53u"]
 [ext_resource type="Texture2D" uid="uid://bimsbc7sel1m" path="res://gfx/Environment/RisteysAlueValmis.png" id="2_uunxy"]

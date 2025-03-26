@@ -12,25 +12,29 @@ public partial class MainMenu : Node
     [Export] public Window PopupWindow;
     [Export] private AudioStreamPlayer2D _selectButton = null;
     [Export] private AudioStreamPlayer2D _backButton = null;
+    [Export] private TextureButton _MusicPlus = null;
+    [Export] private TextureButton _musicMinus = null;
+    [Export] private TextureButton _sfxPlus = null;
+    [Export] private TextureButton _sfxMinus = null;
+
     private Sprite2D _texture = null;
     private Sprite2D _texture2 = null;
     public CanvasLayer Menu;
     public Label HighScore;
+    private Settings settings;
 
-    private Button TestMenuButton;
-    private Button TestSkinSelectButton;
+    private TextureButton TestMenuButton;
+    private TextureButton TestSkinSelectButton;
 
 
     public override void _Ready()
     {
+        settings = GetNode<Settings>("Settings");
         Test.loadGame();
-
         Menu = GetNode<CanvasLayer>("Menu");
         HighScore = Menu.GetNode<Label>("HighScore");
 
-        HighScore.Text = "Highscore: " + Test.HighScore;
-
-        _texture = GetNode<Sprite2D>("Menu/Control/Sprite2D");
+        HighScore.Text = "HighScore: " + Test.HighScore;
 
         /*
         _texture2 = new Sprite2D();
@@ -42,10 +46,10 @@ public partial class MainMenu : Node
         PopupWindow = GetNode<Window>("SettingsPopup");
         PopupWindow.Visible = false;
 
-        TestMenuButton = GetNode<Button>("Menu/TestShopButton");
+        TestMenuButton = GetNode<TextureButton>("Menu/TestShopButton");
         TestMenuButton.Pressed += TestMenuButtonPressed;
 
-        TestSkinSelectButton = GetNode<Button>("Menu/TestSkinSelectButton");
+        TestSkinSelectButton = GetNode<TextureButton>("Menu/TestSkinSelectButton");
         TestSkinSelectButton.Pressed += TestSkinSelectButtonPressed;
     }
 
@@ -56,18 +60,32 @@ public partial class MainMenu : Node
     }
     private void OnExitButtonPressed()
     {
+        if(settings == null)
+        {
+            GD.PrintErr("settings not found");
+        }
+        settings.SaveSettings();
         PlayAudioEffect(EffectType.Back);
         PopupWindow.Visible = false;
     }
 
     private void OnFinnishFlagPressed()
     {
-        Global.Language = "fi";
+        if(settings == null)
+        {
+            GD.PrintErr("settings not found");
+        }
+
+        settings.SetLanguage("fi");
         PlayAudioEffect(EffectType.Select);
     }
     private void OnEnglishFlagPressed()
     {
-        Global.Language = "en";
+        if(settings == null)
+        {
+            GD.PrintErr("settings not found");
+        }
+        settings.SetLanguage("en");
         PlayAudioEffect(EffectType.Select);
     }
 

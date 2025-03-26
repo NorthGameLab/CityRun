@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://do0vhhlji7m71"]
+[gd_scene load_steps=6 format=3 uid="uid://b20jbo1e2cfpc"]
 
 [ext_resource type="Texture2D" uid="uid://d1v5yld3ja12e" path="res://gfx/Environment/LiikennevaloVihreäValmis.png" id="1_k6ps0"]
 [ext_resource type="Script" path="res://code/Environment/TrafficLight.cs" id="2_sj0ba"]

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bf64g2rwvr5t2"
-path="res://.godot/imported/156192__lau7__bike-chain_2.wav-1c018c23c7ee43f356eb508ba0b7c15d.sample"
+path="res://.godot/imported/156192__lau7__bike-chain_2.wav-73da502a9a5787b0a01ec7b16287b864.sample"
 
 [deps]
 
-source_file="res://Audio/156192__lau7__bike-chain_2.wav"
-dest_files=["res://.godot/imported/156192__lau7__bike-chain_2.wav-1c018c23c7ee43f356eb508ba0b7c15d.sample"]
+source_file="res://Audio/SFX/156192__lau7__bike-chain_2.wav"
+dest_files=["res://.godot/imported/156192__lau7__bike-chain_2.wav-73da502a9a5787b0a01ec7b16287b864.sample"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck10tb3ms4ta3"]
+[gd_scene load_steps=7 format=3 uid="uid://bfdx2tuu66x8x"]
 
 [ext_resource type="Texture2D" uid="uid://cboslawev1x2l" path="res://gfx/PlayRetryNappi.png" id="1_jsqk3"]
 [ext_resource type="Texture2D" uid="uid://3fnp8xmnravw" path="res://gfx/PlayRetryNappiPainettu.png" id="2_fm2b8"]
