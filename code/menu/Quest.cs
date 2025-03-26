@@ -133,7 +133,7 @@ public partial class Quest : Node
         test = testA.Instantiate<TestA>();
         test.Text = "VÄÄRIN";
         GetParent().AddChild(test);
-        test.Position += new Vector2(-150, 600);
+        test.Position += new Vector2(120, 600);
         GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
 
     }
@@ -151,7 +151,7 @@ public partial class Quest : Node
             scorePlusSet();
             GetParent().AddChild(scoreAdd);
 
-            test.Position += new Vector2(-150, 600);
+            test.Position += new Vector2(120, 600);
             //CorrectSound.Play();
 
             //wait ToSignal(CorrectSound, "finished");
@@ -181,7 +181,7 @@ public partial class Quest : Node
             scorePlusSet();
             GetParent().AddChild(scoreAdd);
 
-            test.Position += new Vector2(-150, 600);
+            test.Position += new Vector2(120, 600);
             //CorrectSound.Play();
 
             //wait ToSignal(CorrectSound, "finished");

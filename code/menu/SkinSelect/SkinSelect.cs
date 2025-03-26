@@ -26,7 +26,17 @@ public partial class SkinSelect : Control
 			skin.owned = Test.OwnedSkins[i];
 			skin.id = i;
 			skin.TextureNormal = getTexture(i);
+
+			if (skin.owned)
+				if (Test.ItemData[i].AsGodotDictionary()["rarity"].ToString() == "common")
+					skin.RarityBackground.Frame = 1;
+				else if (Test.ItemData[i].AsGodotDictionary()["rarity"].ToString() == "rare")
+					skin.RarityBackground.Frame = 2;
+				else if (Test.ItemData[i].AsGodotDictionary()["rarity"].ToString() == "epic")
+					skin.RarityBackground.Frame = 3;
+
 			Scale = new Vector2(4, 4);
+
 			if (!skin.owned)
 			{
 				Sprite2D x = new Sprite2D();
@@ -43,7 +53,8 @@ public partial class SkinSelect : Control
 		ExitButton.Pressed += ExitButtonPressed;
 
 		AddChild(selectedSquare);
-		selectedSquare.Texture = (Texture2D)ResourceLoader.Load("res://gfx/square.png");
+		selectedSquare.Texture = (Texture2D)ResourceLoader.Load("res://gfx/Skinmenu/SkiniValittuIndikaattori.png");
+		selectedSquare.Scale += new Vector2(0.15f, 0.15f);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

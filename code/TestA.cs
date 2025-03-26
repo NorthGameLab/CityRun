@@ -3,8 +3,8 @@ using System;
 
 public partial class TestA : Label
 {
-	public float speed = 50.0f;
-    public float duration = 2.0f;
+	public float speed = 100.0f;
+    public float duration = 1.11f;
     private float elapsedTime = 0.0f;
 
     public override void _Process(double delta)

@@ -5,10 +5,15 @@ public partial class CaseItem : Sprite2D
 {
 
 	private Texture2D _texture = (Texture2D)ResourceLoader.Load<Texture>("res://gfx/Kolikko22.png");
+	public AnimatedSprite2D RarityBackground;
+	public ColorRect Rect;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		RarityBackground = GetNode<AnimatedSprite2D>("RarityBackground");
+		RarityBackground.Frame = 1;
+		Rect = GetNode<ColorRect>("ColorRect");
 		Texture = _texture;
 		Scale = new Vector2(2.3f, 2.3f);
 		GlobalPosition = new Vector2(-150, 500);

@@ -119,7 +119,7 @@ public partial class Environment : Node
 
         //spawnstuff
         _yRoad += GameScene._speed * (float)delta;
-        if (_yRoad >= 525)
+        if (_yRoad >= 520)
         {
             Road road = Road.Instantiate<Road>();
             AddChild(road);
@@ -197,5 +197,10 @@ public partial class Environment : Node
                 _y = rand.Next(400, 450);
             }
         }
+    }
+
+    public bool getSpawnedCrosswalk()
+    {
+        return _spawnedCrosswalk;
     }
 }

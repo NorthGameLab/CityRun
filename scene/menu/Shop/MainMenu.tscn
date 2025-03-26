@@ -317,10 +317,6 @@ offset_bottom = 60.0
 scale = Vector2(0.4, 0.4)
 
 [node name="Label" type="Label" parent="SettingsPopup/Control"]
-<<<<<<< HEAD
-=======
-layout_mode = 0
->>>>>>> 34e2cd06ff9c5358bc51182f8fcc35998afc5da8
 offset_right = 355.0
 offset_bottom = 143.0
 theme = ExtResource("2_tjppq")

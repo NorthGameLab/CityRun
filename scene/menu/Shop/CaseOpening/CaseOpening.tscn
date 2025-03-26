@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_vtppn")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
 layout_mode = 0
 offset_left = 270.0
 offset_top = 420.0
@@ -24,9 +25,29 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.078
 anchor_bottom = 0.075
-offset_left = 189.0
+offset_left = 190.0
 offset_top = 638.0
-offset_right = 310.88
+offset_right = 311.88
 offset_bottom = 633.0
+theme_override_colors/font_color = Color(0.804084, 0.711745, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.679198, 0.341953, 0.314048, 1)
+theme_override_colors/icon_focus_color = Color(0.670588, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.843137, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.666667, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.552941, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0.568627, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Confirm"
+
+[node name="SkinGet" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 32.0
+offset_top = 145.0
+offset_right = 558.0
+offset_bottom = 310.0
+theme_override_colors/font_color = Color(0.92849, 0.719386, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 110
+text = "SKIN GET"

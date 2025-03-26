@@ -7,6 +7,8 @@ public partial class Shop : Control
 	PackedScene CaseOpening = ResourceLoader.Load<PackedScene>("res://scene/menu/Shop/CaseOpening/CaseOpening.tscn");
 	CaseOpening Opening;
 
+	public Label CoinsLabel;
+
 	private Button ExitButton;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -16,6 +18,9 @@ public partial class Shop : Control
 
 		ExitButton = GetNode<Button>("ExitButton");
 		ExitButton.Pressed += ExitButtonPressed;
+
+		CoinsLabel = GetNode<Label>("coinCont/coins");
+		CoinsLabel.Text = Test.Money.ToString();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,6 +34,7 @@ public partial class Shop : Control
 		if (Test.Money >= 10)
 		{
 			Test.Money -= 10;
+			CoinsLabel.Text = Test.Money.ToString();
 			Opening = CaseOpening.Instantiate<CaseOpening>();
 			AddChild(Opening);
 		}
