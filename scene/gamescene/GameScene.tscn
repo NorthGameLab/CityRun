@@ -81,6 +81,7 @@ offset_bottom = 279.67
 theme = ExtResource("11_kwxe0")
 theme_override_font_sizes/font_size = 140
 text = "Main_Menu"
+horizontal_alignment = 1
 
 [node name="Resume" type="TextureButton" parent="PauseMenu"]
 layout_mode = 1
@@ -107,6 +108,7 @@ offset_right = 467.0
 offset_bottom = 210.0
 theme = ExtResource("11_kwxe0")
 text = "RESUME"
+horizontal_alignment = 1
 
 [node name="Retry" type="TextureButton" parent="PauseMenu"]
 layout_mode = 1
@@ -139,8 +141,9 @@ offset_bottom = 72.1666
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("11_kwxe0")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 85
 text = "RETRY"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="TextureButton" to="." method="OnPauseButtonPressed"]
 [connection signal="pressed" from="PauseMenu/MainMenu" to="." method="OnMainMenuPressed"]

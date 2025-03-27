@@ -122,7 +122,7 @@ public partial class MainMenu : Node
         GetTree().ChangeSceneToFile("res://scene/menu/SkinSelect/SkinSelect.tscn");
     }
 
-    private void onExitGamePressed()
+    private void OnQuitButtonPressed()
     {
         GetTree().Quit();
     }
