@@ -6,6 +6,7 @@ public partial class Shop : Control
 	Button CaseButton;
 	PackedScene CaseOpening = ResourceLoader.Load<PackedScene>("res://scene/menu/Shop/CaseOpening/CaseOpening.tscn");
 	CaseOpening Opening;
+	private Window InfoWindow;
 
 	public Label CoinsLabel;
 
@@ -13,6 +14,8 @@ public partial class Shop : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		InfoWindow = GetNode<Window>("Window");
+		InfoWindow.Hide();
 		CaseButton = GetNode<Button>("CaseButton");
 		CaseButton.Pressed += onButtonPressed;
 
@@ -43,5 +46,9 @@ public partial class Shop : Control
 	private void ExitButtonPressed()
 	{
 		GetTree().ChangeSceneToFile("res://scene/menu/MainMenu.tscn");
+	}
+	private void OnInfoPressed()
+	{
+		InfoWindow.Show();
 	}
 }

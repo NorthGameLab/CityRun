@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bkmads2cc51un"]
+[gd_scene load_steps=24 format=3 uid="uid://dgatxtbol0har"]
 
 [ext_resource type="Texture2D" uid="uid://c7qlq7a50fsta" path="res://gfx/Skinmenu/IlotulitusCommon.png" id="1_808a8"]
 [ext_resource type="Script" path="res://code/menu/Shop/GetItemAnimation.cs" id="2_lixvp"]

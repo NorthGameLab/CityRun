@@ -10,7 +10,7 @@ using System;
 		[Export] private float _stepSize = 0.05f;
 		private float _originalVolume = 0.0f;
 
-		private float _currentVolumeLinear = 1.0f; // Linear range [0, 1]
+		private float _currentVolumeLinear; // Linear range [0, 1]
 		private const float MinValue = 0.01f; // Avoid -inf dB
 		private const float MaxValue = 1.0f;
 		private Settings settings;
@@ -26,6 +26,10 @@ using System;
 			}
 			_volumeUpButton.Pressed += OnPlusButtonPressed;
 			_volumeDownButton.Pressed += OnMinusButtonPressed;
+			if(settings.GetVolume(_busName, out float volumeDB) == true)
+			{
+				_currentVolumeLinear = volumeDB;
+			}
 		}
 
 		public void Initialize()
@@ -65,5 +69,6 @@ using System;
 		{
 			float decibelVolume = Mathf.LinearToDb(_currentVolumeLinear);
 			settings.SetVolume(_busName, decibelVolume);
+
 		}
 	}

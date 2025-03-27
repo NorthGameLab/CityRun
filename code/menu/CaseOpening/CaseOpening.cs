@@ -6,6 +6,7 @@ public partial class CaseOpening : Control
 	private PackedScene CaseItem = ResourceLoader.Load<PackedScene>("res://scene/menu/Shop/CaseOpening/CaseItem.tscn");
 	private PackedScene Fireworks = ResourceLoader.Load<PackedScene>("res://scene/menu/Shop/CaseOpening/GetItemAnimation.tscn");
 	private PackedScene AddCoins = ResourceLoader.Load<PackedScene>("res://scene/TestA.tscn");
+	private ColorRect BackGround;
 	public float Speed = 2500;
 	public float Acceleration = -500f;
 	public float time = 0;
@@ -20,6 +21,9 @@ public partial class CaseOpening : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+
+		BackGround = GetNode<ColorRect>("BackGround");
+		BackGround.Hide();
 		_getItemId = roll();
 		for (int i = 0; i < 51; i++)
 		{
@@ -88,6 +92,7 @@ public partial class CaseOpening : Control
 			Test.saveGame();
 			ExitButton.Show();
 
+			BackGround.Show();
 			GetItemAnimation fireworks = Fireworks.Instantiate<GetItemAnimation>();
 			AddChild(fireworks);
 			fireworks.Scale += new Vector2(1, 1);

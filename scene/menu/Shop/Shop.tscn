@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://4nxh2t2tgqfg"]
+[gd_scene load_steps=7 format=3 uid="uid://4nxh2t2tgqfg"]
 
 [ext_resource type="Script" path="res://code/menu/Shop/Shop.cs" id="1_k2k7k"]
 [ext_resource type="Texture2D" uid="uid://o4mdraxwifqa" path="res://gfx/CaseBox.png" id="2_ciedp"]
 [ext_resource type="Texture2D" uid="uid://djatxqiuyg2dj" path="res://gfx/Kolikko22.png" id="3_teqa6"]
 [ext_resource type="Texture2D" uid="uid://bi5bwj3h6xkil" path="res://gfx/Skinmenu/Rarities.png" id="4_bgljq"]
+[ext_resource type="Texture2D" uid="uid://bt2p2hwxi3ojg" path="res://gfx/Teko/HintNappi.png" id="5_htdn2"]
+[ext_resource type="Texture2D" uid="uid://d08nopxwtjrot" path="res://gfx/HintNappiPainettu.png" id="6_i5lq2"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -70,20 +72,36 @@ offset_bottom = 943.0
 theme_override_font_sizes/font_size = 30
 text = "duplicate skins give +1 coins"
 
-[node name="CanvasGroup" type="CanvasGroup" parent="."]
+[node name="InfoButton" type="TextureButton" parent="."]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 95.0
+offset_right = 602.0
+offset_bottom = 603.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("5_htdn2")
+texture_pressed = ExtResource("6_i5lq2")
+
+[node name="Window" type="Window" parent="."]
+position = Vector2i(70, 200)
+size = Vector2i(400, 400)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Window"]
 position = Vector2(47, 271)
 
-[node name="Label" type="Label" parent="CanvasGroup"]
+[node name="Label" type="Label" parent="Window/CanvasGroup"]
 offset_left = 28.0
 offset_top = -81.0
 offset_right = 204.0
 offset_bottom = 90.0
 theme_override_font_sizes/font_size = 40
-text = "Epic
-Rare
-Common"
+text = "Epic: 0.01%
+Rare: 30%
+Common: 69.99%"
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
+[node name="Sprite2D" type="Sprite2D" parent="Window/CanvasGroup"]
 position = Vector2(-9, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("4_bgljq")
+
+[connection signal="pressed" from="InfoButton" to="." method="OnInfoPressed"]

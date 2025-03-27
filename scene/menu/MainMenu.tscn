@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cttpgoer0vrcl"]
+[gd_scene load_steps=35 format=3 uid="uid://bai7kitjnjgrd"]
 
 [ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
 [ext_resource type="Texture2D" uid="uid://bbsmd6kh80wb7" path="res://gfx/AlotusnayttoAlhaallaYksi.png" id="2_k0x1f"]
@@ -113,6 +113,7 @@ theme = ExtResource("2_tjppq")
 theme_override_fonts/font = ExtResource("9_51565")
 theme_override_font_sizes/font_size = 200
 text = "START"
+horizontal_alignment = 1
 
 [node name="Settings" type="TextureButton" parent="Menu"]
 anchors_preset = 3
@@ -175,6 +176,19 @@ grow_vertical = 2
 scale = Vector2(6, 6)
 texture_normal = ExtResource("13_6mrtd")
 texture_pressed = ExtResource("14_s3gt1")
+
+[node name="QuitButton" type="TextureButton" parent="Menu"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -115.0
+offset_right = 359.0
+offset_bottom = 204.0
+grow_vertical = 0
+scale = Vector2(0.23, 0.23)
+texture_normal = ExtResource("24_hknia")
+texture_pressed = ExtResource("25_ycjpa")
 
 [node name="SettingsPopup" type="Window" parent="."]
 process_mode = 3
@@ -317,10 +331,7 @@ offset_bottom = 60.0
 scale = Vector2(0.4, 0.4)
 
 [node name="Label" type="Label" parent="SettingsPopup/Control"]
-<<<<<<< HEAD
-=======
 layout_mode = 0
->>>>>>> 34e2cd06ff9c5358bc51182f8fcc35998afc5da8
 offset_right = 355.0
 offset_bottom = 143.0
 theme = ExtResource("2_tjppq")
@@ -364,6 +375,7 @@ script = ExtResource("29_r75ej")
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]
 [connection signal="pressed" from="Menu/Settings" to="." method="OnSettingsButtonPressed"]
+[connection signal="pressed" from="Menu/QuitButton" to="." method="OnQuitButtonPressed"]
 [connection signal="close_requested" from="SettingsPopup" to="." method="OnSettingsPopupCloseRequested"]
 [connection signal="pressed" from="SettingsPopup/Suomelippu" to="." method="OnFinnishFlagPressed"]
 [connection signal="pressed" from="SettingsPopup/Englanti" to="." method="OnEnglishFlagPressed"]
