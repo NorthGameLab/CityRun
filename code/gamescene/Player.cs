@@ -15,7 +15,7 @@ public partial class Player : Area2D
 	private float _width;
 
 	//LANE JOLLA PELAAJA ON
-	private int _currentLane;
+	public static int _currentLane;
 
 	//ELI SIIS LANE JOLLA PITÄISI LIIKKUA MUTTA EI OLE VIELÄ LIIKUTTU
 	private int _currentLane2;
@@ -227,7 +227,7 @@ public override void _UnhandledInput(InputEvent @event)
 	{
 		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
 
-		_currentLane = 2;
+		//_currentLane = 2;
 		_xToGo = _width * _currentLane;
 		_currentLane2 = _currentLane;
 	}

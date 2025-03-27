@@ -108,6 +108,7 @@ public partial class MainMenu : Node
 
     private void onStartButtonPressed()
     {
+        GameScene.resetGame();
         GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
     }
 

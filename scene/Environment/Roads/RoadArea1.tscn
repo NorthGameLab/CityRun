@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://sicq2r0iiukw" path="res://gfx/Environment/Road/TieRuohollaValmisV2.png.png" id="2_pniw0"]
 [ext_resource type="Script" path="res://code/Environment/Roads/RoadArea1.cs" id="2_yrfy6"]
 [ext_resource type="Texture2D" uid="uid://dewggugtngil4" path="res://gfx/Environment/Road/RisteysAlueValmis.png.png" id="3_iugeu"]
-[ext_resource type="Texture2D" uid="uid://wwslbtfnubdi" path="res://gfx/Environment/Road/PuistoTieAlku.png" id="4_2bnv2"]
-[ext_resource type="Texture2D" uid="uid://ditauqboojmec" path="res://gfx/Environment/Road/PuistoTie.png" id="5_5su3r"]
-[ext_resource type="Texture2D" uid="uid://dnqoi0fmxhf8p" path="res://gfx/Environment/Road/PuistoTieAlkuJaLoppu.png" id="6_bnmsf"]
-[ext_resource type="Texture2D" uid="uid://bfb4n7kurjmpi" path="res://gfx/Environment/Road/PuistoTieLoppu.png.png" id="7_f2kyv"]
+[ext_resource type="Texture2D" uid="uid://bqd61kmx42abx" path="res://gfx/Environment/Road/PuistoTieAlkuV2.png" id="4_fmp0c"]
+[ext_resource type="Texture2D" uid="uid://cqlkg4ftmijc4" path="res://gfx/Environment/Road/PuistoTieV2.png" id="5_fpw4c"]
+[ext_resource type="Texture2D" uid="uid://c8850lf8ssqvm" path="res://gfx/Environment/Road/PuistoTieAlkuJaLoppuV2.png" id="6_qtl1j"]
+[ext_resource type="Texture2D" uid="uid://dpafunuelwy3b" path="res://gfx/Environment/Road/PuistoTieLoppuV2.png" id="7_p2mep"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8emtq"]
 animations = [{
@@ -19,16 +19,16 @@ animations = [{
 "texture": ExtResource("3_iugeu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_2bnv2")
+"texture": ExtResource("4_fmp0c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_5su3r")
+"texture": ExtResource("5_fpw4c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_bnmsf")
+"texture": ExtResource("6_qtl1j")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_f2kyv")
+"texture": ExtResource("7_p2mep")
 }],
 "loop": true,
 "name": &"default",

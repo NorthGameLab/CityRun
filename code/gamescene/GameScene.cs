@@ -19,7 +19,7 @@ public partial class GameScene : Node
     public static bool _lose = false;
 
     public static float _distance = 0f;
-    public static float _distanceToNext = 10000;
+    public static float _distanceToNext = 3000;
     private float _distanceToNextUp = 3000;
     public static int _timesQuest = 0;
 
@@ -43,11 +43,11 @@ public partial class GameScene : Node
         Background = GetNode<ColorRect>("Background");
         Background.Hide();
 
-        if (_timesQuest / 2 == 1 && Test.NextArea == 0)
+        if (_timesQuest != 0 && _timesQuest % 2 == 0 && Test.NextArea == 0)
         {
             Test.NextArea = 1;
         }
-        else if (_timesQuest / 2 == 1 && Test.NextArea == 1)
+        else if (Test.NextArea == 1)
         {
             Test.NextArea = 0;
         }
@@ -106,7 +106,7 @@ public partial class GameScene : Node
         if(_goingToQuest && _speed <= 0)
         {
             _timesQuest++;
-            _distanceToNext = 10000 + (_timesQuest * _distanceToNextUp);
+            _distanceToNext = 3000 + (_timesQuest * _distanceToNextUp);
             _goingToQuest = false;
             GetTree().ChangeSceneToFile("res://scene/menu/Quest.tscn");
         }
@@ -123,6 +123,7 @@ public partial class GameScene : Node
     public static void resetGame()
     {
         Test.Score = 0;
+        Player._currentLane = 2;
         _distance = 0;
         _speed = 0;
         _maxSpeed = 500f;

@@ -147,7 +147,7 @@ public partial class Environment : Node
 
         if (Test.CurrentArea == 1)
         {
-            _area2Y  -= GameScene._speed * (float)delta;
+            _area2Y -= GameScene._speed * (float)delta;
             if (_area2Y <= 0)
             {
                 if (Test.CurrentArea == 1 && !_spawnedCrosswalk || Test.NextArea == 1 && _spawnedCrosswalk)
