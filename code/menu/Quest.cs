@@ -152,9 +152,7 @@ public partial class Quest : Node
             GetParent().AddChild(scoreAdd);
 
             test.Position += new Vector2(120, 600);
-            //CorrectSound.Play();
-
-            //wait ToSignal(CorrectSound, "finished");
+            Global._isCorrect = true;
             GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
         else
@@ -182,9 +180,7 @@ public partial class Quest : Node
             GetParent().AddChild(scoreAdd);
 
             test.Position += new Vector2(120, 600);
-            //CorrectSound.Play();
-
-            //wait ToSignal(CorrectSound, "finished");
+            Global._isCorrect = true;
             GetTree().ChangeSceneToFile("res://scene/gamescene/GameScene.tscn");
         }
     }

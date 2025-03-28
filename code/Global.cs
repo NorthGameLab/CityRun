@@ -4,6 +4,7 @@ using System;
 public partial class Global : Node
 {
 	public static string Language = "fi";
+	public static bool _isCorrect = false;
 	public const string SettingsFile = "user://settings.cfg";
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

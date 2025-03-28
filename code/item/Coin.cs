@@ -18,8 +18,7 @@ public partial class Coin : Item
 
             GameScene gameScene = GetTree().Root.GetNode<GameScene>("GameScene");
             gameScene.PlaySound(GD.Load<AudioStream>("res://Audio/CoinCollect2.mp3"));
-
-
 		}
+        QueueFree();
     }
 }
