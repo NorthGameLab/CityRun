@@ -3,9 +3,12 @@ using System;
 
 public partial class GameOver : CanvasLayer
 {
+	private AudioStreamPlayer2D Collision;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Collision = GetNode<AudioStreamPlayer2D>("Collision");
+		Collision.Play();
 		Label Score = GetNode<Label>("Score");
 		Label HighScore = GetNode<Label>("HighScore");
 

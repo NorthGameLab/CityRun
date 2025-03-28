@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7b71pibpka0n"]
+[gd_scene load_steps=9 format=3 uid="uid://c7b71pibpka0n"]
 
 [ext_resource type="Script" path="res://code/menu/GameOver.cs" id="1_gausd"]
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_dirqc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c4m2a5sni53c" path="res://gfx/PunainenNappi.png" id="4_sgqof"]
 [ext_resource type="Texture2D" uid="uid://3fnp8xmnravw" path="res://gfx/PlayRetryNappiPainettu.png" id="5_jynun"]
 [ext_resource type="Texture2D" uid="uid://bh7lqor3ekdsy" path="res://gfx/PunainenNappiPainettu.png" id="5_w68y0"]
+[ext_resource type="AudioStream" uid="uid://2jjb3kdgrwij" path="res://Audio/thud-291047.mp3" id="8_pn42c"]
 
 [node name="GameOver" type="CanvasLayer"]
 offset = Vector2(0, 70)
@@ -136,6 +137,9 @@ grow_vertical = 2
 theme = ExtResource("2_dirqc")
 theme_override_font_sizes/font_size = 160
 text = "RETRY"
+
+[node name="Collision" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_pn42c")
 
 [connection signal="pressed" from="MainMenuButton" to="." method="OnMainMenuButtonPressed"]
 [connection signal="pressed" from="RetryButton" to="." method="OnRetryButtonPressed"]

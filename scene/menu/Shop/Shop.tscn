@@ -83,7 +83,7 @@ texture_normal = ExtResource("5_htdn2")
 texture_pressed = ExtResource("6_i5lq2")
 
 [node name="Window" type="Window" parent="."]
-position = Vector2i(70, 200)
+position = Vector2i(70, 36)
 size = Vector2i(400, 400)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="Window"]

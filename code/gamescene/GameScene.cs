@@ -6,6 +6,7 @@ public partial class GameScene : Node
     public Hud Hud;
     public Control PauseMenu;
     public ColorRect Background;
+    private AudioStreamPlayer2D _sound;
 
 
 
@@ -30,6 +31,7 @@ public partial class GameScene : Node
 
     public override void _Ready()
     {
+        _sound = GetNode<AudioStreamPlayer2D>("Collect");
         environment = GetNode<Environment>("Environment");
         Hud = GetNode<Hud>("Hud");
 
@@ -167,5 +169,10 @@ public partial class GameScene : Node
     public static Environment GetEnvironment()
     {
         return environment;
+    }
+        public void PlaySound(AudioStream sound)
+    {
+        _sound.Stream = sound;
+        _sound.Play();
     }
 }

@@ -15,8 +15,11 @@ public partial class Coin : Item
             //test.Position = new Vector2(110, 15);
             GetParent().AddChild(test);
             test.GetNode<Sprite2D>("Sprite2D").Show();
-		}
 
-        QueueFree();
+            GameScene gameScene = GetTree().Root.GetNode<GameScene>("GameScene");
+            gameScene.PlaySound(GD.Load<AudioStream>("res://Audio/CoinCollect2.mp3"));
+
+
+		}
     }
 }

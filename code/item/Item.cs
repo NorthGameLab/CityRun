@@ -9,7 +9,6 @@ public abstract partial class Item : Area2D
     {
         _width = GetViewportRect().Size.X / 5;
         Connect("area_entered", new Callable(this, nameof(onAreaEntered)));
-
         Start();
     }
 
