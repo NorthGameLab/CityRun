@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cttpgoer0vrcl"]
+[gd_scene load_steps=35 format=3 uid="uid://c8xnmj1bwqpix"]
 
 [ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
 [ext_resource type="Texture2D" uid="uid://bbsmd6kh80wb7" path="res://gfx/AlotusnayttoAlhaallaYksi.png" id="2_k0x1f"]
@@ -317,6 +317,7 @@ offset_bottom = 60.0
 scale = Vector2(0.4, 0.4)
 
 [node name="Label" type="Label" parent="SettingsPopup/Control"]
+layout_mode = 0
 offset_right = 355.0
 offset_bottom = 143.0
 theme = ExtResource("2_tjppq")
