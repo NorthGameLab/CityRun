@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqtesoiso12bo"]
+[gd_scene load_steps=18 format=3 uid="uid://cqtesoiso12bo"]
 
 [ext_resource type="Script" path="res://code/gamescene/GameScene.cs" id="1_ihfwl"]
 [ext_resource type="PackedScene" uid="uid://cr3envvxhju5g" path="res://scene/gamescene/Obstacles.tscn" id="1_sd14c"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c57n7y2k1nkc8" path="res://gfx/MuuNappi.png" id="14_5y2yd"]
 [ext_resource type="Texture2D" uid="uid://b75x5viflckcy" path="res://gfx/MuuNappiPainettu.png" id="15_4wu4f"]
 [ext_resource type="AudioStream" uid="uid://ccl8g6x6rcfg" path="res://Audio/CoinCollect2.mp3" id="16_8fhim"]
+[ext_resource type="AudioStream" uid="uid://c8vwpvih2j223" path="res://Audio/SFX/CorrectSound.mp3" id="17_nuq5a"]
 
 [node name="GameScene" type="Node"]
 script = ExtResource("1_ihfwl")
@@ -148,6 +149,9 @@ horizontal_alignment = 1
 
 [node name="Collect" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_8fhim")
+
+[node name="Correct" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_nuq5a")
 
 [connection signal="pressed" from="TextureButton" to="." method="OnPauseButtonPressed"]
 [connection signal="pressed" from="PauseMenu/MainMenu" to="." method="OnMainMenuPressed"]

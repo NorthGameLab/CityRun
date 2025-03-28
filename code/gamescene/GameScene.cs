@@ -7,6 +7,7 @@ public partial class GameScene : Node
     public Control PauseMenu;
     public ColorRect Background;
     private AudioStreamPlayer2D _sound;
+    private AudioStreamPlayer2D _correct;
 
 
 
@@ -32,6 +33,7 @@ public partial class GameScene : Node
     public override void _Ready()
     {
         _sound = GetNode<AudioStreamPlayer2D>("Collect");
+        _correct = GetNode<AudioStreamPlayer2D>("Correct");
         environment = GetNode<Environment>("Environment");
         Hud = GetNode<Hud>("Hud");
 
@@ -52,6 +54,10 @@ public partial class GameScene : Node
         else if (Test.NextArea == 1)
         {
             Test.NextArea = 0;
+        }
+        if (Global._isCorrect == true)
+        {
+            PlayCorrectSound();
         }
     }
 
@@ -170,9 +176,14 @@ public partial class GameScene : Node
     {
         return environment;
     }
-        public void PlaySound(AudioStream sound)
+
+    public void PlaySound(AudioStream sound)
     {
         _sound.Stream = sound;
         _sound.Play();
+    }
+    public void PlayCorrectSound()
+    {
+        _correct.Play();
     }
 }
