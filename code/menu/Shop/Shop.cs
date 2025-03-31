@@ -50,7 +50,7 @@ public partial class Shop : Control
 		InfoWindow.Show();
 	}
 
-	private void onWindowCloseRequested()
+	private void OnExitPressed()
 	{
 		InfoWindow.Hide();
 	}

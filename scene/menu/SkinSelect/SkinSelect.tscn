@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbbgbxt15n33k"]
+[gd_scene load_steps=8 format=3 uid="uid://dbbgbxt15n33k"]
 
 [ext_resource type="Script" path="res://code/menu/SkinSelect/SkinSelect.cs" id="1_1c8tt"]
 [ext_resource type="Texture2D" uid="uid://55mgco58iwbe" path="res://gfx/Skinmenu/SkinSelectMenuTausta.png" id="2_wbuy5"]
 [ext_resource type="Texture2D" uid="uid://773xyeeor8xy" path="res://gfx/Skinmenu/napit/ExitNappi.png" id="3_l2amw"]
 [ext_resource type="Texture2D" uid="uid://dx8ar6q34lh14" path="res://gfx/Skinmenu/napit/ExitNappiPainettu.png" id="4_hwby3"]
+[ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="5_k2acc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sn8wb"]
 atlas = ExtResource("3_l2amw")
@@ -61,26 +62,28 @@ stretch_mode = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/ExitButton"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.152
-anchor_top = 0.34
-anchor_right = 0.822
-anchor_bottom = 0.641
-offset_left = -0.152008
-offset_top = -27.36
-offset_right = 5.79797
-offset_bottom = 24.336
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -4.5
+offset_right = -3.0
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_k2acc")
 theme_override_font_sizes/font_size = 60
 text = "EXIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 139.0
-offset_top = -3.0
-offset_right = 394.0
-offset_bottom = 66.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.0
+grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_font_sizes/font_size = 50
-text = "Skin select"
+text = "SKIN_SELECT"
+horizontal_alignment = 1
