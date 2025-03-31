@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cttpgoer0vrcl"]
+[gd_scene load_steps=41 format=3 uid="uid://cttpgoer0vrcl"]
 
 [ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
 [ext_resource type="Texture2D" uid="uid://bbsmd6kh80wb7" path="res://gfx/AlotusnayttoAlhaallaYksi.png" id="2_k0x1f"]
@@ -22,7 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://ceql1wre0f3h8" path="res://gfx/Mute.png" id="14_phfrw"]
 [ext_resource type="Texture2D" uid="uid://boybrxdhga24k" path="res://gfx/MusiikinvoimakkuusNormaali.png" id="15_0jcil"]
 [ext_resource type="Texture2D" uid="uid://djentifbpokxh" path="res://gfx/PlusNappiNormaali.png" id="15_hkhoa"]
+[ext_resource type="Texture2D" uid="uid://c1eyup5ydrlbu" path="res://gfx/QuitGame.png" id="15_ponwe"]
 [ext_resource type="Texture2D" uid="uid://8ro3xlbqjuh0" path="res://gfx/LippuEnglantiPainettu.png" id="15_u01sd"]
+[ext_resource type="Texture2D" uid="uid://cc25dln04uchw" path="res://gfx/QuitGamePainettu.png" id="16_5hvgl"]
 [ext_resource type="Texture2D" uid="uid://sjfeaebwsnbe" path="res://gfx/PlusNappi.png" id="16_brc36"]
 [ext_resource type="Texture2D" uid="uid://b8s11b5rppscw" path="res://gfx/Musiikinvoimakkuus.png" id="16_c0ycw"]
 [ext_resource type="Texture2D" uid="uid://d02fml4vy1rof" path="res://gfx/MiinusNappiNormaali.png" id="17_tbvbu"]
@@ -197,14 +199,14 @@ texture_pressed = SubResource("AtlasTexture_tqf5q")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = -115.0
-offset_right = 359.0
-offset_bottom = 204.0
+offset_left = 31.0
+offset_top = -113.0
+offset_right = 53.0
+offset_bottom = -91.0
 grow_vertical = 0
-scale = Vector2(0.23, 0.23)
-texture_normal = ExtResource("24_hknia")
-texture_pressed = ExtResource("25_ycjpa")
+scale = Vector2(3, 3)
+texture_normal = ExtResource("15_ponwe")
+texture_pressed = ExtResource("16_5hvgl")
 
 [node name="SettingsPopup" type="Window" parent="."]
 process_mode = 3

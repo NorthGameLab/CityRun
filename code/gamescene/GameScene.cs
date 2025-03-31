@@ -60,6 +60,7 @@ public partial class GameScene : Node
         if (Global._isCorrect == true)
         {
             PlayCorrectSound();
+            Global._isCorrect = false;
         }
     }
 

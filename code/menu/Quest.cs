@@ -62,7 +62,7 @@ public partial class Quest : Node
 
         Godot.Collections.Dictionary data = File.getDictionary(QuestPath);
         questionNum = rand.Next(0, data["questions"].AsGodotArray().Count);
-        //questionNum = 2;
+        // questionNum = 4;
         var questionData = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary();
 
         question.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["question"].AsGodotDictionary()[language].AsString();

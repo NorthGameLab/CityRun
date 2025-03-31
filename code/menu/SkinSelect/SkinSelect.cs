@@ -49,7 +49,7 @@ public partial class SkinSelect : Control
 				skin.AddChild(x);
 				Texture2D xOriginalTexture = (Texture2D)ResourceLoader.Load("res://gfx/Skinmenu/SkiniLukittuLukko.png");
 				x.Texture = xOriginalTexture;
-				x.Position = new Vector2(skin.TextureNormal.GetWidth() / 2, skin.TextureNormal.GetHeight() / 2);
+				x.Position = new Vector2(skin.TextureNormal.GetWidth() / 2 + 1, skin.TextureNormal.GetHeight() / 2);
 			}
 
 			Skins[i] = skin;
