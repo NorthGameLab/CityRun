@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwuwj4lacx7sg"]
+
+[ext_resource type="Texture2D" uid="uid://qiamnliepgim" path="res://gfx/Kolikko.png" id="1_1wx5p"]
+[ext_resource type="Script" path="res://code/menu/Shop/CoinRainCoin.cs" id="2_eikpj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5is5a"]
+atlas = ExtResource("1_1wx5p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwa3g"]
+atlas = ExtResource("1_1wx5p")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wntp"]
+atlas = ExtResource("1_1wx5p")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pwjs"]
+atlas = ExtResource("1_1wx5p")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i76c8"]
+atlas = ExtResource("1_1wx5p")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjkoi"]
+atlas = ExtResource("1_1wx5p")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_me571"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5is5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwa3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wntp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pwjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i76c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjkoi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="CoinRainCoin" type="AnimatedSprite2D"]
+position = Vector2(0, -33)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_me571")
+script = ExtResource("2_eikpj")

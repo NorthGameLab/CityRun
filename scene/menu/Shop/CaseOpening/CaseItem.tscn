@@ -30,12 +30,9 @@ animations = [{
 z_index = 1
 script = ExtResource("1_1x7j8")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-237, 0)
-
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
-z_index = -2
+z_index = -1
 offset_left = -50.0
 offset_top = -50.0
 offset_right = 50.0
@@ -47,5 +44,8 @@ color = Color(0, 0, 0, 1)
 [node name="RarityBackground" type="AnimatedSprite2D" parent="."]
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_nynoe")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-237, 0)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="onScreenExited"]

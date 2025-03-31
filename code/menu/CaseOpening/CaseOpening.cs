@@ -6,6 +6,7 @@ public partial class CaseOpening : Control
 	private PackedScene CaseItem = ResourceLoader.Load<PackedScene>("res://scene/menu/Shop/CaseOpening/CaseItem.tscn");
 	private PackedScene Fireworks = ResourceLoader.Load<PackedScene>("res://scene/menu/Shop/CaseOpening/GetItemAnimation.tscn");
 	private PackedScene AddCoins = ResourceLoader.Load<PackedScene>("res://scene/TestA.tscn");
+	private PackedScene fireworksTest = ResourceLoader.Load<PackedScene>("res://scene/menu/Shop/CaseOpening/Fireworks.tscn");
 	private ColorRect BackGround;
 	public float Speed = 2500;
 	public float Acceleration = -500f;
@@ -17,21 +18,22 @@ public partial class CaseOpening : Control
 
 	private Random Rand = new Random();
 	private int _getItemId;
-	private Button ExitButton;
+	private TextureButton ExitButton;
+	private ColorRect Line;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 
 		BackGround = GetNode<ColorRect>("BackGround");
-		BackGround.Hide();
+		BackGround.Show();
 		_getItemId = roll();
-		for (int i = 0; i < 51; i++)
+		for (int i = 0; i < 70; i++)
 		{
 			CaseItem item = CaseItem.Instantiate<CaseItem>();
 			AddChild(item);
 			int textureId = roll();
-			item.ZIndex = -3;
-			item.Position -= new Vector2(120 * i, 0);
+			//item.ZIndex = -3;
+			item.Position -= new Vector2(88 * i, 0);
 			item.Texture = getTexture(textureId);
 			item.RarityBackground.Scale = new Vector2(1.2f, 1.2f);
 			if (Test.ItemData[textureId].AsGodotDictionary()["rarity"].ToString() == "common")
@@ -41,7 +43,7 @@ public partial class CaseOpening : Control
 			else if (Test.ItemData[textureId].AsGodotDictionary()["rarity"].ToString() == "epic")
 				item.RarityBackground.Frame = 3;
 
-			if (i == 47)
+			if (i == 64)
 			{
 				item.Texture = getTexture(_getItemId);
 				if (Test.ItemData[_getItemId].AsGodotDictionary()["rarity"].ToString() == "common")
@@ -53,9 +55,12 @@ public partial class CaseOpening : Control
 			}
 		}
 
-		ExitButton = GetNode<Button>("ExitButton");
+		ExitButton = GetNode<TextureButton>("ExitButton");
 		ExitButton.Pressed += exitButtonPressed;
 		ExitButton.Hide();
+
+		Line = GetNode<ColorRect>("ColorRect");
+		Line.Show();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -91,26 +96,43 @@ public partial class CaseOpening : Control
 			_completed = true;
 			Test.saveGame();
 			ExitButton.Show();
-
+			Line.ZIndex = 1;
 			BackGround.Show();
+			/*
 			GetItemAnimation fireworks = Fireworks.Instantiate<GetItemAnimation>();
 			AddChild(fireworks);
 			fireworks.Scale += new Vector2(1, 1);
 			fireworks.Play();
+			*/
+
+			Fireworks fireworks = fireworksTest.Instantiate<Fireworks>();
+			AddChild(fireworks);
 
 			CaseItem item = CaseItem.Instantiate<CaseItem>();
 			AddChild(item);
 			if (Test.ItemData[_getItemId].AsGodotDictionary()["rarity"].ToString() == "common")
+			{
 				item.RarityBackground.Frame = 1;
+				fireworks.changeFireworkRarity(0);
+			}
 			else if (Test.ItemData[_getItemId].AsGodotDictionary()["rarity"].ToString() == "rare")
+			{
 				item.RarityBackground.Frame = 2;
+				fireworks.changeFireworkRarity(1);
+			}
 			else if (Test.ItemData[_getItemId].AsGodotDictionary()["rarity"].ToString() == "epic")
+			{
 				item.RarityBackground.Frame = 3;
+				fireworks.changeFireworkRarity(2);
+			}
 
 			item.Texture = getTexture(_getItemId);
 			item.Scale += new Vector2(2, 2);
 			item.Rect.Show();
-			item.GlobalPosition = fireworks.GlobalPosition;
+			item.GlobalPosition = new Vector2(273, 559);
+			item.ZIndex += 2;
+			BackGround.ZIndex += 2;
+			fireworks.ZIndex += 2;
 			GetNode<Label>("SkinGet").Show();
 		}
 	}
@@ -121,8 +143,8 @@ public partial class CaseOpening : Control
 		int randomNumber;
 		int randomSkinNumber;
 		int[] commons = {0, 2, 3, 4, 5, 6, 7};
-		int[] rares = {1, 8};
-		int[] superRares = {9};
+		int[] rares = {1, 8, 11};
+		int[] superRares = {9, 10};
 
 		randomNumber = Rand.Next(0, 100);
 		GD.Print(randomNumber);
@@ -160,6 +182,7 @@ public partial class CaseOpening : Control
 
 	private void exitButtonPressed()
 	{
+		Shop.ChestOpen.Frame = 0;
 		QueueFree();
 	}
 }

@@ -89,6 +89,24 @@
 		"framesY": 4,
 		"name": "Skin10",
 		"rarity": "epic"
+	},
+	{
+		"animPath": "res://gfx/Skins/Pingviini.png",
+		"path": "res://gfx/Skins/PingviiniSivulta.png",
+		"frames": 8,
+		"framesX": 3,
+		"framesY": 3,
+		"name": "Penguin",
+		"rarity": "epic"
+	},
+	{
+		"animPath": "res://gfx/Skins/YhtäHahmo.png",
+		"path": "res://gfx/Skins/YhtäHahmoSivulta.png",
+		"frames": 8,
+		"framesX": 3,
+		"framesY": 3,
+		"name": "Yhtä",
+		"rarity": "rare"
 	}
 	]
 }

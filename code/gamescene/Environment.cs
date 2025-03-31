@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class Environment : Node
 {
@@ -12,6 +13,8 @@ public partial class Environment : Node
     public float _yRoad;
     public float _yBuilding;
     public float _y;
+    public float _lastDistanceObjects, _lastDistanceBuildings, _lastDistanceObjects2;
+    private float _crosswalkY;
     private Random rand = new Random();
     private bool _spawnedCrosswalk = false;
     private float _area2Y = 1100f;
@@ -29,17 +32,64 @@ public partial class Environment : Node
             r.GlobalPosition += new Vector2(0, 525 * i);
         }
 
+        if (Test.fromQuest)
+        {
+            foreach (Vector2 pos in Test.ObjectPositions)
+            {
+                Obects o = Objects.Instantiate<Obects>();
+                AddChild(o);
+                o.Position = pos;
+            }
 
+            int id = 0;
+            foreach (Vector2 pos in Test.BuildingPositions)
+            {
+                Building b = Building.Instantiate<Building>();
+                AddChild(b);
+                b.Position = pos;
+                b.Frame = Test.BuildingFrames[id];
+
+                id++;
+            }
+
+            foreach (Vector2 pos in Test.Object2Positions)
+            {
+                Area2Objects o2 = Area2Objects.Instantiate<Area2Objects>();
+                AddChild(o2);
+                o2.Position = pos;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                Obects o = Objects.Instantiate<Obects>();
+                AddChild(o);
+                o.GlobalPosition += new Vector2(0, 925 * i);
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                Building b = Building.Instantiate<Building>();
+                AddChild(b);
+                b.GlobalPosition += new Vector2(0, 450 * i);
+            }
+        }
+        /*
         if (Test.CurrentArea == 0)
         {
             if(Test.fromQuest)
             {
-                for (int i = -1; i < 2; i++)
+                foreach (Vector2 pos in Test.ObjectPositions)
                 {
                     Obects o = Objects.Instantiate<Obects>();
                     AddChild(o);
-                    o.GlobalPosition += new Vector2(0, 525 * i);
+                    o.Position = pos;
                 }
+
+                Obects o2 = Objects.Instantiate<Obects>();
+                AddChild(o2);
+                o2.Position += new Vector2(0, 0);
             }
             else
             {
@@ -51,24 +101,41 @@ public partial class Environment : Node
                 }
             }
 
-            _y = rand.Next(400, 400);
-            for (int i = 0; i < 4; i++)
-            {
 
-                if (Test.fromQuest)
+            if (!Test.fromQuest)
+            {
+                _y = rand.Next(400, 400);
+                for (int i = 0; i < 4; i++)
                 {
-                    if (_y * i <= 1250 || _y * i >= 1600 && !Test.fromQuest)
+
+                    if (Test.fromQuest)
                     {
-                    Building b = Building.Instantiate<Building>();
-                    AddChild(b);
-                    b.GlobalPosition += new Vector2(0, _y * i);
+                        if (_y * i <= 1250 || _y * i >= 1600 && !Test.fromQuest)
+                        {
+                        Building b = Building.Instantiate<Building>();
+                        AddChild(b);
+                        b.GlobalPosition += new Vector2(0, _y * i);
+                        }
+                    }
+                    else
+                    {
+                        Building b = Building.Instantiate<Building>();
+                        AddChild(b);
+                        b.GlobalPosition += new Vector2(0, _y * i);
                     }
                 }
-                else
+            }
+            else
+            {
+                int id = 0;
+                foreach (Vector2 pos in Test.BuildingPositions)
                 {
                     Building b = Building.Instantiate<Building>();
                     AddChild(b);
-                    b.GlobalPosition += new Vector2(0, _y * i);
+                    b.Position = pos;
+                    b.Frame = Test.BuildingFrames[id];
+
+                    id++;
                 }
             }
         }
@@ -93,12 +160,12 @@ public partial class Environment : Node
                 }
             }
         }
-
+        */
         if (Test.fromQuest)
         {
             Road crossing = Road.Instantiate<Road>();
             AddChild(crossing);
-            crossing.GlobalPosition = new Vector2(0, 510);
+            crossing.GlobalPosition = new Vector2(0, 528);
             if (Test.CurrentArea == 0 && Test.LastArea == 0)
                 crossing.Frame = 1;
             else if (Test.CurrentArea == 1 && Test.LastArea == 0)
@@ -110,8 +177,14 @@ public partial class Environment : Node
 
             TrafficLight light = TrafficLightGreen.Instantiate<TrafficLight>();
             AddChild(light);
-            light.GlobalPosition = crossing.GlobalPosition + new Vector2(415, -35);
+            light.GlobalPosition = new Vector2(417f, crossing.GlobalPosition.Y - 30);
         }
+
+
+        _lastDistanceObjects = GameScene._distanceToNext;
+        _lastDistanceBuildings = GameScene._distanceToNext;
+        _lastDistanceObjects2 = GameScene._distanceToNext;
+
     }
 
     public override void _Process(double delta)
@@ -134,6 +207,7 @@ public partial class Environment : Node
 
             _yRoad = 0;
 
+            /*
             if (Test.CurrentArea == 0 && !_spawnedCrosswalk || Test.NextArea == 0 && _spawnedCrosswalk)
             {
                 if (GameScene._distanceToNext <= -460 || GameScene._distanceToNext >= 100)
@@ -142,9 +216,83 @@ public partial class Environment : Node
                     AddChild(o);
                 }
             }
+            */
         }
 
+        GD.Print("distance: " + GameScene._distanceToNext);
+        GD.Print("lastDistance: " + _lastDistanceObjects);
+        if (Test.CurrentArea == 0 && !_spawnedCrosswalk)
+        {
+            if (_lastDistanceObjects - GameScene._distanceToNext >= 925 && GameScene._distanceToNext > 500)
+            {
+                //GD.Print("spawned");
+                Obects o = Objects.Instantiate<Obects>();
+                AddChild(o);
+                MoveChild(o, 0);
+                _lastDistanceObjects = GameScene._distanceToNext;
+            }
 
+            if (_lastDistanceBuildings - GameScene._distanceToNext >= 450 && GameScene._distanceToNext > 0)
+            {
+                //GD.Print("spawned");
+                Building b = Building.Instantiate<Building>();
+                AddChild(b);
+                MoveChild(b, 0);
+                _lastDistanceBuildings = GameScene._distanceToNext;
+            }
+        }
+        else if (Test.NextArea == 0 && _spawnedCrosswalk)
+        {
+
+            if (_lastDistanceObjects - GameScene._distanceToNext >= 925)
+            {
+                //GD.Print("spawned");
+                Obects o = Objects.Instantiate<Obects>();
+                AddChild(o);
+                MoveChild(o, 0);
+                o.Position -= new Vector2(0, 400);
+                _lastDistanceObjects = GameScene._distanceToNext;
+            }
+
+            if (_lastDistanceBuildings - GameScene._distanceToNext >= 450)
+            {
+                //GD.Print("spawned");
+                Building b = Building.Instantiate<Building>();
+                AddChild(b);
+                MoveChild(b, 0);
+                b.Position -= new Vector2(0, 500);
+                _lastDistanceBuildings = GameScene._distanceToNext;
+            }
+
+        }
+        else if (Test.CurrentArea == 1 && !_spawnedCrosswalk)
+        {
+            if (_lastDistanceObjects2 - GameScene._distanceToNext >= 1100 && GameScene._distanceToNext > 500)
+            {
+                //GD.Print(GameScene._distanceToNext);
+                //GD.Print("spawned");
+                Area2Objects o2 = Area2Objects.Instantiate<Area2Objects>();
+                AddChild(o2);
+                MoveChild(o2, 0);
+                _lastDistanceObjects2 = GameScene._distanceToNext;
+            }
+        }
+        else if (Test.NextArea == 1 && _spawnedCrosswalk)
+        {
+
+            if (_lastDistanceObjects2 - GameScene._distanceToNext >= 1100)
+            {
+                //GD.Print("spawned");
+                Area2Objects o2 = Area2Objects.Instantiate<Area2Objects>();
+                AddChild(o2);
+                MoveChild(o2, 0);
+                o2.Position -= new Vector2(0, 525);
+                _lastDistanceObjects2 = GameScene._distanceToNext;
+            }
+
+        }
+
+        /*
         if (Test.CurrentArea == 1)
         {
             _area2Y -= GameScene._speed * (float)delta;
@@ -162,7 +310,7 @@ public partial class Environment : Node
                 _area2Y = 1100;
             }
         }
-
+        */
         //spawncrosswalk
         if (GameScene._distanceToNext <= -60 && !_spawnedCrosswalk)
         {
@@ -185,10 +333,11 @@ public partial class Environment : Node
         }
 
 
+        /*
         if (Test.CurrentArea == 0 && !_spawnedCrosswalk || Test.NextArea == 0 && _spawnedCrosswalk)
         {
             _yBuilding += GameScene._speed * (float)delta;
-            if (_yBuilding >= _y && (GameScene._distanceToNext <= -300 || GameScene._distanceToNext >= 700))
+            if (_yBuilding >= _y && (GameScene._distanceToNext <= -400 || GameScene._distanceToNext >= 600))
             {
                 Building building = Building.Instantiate<Building>();
                 AddChild(building);
@@ -197,6 +346,7 @@ public partial class Environment : Node
                 _y = rand.Next(400, 450);
             }
         }
+        */
     }
 
     public bool getSpawnedCrosswalk()

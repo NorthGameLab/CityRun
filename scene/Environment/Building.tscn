@@ -54,8 +54,9 @@ animations = [{
 }]
 
 [node name="Building" type="AnimatedSprite2D"]
-position = Vector2(45, 413)
+position = Vector2(64, -14)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_i4cn0")
+frame = 1
 offset = Vector2(-44.2503, -98.917)
 script = ExtResource("2_ioet5")

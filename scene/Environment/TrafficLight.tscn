@@ -26,7 +26,7 @@ animations = [{
 }]
 
 [node name="TrafficLight" type="AnimatedSprite2D"]
-position = Vector2(19, 12)
+position = Vector2(417, 12)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_rowan")
 offset = Vector2(156.667, 326.667)

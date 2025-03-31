@@ -16,6 +16,7 @@ public abstract partial class Road : AnimatedSprite2D
 	public override void _Process(double delta)
 	{
 		GlobalPosition += GameScene._speed * Vector2.Down * (float)delta;
+
 	}
 
 	private void onScreenExited()

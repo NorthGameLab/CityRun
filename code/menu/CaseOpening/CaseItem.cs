@@ -17,7 +17,7 @@ public partial class CaseItem : Sprite2D
 		Texture = _texture;
 		Scale = new Vector2(2.3f, 2.3f);
 		GlobalPosition = new Vector2(-150, 500);
-		ZIndex = -1;
+		//ZIndex = -1;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

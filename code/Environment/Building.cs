@@ -16,15 +16,11 @@ public partial class Building : AnimatedSprite2D
 
 		int num;
         num = rand.Next(0, 2);
-		GlobalPosition = new Vector2(70, -600);
 		GlobalPosition += new Vector2(num * 30f, 0);
 		ZIndex = -1;
 
-        double numDouble;
-        numDouble = rand.NextDouble();
         Scale += new Vector2(0.14f, 0);
 
-        numDouble = rand.NextDouble();
         Scale += new Vector2(0, 0.50f);
 	}
 

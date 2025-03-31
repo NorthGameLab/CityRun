@@ -26,8 +26,8 @@ animations = [{
 }]
 
 [node name="TrafficLightGreen" type="AnimatedSprite2D"]
-position = Vector2(-30, -99)
+position = Vector2(417, -99)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_uhq7p")
-offset = Vector2(100, 330)
+offset = Vector2(156.667, 326.667)
 script = ExtResource("2_sj0ba")

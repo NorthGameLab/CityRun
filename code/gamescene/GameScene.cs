@@ -47,6 +47,7 @@ public partial class GameScene : Node
         Background = GetNode<ColorRect>("Background");
         Background.Hide();
 
+
         if (_timesQuest != 0 && _timesQuest % 2 == 0 && Test.NextArea == 0)
         {
             Test.NextArea = 1;
@@ -55,6 +56,7 @@ public partial class GameScene : Node
         {
             Test.NextArea = 0;
         }
+
         if (Global._isCorrect == true)
         {
             PlayCorrectSound();
@@ -116,6 +118,30 @@ public partial class GameScene : Node
             _timesQuest++;
             _distanceToNext = 3000 + (_timesQuest * _distanceToNextUp);
             _goingToQuest = false;
+
+            Test.BuildingPositions.Clear();
+            Test.BuildingFrames.Clear();
+            Test.ObjectPositions.Clear();
+            Test.Object2Positions.Clear();
+
+            foreach (Node node in GetNode<Node>("Environment").GetChildren())
+            {
+                if (node is Building b)
+                {
+                    Test.BuildingPositions.Add(b.Position);
+                    Test.BuildingFrames.Add(b.Frame);
+                }
+                else if (node is Obects o)
+                {
+                    Test.ObjectPositions.Add(o.Position);
+                }
+                else if (node is Area2Objects o2)
+                {
+                    Test.Object2Positions.Add(o2.Position);
+                }
+            }
+
+
             GetTree().ChangeSceneToFile("res://scene/menu/Quest.tscn");
         }
 

@@ -10,7 +10,7 @@ public partial class SkinSelect : Control
 	private GridContainer Container;
 	private Sprite2D selectedSquare = new Sprite2D();
 
-	private Button ExitButton;
+	private TextureButton ExitButton;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -25,15 +25,21 @@ public partial class SkinSelect : Control
 			Container.AddChild(skin);
 			skin.owned = Test.OwnedSkins[i];
 			skin.id = i;
-			skin.TextureNormal = getTexture(i);
 
 			if (skin.owned)
+			{
+				skin.TextureNormal = getTexture(i);
 				if (Test.ItemData[i].AsGodotDictionary()["rarity"].ToString() == "common")
 					skin.RarityBackground.Frame = 1;
 				else if (Test.ItemData[i].AsGodotDictionary()["rarity"].ToString() == "rare")
 					skin.RarityBackground.Frame = 2;
 				else if (Test.ItemData[i].AsGodotDictionary()["rarity"].ToString() == "epic")
 					skin.RarityBackground.Frame = 3;
+			}
+			else
+			{
+				skin.TextureNormal = (Texture2D)ResourceLoader.Load("res://gfx/Skinmenu/RarityEsimerkkiSiluetilla2.png");;
+			}
 
 			Scale = new Vector2(4, 4);
 
@@ -41,15 +47,19 @@ public partial class SkinSelect : Control
 			{
 				Sprite2D x = new Sprite2D();
 				skin.AddChild(x);
-				Texture2D xOriginalTexture = (Texture2D)ResourceLoader.Load("res://gfx/X.png");
+				Texture2D xOriginalTexture = (Texture2D)ResourceLoader.Load("res://gfx/Skinmenu/SkiniLukittuLukko.png");
 				x.Texture = xOriginalTexture;
-				x.Position = new Vector2(32, 32);
+				x.Position = new Vector2(skin.TextureNormal.GetWidth() / 2, skin.TextureNormal.GetHeight() / 2);
 			}
 
 			Skins[i] = skin;
+			if (Skins[i].TextureNormal.GetWidth() > 32)
+			{
+				Skins[i].RarityBackground.GlobalPosition += Skins[i].TextureNormal.GetSize() / 2;
+			}
 		}
 
-		ExitButton = GetNode<Button>("CanvasLayer/ExitButton");
+		ExitButton = GetNode<TextureButton>("CanvasLayer/ExitButton");
 		ExitButton.Pressed += ExitButtonPressed;
 
 		AddChild(selectedSquare);
@@ -60,7 +70,7 @@ public partial class SkinSelect : Control
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		selectedSquare.GlobalPosition = Skins[Test.CurrentSkinId].GlobalPosition + new Vector2(128, 128);
+		selectedSquare.GlobalPosition = Skins[Test.CurrentSkinId].GlobalPosition + new Vector2(Skins[Test.CurrentSkinId].TextureNormal.GetWidth() * 2, Skins[Test.CurrentSkinId].TextureNormal.GetHeight() * 2);
 	}
 
 	private Texture2D getTexture(int id)

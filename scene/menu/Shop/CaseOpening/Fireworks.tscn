@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0jcycujupr5b"]
+
+[ext_resource type="Script" path="res://code/menu/Shop/Fireworks.cs" id="1_i63c0"]
+[ext_resource type="PackedScene" uid="uid://bkmads2cc51un" path="res://scene/menu/Shop/CaseOpening/GetItemAnimation.tscn" id="2_gfqy7"]
+
+[node name="Fireworks" type="Node2D"]
+position = Vector2(-57, 71)
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_i63c0")
+
+[node name="GetItemAnimation3" parent="." instance=ExtResource("2_gfqy7")]
+position = Vector2(140, 350)
+rotation = -1.00546
+frame_progress = 0.990108
+
+[node name="GetItemAnimation6" parent="." instance=ExtResource("2_gfqy7")]
+position = Vector2(169.167, 284.167)
+rotation = -0.44396
+frame_progress = 0.634332
+
+[node name="GetItemAnimation4" parent="." instance=ExtResource("2_gfqy7")]
+position = Vector2(245.833, 268.333)
+rotation = -0.0660367
+frame_progress = 0.569844
+
+[node name="GetItemAnimation5" parent="." instance=ExtResource("2_gfqy7")]
+position = Vector2(315.833, 264.167)
+rotation = 0.288677
+flip_h = true
+
+[node name="GetItemAnimation2" parent="." instance=ExtResource("2_gfqy7")]
+position = Vector2(378.333, 310)
+rotation = 0.885409
+
+[node name="GetItemAnimation" parent="." instance=ExtResource("2_gfqy7")]
+position = Vector2(410, 354.167)
+rotation = 0.918975
+frame_progress = 0.465251
+flip_h = true

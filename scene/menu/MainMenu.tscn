@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cttpgoer0vrcl"]
+[gd_scene load_steps=39 format=3 uid="uid://cttpgoer0vrcl"]
 
 [ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
 [ext_resource type="Texture2D" uid="uid://bbsmd6kh80wb7" path="res://gfx/AlotusnayttoAlhaallaYksi.png" id="2_k0x1f"]
@@ -11,15 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://bi1abbke1kcw5" path="res://gfx/asetuksetPainettu.png" id="9_vjg6u"]
 [ext_resource type="Texture2D" uid="uid://cal101oqvot1t" path="res://gfx/LogoValittu.png" id="10_8n6jg"]
 [ext_resource type="Texture2D" uid="uid://br0lh344mh34n" path="res://gfx/KysymysTaustaV2.png" id="10_c6agh"]
-[ext_resource type="Texture2D" uid="uid://byq3auf0nig5u" path="res://gfx/BoxiMenu.png" id="11_gde1c"]
+[ext_resource type="Texture2D" uid="uid://vfbas231dyaf" path="res://gfx/Skinmenu/napit/BoxiMenuV2.png" id="11_4v20u"]
 [ext_resource type="Texture2D" uid="uid://dqhojw3yktn3l" path="res://gfx/LippuSuomi.png" id="11_oupaw"]
 [ext_resource type="Texture2D" uid="uid://yjokaa6mm4vw" path="res://gfx/LippuEnglanti.png" id="12_boub0"]
-[ext_resource type="Texture2D" uid="uid://dw6x7o5eqdwpm" path="res://gfx/BoxiMenuPainettu.png" id="12_qvepw"]
-[ext_resource type="Texture2D" uid="uid://o1fb2nu2ybxg" path="res://gfx/SkinMenu.png" id="13_6mrtd"]
+[ext_resource type="Texture2D" uid="uid://cuiek7ac4e188" path="res://gfx/Skinmenu/napit/BoxiMenuV2Painettu.png" id="12_mjw6j"]
+[ext_resource type="Texture2D" uid="uid://c0pdlmljye0aw" path="res://gfx/Skinmenu/napit/SkinMenuV2.png" id="13_hr53w"]
 [ext_resource type="Texture2D" uid="uid://bj81jjtp3sqir" path="res://gfx/Äänenvoimakkuus.png" id="13_q3tco"]
 [ext_resource type="Texture2D" uid="uid://tqho0ga5b1m6" path="res://gfx/LippuSuomiPainettu.png" id="13_wsekp"]
+[ext_resource type="Texture2D" uid="uid://cf85sn7wqj410" path="res://gfx/Skinmenu/napit/SkinMenuV2Painettu.png" id="14_i5t3l"]
 [ext_resource type="Texture2D" uid="uid://ceql1wre0f3h8" path="res://gfx/Mute.png" id="14_phfrw"]
-[ext_resource type="Texture2D" uid="uid://m0f0fdjfqeyo" path="res://gfx/SkinMenuPainettu.png" id="14_s3gt1"]
 [ext_resource type="Texture2D" uid="uid://boybrxdhga24k" path="res://gfx/MusiikinvoimakkuusNormaali.png" id="15_0jcil"]
 [ext_resource type="Texture2D" uid="uid://djentifbpokxh" path="res://gfx/PlusNappiNormaali.png" id="15_hkhoa"]
 [ext_resource type="Texture2D" uid="uid://8ro3xlbqjuh0" path="res://gfx/LippuEnglantiPainettu.png" id="15_u01sd"]
@@ -34,6 +34,22 @@
 [ext_resource type="PackedScene" uid="uid://g61wenycagm0" path="res://scene/menu/MainMenuBackground/MainMenuBackground.tscn" id="28_bxub2"]
 [ext_resource type="Script" path="res://code/Settings.cs" id="29_r75ej"]
 [ext_resource type="Script" path="res://code/AudioControl.cs" id="30_pwe1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix3h0"]
+atlas = ExtResource("11_4v20u")
+region = Rect2(0.896473, 8.95204, 29.1152, 13.1732)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk14b"]
+atlas = ExtResource("12_mjw6j")
+region = Rect2(0.896473, 9.03594, 29.1991, 13.0053)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp1wu"]
+atlas = ExtResource("13_hr53w")
+region = Rect2(0.935202, 8.9426, 29.1381, 13.1198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqf5q"]
+atlas = ExtResource("14_i5t3l")
+region = Rect2(1.00382, 8.98475, 29.0313, 13.0053)
 
 [node name="MainMenu" type="Node" node_paths=PackedStringArray("PopupWindow", "_selectButton", "_backButton", "_MusicPlus", "_musicMinus", "_sfxPlus", "_sfxMinus")]
 script = ExtResource("1_dwcms")
@@ -153,13 +169,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TestShopButton" type="TextureButton" parent="Menu"]
-offset_left = 100.0
-offset_top = 527.0
-offset_right = 129.0
-offset_bottom = 540.0
+offset_left = 99.0
+offset_top = 526.0
+offset_right = 128.0
+offset_bottom = 539.0
 scale = Vector2(6, 6)
-texture_normal = ExtResource("11_gde1c")
-texture_pressed = ExtResource("12_qvepw")
+texture_normal = SubResource("AtlasTexture_ix3h0")
+texture_pressed = SubResource("AtlasTexture_dk14b")
 
 [node name="TestSkinSelectButton" type="TextureButton" parent="Menu"]
 anchors_preset = 8
@@ -174,8 +190,8 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6, 6)
-texture_normal = ExtResource("13_6mrtd")
-texture_pressed = ExtResource("14_s3gt1")
+texture_normal = SubResource("AtlasTexture_bp1wu")
+texture_pressed = SubResource("AtlasTexture_tqf5q")
 
 [node name="QuitButton" type="TextureButton" parent="Menu"]
 anchors_preset = 2
@@ -197,6 +213,7 @@ mode = 3
 title = "Settings"
 initial_position = 2
 size = Vector2i(300, 500)
+visible = false
 borderless = true
 min_size = Vector2i(300, 500)
 max_size = Vector2i(300, 500)

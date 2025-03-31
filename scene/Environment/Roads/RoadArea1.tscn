@@ -41,3 +41,6 @@ scale = Vector2(2.265, 2.265)
 sprite_frames = SubResource("SpriteFrames_8emtq")
 offset = Vector2(118.91, 119.41)
 script = ExtResource("2_yrfy6")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="0"]
+position = Vector2(0, -60.0441)

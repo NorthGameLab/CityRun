@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dwga8t7qgroiw"]
 
 [ext_resource type="Script" path="res://code/menu/SkinSelect/SkinSelectButton.cs" id="1_fy18q"]
-[ext_resource type="Texture2D" uid="uid://dvt8gmn7lwwro" path="res://gfx/Skinmenu/RarityLukittu.png" id="2_4h100"]
+[ext_resource type="Texture2D" uid="uid://ccjd8p4plroms" path="res://gfx/Skinmenu/RarityEsimerkkiSiluetilla2.png" id="2_antc4"]
 [ext_resource type="Texture2D" uid="uid://b3oaw0uat5l21" path="res://gfx/Skinmenu/RarityCommon (1).png" id="3_62u21"]
 [ext_resource type="Texture2D" uid="uid://cp4bpate4u073" path="res://gfx/Skinmenu/RarityRare.png" id="4_x45mv"]
 [ext_resource type="Texture2D" uid="uid://53igkg77jnxu" path="res://gfx/Skinmenu/RarityEpic.png" id="5_7dg68"]
@@ -10,7 +10,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4h100")
+"texture": ExtResource("2_antc4")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_62u21")
@@ -38,5 +38,5 @@ script = ExtResource("1_fy18q")
 
 [node name="RarityBackground" type="AnimatedSprite2D" parent="."]
 z_index = -1
-position = Vector2(32, 32)
 sprite_frames = SubResource("SpriteFrames_0fp1f")
+centered = false

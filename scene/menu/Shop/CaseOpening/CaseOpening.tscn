@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjbo03e31pvs1"]
+[gd_scene load_steps=6 format=3 uid="uid://cjbo03e31pvs1"]
 
 [ext_resource type="Script" path="res://code/menu/CaseOpening/CaseOpening.cs" id="1_vtppn"]
+[ext_resource type="Texture2D" uid="uid://bcv6swfw5ipe1" path="res://gfx/Skinmenu/napit/OkNappi.png" id="2_nq52u"]
+[ext_resource type="Texture2D" uid="uid://bdoyy27st56ij" path="res://gfx/Skinmenu/napit/OkNappiPainettu.png" id="3_mgpw2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3ki3"]
+atlas = ExtResource("2_nq52u")
+region = Rect2(10.776, 21.0291, 41.3675, 21.2233)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6qup"]
+atlas = ExtResource("3_mgpw2")
+region = Rect2(10.776, 21.0131, 41.3675, 21.2394)
 
 [node name="CaseOpening" type="Control"]
 layout_mode = 3
@@ -10,6 +20,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vtppn")
+
+[node name="SkinGet" type="Label" parent="."]
+visible = false
+z_index = 3
+layout_mode = 0
+offset_left = 32.0
+offset_top = 180.0
+offset_right = 558.0
+offset_bottom = 345.0
+theme_override_colors/font_color = Color(0.92849, 0.719386, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 110
+text = "SKIN GET"
 
 [node name="BackGround" type="ColorRect" parent="."]
 layout_mode = 1
@@ -21,42 +45,40 @@ grow_vertical = 2
 color = Color(0.168627, 0.168627, 0.168627, 0.913725)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-z_index = -2
+z_index = 2
 layout_mode = 0
 offset_left = 270.0
-offset_top = 420.0
+offset_top = 423.0
 offset_right = 272.0
 offset_bottom = 561.0
 color = Color(0, 0, 0, 1)
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="ExitButton" type="TextureButton" parent="."]
+z_index = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.078
 anchor_bottom = 0.075
-offset_left = 190.0
-offset_top = 638.0
-offset_right = 311.88
-offset_bottom = 633.0
-theme_override_colors/font_color = Color(0.804084, 0.711745, 0, 1)
-theme_override_colors/icon_normal_color = Color(0.679198, 0.341953, 0.314048, 1)
-theme_override_colors/icon_focus_color = Color(0.670588, 0, 0, 1)
-theme_override_colors/icon_pressed_color = Color(0.843137, 0, 0, 1)
-theme_override_colors/icon_hover_color = Color(0.666667, 0, 0, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0.552941, 0, 0, 1)
-theme_override_colors/icon_disabled_color = Color(0.568627, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "Confirm"
+offset_left = 141.0
+offset_top = 686.0
+offset_right = 357.88
+offset_bottom = 731.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_e3ki3")
+texture_pressed = SubResource("AtlasTexture_o6qup")
+stretch_mode = 0
 
-[node name="SkinGet" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 32.0
-offset_top = 145.0
-offset_right = 558.0
-offset_bottom = 310.0
-theme_override_colors/font_color = Color(0.92849, 0.719386, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 50
-theme_override_font_sizes/font_size = 110
-text = "SKIN GET"
+[node name="Label" type="Label" parent="ExitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "OK"
+horizontal_alignment = 1
+vertical_alignment = 1

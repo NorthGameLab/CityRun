@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://qageu4gp57h7" path="res://gfx/Environment/Puisto/KatuvaloOikea (1).png" id="4_da65y"]
 
 [node name="Area2Objects" type="Node2D"]
-position = Vector2(0, 1)
+position = Vector2(0, -969)
 script = ExtResource("1_fwwin")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
@@ -49,7 +49,7 @@ texture = ExtResource("3_hqcgm")
 position = Vector2(0, -317)
 
 [node name="Katuvalo" type="Sprite2D" parent="."]
-position = Vector2(391, 286)
+position = Vector2(398, 286)
 scale = Vector2(0.35, 0.45)
 texture = ExtResource("4_da65y")
 

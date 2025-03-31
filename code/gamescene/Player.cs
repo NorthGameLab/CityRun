@@ -52,9 +52,12 @@ public partial class Player : Area2D
 			{
 				for(int x = 0; x < framesX; x++)
 				{
-					frameRegion = new Rect2I(x * sizeX, y * sizeY, sizeX, sizeY);
-					var frameTexture = ImageTexture.CreateFromImage(textureImage.GetRegion(frameRegion));
-					frames.AddFrame("default", frameTexture);
+					if (x != 2 || y != 2)
+					{
+						frameRegion = new Rect2I(x * sizeX, y * sizeY, sizeX, sizeY);
+						var frameTexture = ImageTexture.CreateFromImage(textureImage.GetRegion(frameRegion));
+						frames.AddFrame("default", frameTexture);
+					}
 				}
 			}
 		}
