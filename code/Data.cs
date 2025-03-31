@@ -1,3 +1,4 @@
+// data for highscore, money and owned skins
 public partial class Data
 {
     public int HighScore { get; set; }

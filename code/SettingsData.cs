@@ -3,6 +3,7 @@ using System;
 
 public partial class SettingsData : Node
 {
+	// default settings
 	public static SettingsData CreateDefaults()
 		{
 			return new SettingsData

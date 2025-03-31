@@ -2,15 +2,15 @@ using Godot;
 using System;
 	public partial class Settings : Node
 	{
+		// signal for changed language
 		[Signal] public delegate void LanguageChangedEventHandler(string langCode);
-
 		public SettingsData _data = null;
 
 		public override void _Ready()
 		{
 			base._Ready();
 
-			// Lataa asetukset tiedostosta.
+			// downloads settings from a file
 			_data = LoadSettings();
 			ApplyData(_data);
 		}
@@ -22,12 +22,11 @@ using System;
 				return;
 			}
 
-			// Aseta äänenvoimakkuudet.
-			SetVolume("Master", data.MasterVolume);
+			// set volumes
 			SetVolume("Music", data.MusicVolume);
 			SetVolume("SFX", data.SfxVolume);
 
-			// Aseta kieli.
+			// set language
 			SetLanguage(data.LangCode);
 		}
 
@@ -37,7 +36,7 @@ using System;
 			{
 				return false;
 			}
-
+			// set all new values to file
 			ConfigFile settingsConfig = new ConfigFile();
 			settingsConfig.SetValue("Localization", "LangCode", _data.LangCode);
 			settingsConfig.SetValue("Audio", "MasterVolume", _data.MasterVolume);
@@ -59,7 +58,7 @@ using System;
 			ConfigFile settingsConfig = new ConfigFile();
 			if (settingsConfig.Load(Global.SettingsFile) == Error.Ok)
 			{
-				// Settings-tiedosto ladattiin onnistuneesti.
+				// settings downloaded successfully
 				data = new SettingsData
 				{
 					LangCode = (string)settingsConfig.GetValue("Localization", "LangCode", "fi"),
@@ -70,20 +69,19 @@ using System;
 			}
 			else
 			{
-				// Asetustiedostoa ei löydetty, luodaan oletusasetukset.
+				// did not find settings, create defaults
 				data = SettingsData.CreateDefaults();
 			}
 
 			return data;
 		}
-
 		public bool SetVolume(string busName, float volumeDB)
 		{
 			if (_data == null)
 			{
 				return false;
 			}
-
+			// sets volume based on the bus name
 			int busIndex = AudioServer.GetBusIndex(busName);
 			if (busIndex < 0)
 			{
@@ -111,7 +109,7 @@ using System;
 
 			return true;
 		}
-
+		// gets audio values based on bus name
 		public bool GetVolume(string busName, out float volumeDB)
 		{
 			int busIndex = AudioServer.GetBusIndex(busName);
@@ -125,7 +123,6 @@ using System;
 			volumeDB = AudioServer.GetBusVolumeDb(busIndex);
 			return true;
 		}
-
 		public string GetLanguage()
 		{
 			return TranslationServer.GetLocale();
@@ -141,7 +138,7 @@ using System;
 			_data.LangCode = langCode;
 			TranslationServer.SetLocale(langCode);
 
-			// Välitä tieto kielen vaihtumisesta.
+			// emits signal for changed language
 			EmitSignal(SignalName.LanguageChanged, langCode);
 
 			_data.LangCode = langCode;

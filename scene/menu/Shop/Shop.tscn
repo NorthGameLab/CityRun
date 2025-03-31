@@ -177,10 +177,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = 3.0
-offset_right = -2.0
-offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_20rg2")
@@ -234,27 +230,55 @@ borderless = true
 [node name="CanvasGroup" type="CanvasGroup" parent="Window"]
 position = Vector2(47, 271)
 
-[node name="Label" type="Label" parent="Window/CanvasGroup"]
-offset_left = 28.0
-offset_top = -81.0
-offset_right = 204.0
-offset_bottom = 90.0
-theme_override_font_sizes/font_size = 40
-text = "Epic: 0.01%
-Rare: 30%
-Common: 69.99%"
-
 [node name="Sprite2D" type="Sprite2D" parent="Window/CanvasGroup"]
 position = Vector2(-9, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("4_bgljq")
 
+[node name="Epic" type="Label" parent="Window/CanvasGroup"]
+offset_left = 28.0
+offset_top = -81.0
+offset_right = 204.0
+offset_bottom = 90.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 40
+text = "EPIC"
+
+[node name="Rare" type="Label" parent="Window/CanvasGroup"]
+offset_left = 28.0
+offset_top = -25.0
+offset_right = 204.0
+offset_bottom = 146.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 40
+text = "RARE"
+
+[node name="Common" type="Label" parent="Window/CanvasGroup"]
+offset_left = 28.0
+offset_top = 35.0
+offset_right = 222.0
+offset_bottom = 206.0
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 40
+text = "COMMON"
+
+[node name="Rarities" type="Label" parent="Window/CanvasGroup"]
+offset_left = 210.0
+offset_top = -92.0
+offset_right = 386.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 40
+text = "0.01%
+   30%
+69.99%"
+
 [node name="Label2" type="Label" parent="Window"]
-offset_top = 131.0
+offset_top = 80.0
 offset_right = 407.0
-offset_bottom = 173.0
+offset_bottom = 122.0
 theme_override_font_sizes/font_size = 28
-text = "duplicate skins give +1 coins"
+text = "DUPLICATE"
+autowrap_mode = 2
 
 [node name="ExitButton" type="TextureButton" parent="Window"]
 anchors_preset = 1

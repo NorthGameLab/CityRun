@@ -3,27 +3,25 @@ using System;
 
 public partial class Player : Area2D
 {
+	// all possible directions
 	public enum Direction
 	{
 		None = 0,
 		Left,
 		Right,
-		Up,
-		Down
 	}
-	//KAISTAN LEVEYS
+	// lane width
 	private float _width;
 
-	//LANE JOLLA PELAAJA ON
+	// lane on which the player is on
 	public static int _currentLane;
 
-	//ELI SIIS LANE JOLLA PITÄISI LIIKKUA MUTTA EI OLE VIELÄ LIIKUTTU
+	// lane where user intends to move
 	private int _currentLane2;
 
-	//KAISTAN VAIHDON NOPEUS
+	// speed for changing lanes
 	private float _laneChangeSpeed = 1100f;
 
-	//EN TIEDÄ
 	private float _xToGo;
 
 	private bool _moving = false;
@@ -81,14 +79,20 @@ public partial class Player : Area2D
 	}
 
 	#region Swipe data
+	// where swipe started
 	private Vector2 _touchStartPosition = default(Vector2);
+
+	// threshold for checking legal swipes
 	private float _swipeThreshold = 30.0f;
+
+	// swipe direction
 	private Direction _swipeDirection = Direction.None;
 
 	#endregion
 
    private bool _swipeDetected = false; // Tracks if a swipe has already been detected
 
+// decect user touch input
 public override void _UnhandledInput(InputEvent @event)
 {
     base._UnhandledInput(@event);
@@ -120,7 +124,7 @@ public override void _UnhandledInput(InputEvent @event)
 	{
 		_animation.SpeedScale = (float)((GameScene._speed / GameScene._maxSpeed) * (GameScene._maxSpeed / 250));
 
-		//LIIKKUMISKOODI TOIMII JOTENKIN MUTTA PITÄÄ MUUTTAA EHKÄ
+		// Player movement. Checks current position and which direction swipe was done
 		if (!_moving)
 		{
 			GlobalPosition = new Vector2(_width * _currentLane, GetViewport().GetVisibleRect().Size.Y - _width - 40);
@@ -167,7 +171,7 @@ public override void _UnhandledInput(InputEvent @event)
 		}
 	}
 
-	// Tarkistaa swipen onko oikea
+	// checks if swipe was intended
 	private void DetectSwipe(Vector2 swipeStart, Vector2 swipeEnd)
 	{
 		Vector2 swipeVector = swipeEnd - swipeStart;
@@ -184,46 +188,14 @@ public override void _UnhandledInput(InputEvent @event)
 				if (swipeVector.X > 0)
 				{
 					_swipeDirection = Direction.Right;
-					//GD.Print("liikkuu oikealle");
 				}
 				else
 				{
 					_swipeDirection = Direction.Left;
-					//GD.Print("liikkuu vasemmalle");
-				}
-			}
-			else
-			{
-				if (swipeVector.Y > 0)
-				{
-					// down
-					_swipeDirection = Direction.Down;
-					//GD.Print("alas");
-				}
-				else
-				{
-					// up
-					_swipeDirection = Direction.Up;
-					//GD.Print("ylös");
 				}
 			}
 		}
 	}
-
-
-/*
-	//MITÄ TAPAHTUU KUN PELAAJAAN OSUU
-	private void onAreaEntered(Node2D body)
-	{
-		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
-		if (Test.Score > Test.HighScore)
-		{
-			Test.updateHighScore(Test.Score);
-		}
-		GameScene._lose = true;
-		GetTree().ChangeSceneToFile("res://scene/menu/GameOver.tscn");
-	}
-	*/
 
 	//START
 	public void Start()
