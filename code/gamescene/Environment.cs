@@ -219,8 +219,8 @@ public partial class Environment : Node
             */
         }
 
-        GD.Print("distance: " + GameScene._distanceToNext);
-        GD.Print("lastDistance: " + _lastDistanceObjects);
+        //GD.Print("distance: " + GameScene._distanceToNext);
+        //GD.Print("lastDistance: " + _lastDistanceObjects);
         if (Test.CurrentArea == 0 && !_spawnedCrosswalk)
         {
             if (_lastDistanceObjects - GameScene._distanceToNext >= 925 && GameScene._distanceToNext > 500)

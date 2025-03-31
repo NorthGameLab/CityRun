@@ -19,6 +19,7 @@ public partial class Test : Node
     public static List<Vector2> ObjectPositions = new List<Vector2>();
     public static List<Vector2> Object2Positions = new List<Vector2>();
     public static List<int> BuildingFrames = new List<int>();
+    public static bool[] _questionsAnswered;
 
     public static void updateHighScore(int score)
     {

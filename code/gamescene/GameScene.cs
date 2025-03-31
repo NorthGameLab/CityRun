@@ -21,8 +21,8 @@ public partial class GameScene : Node
     public static bool _lose = false;
 
     public static float _distance = 0f;
-    public static float _distanceToNext = 3000;
-    private float _distanceToNextUp = 3000;
+    public static float _distanceToNext = 1000;
+    private float _distanceToNextUp = 1000;
     public static int _timesQuest = 0;
 
     private bool _goingToQuest = false;
@@ -162,12 +162,13 @@ public partial class GameScene : Node
         _distance = 0;
         _speed = 0;
         _maxSpeed = 500f;
-        _distanceToNext = 5050;
+        _distanceToNext = 3050;
         _timesQuest = 0;
         Test.fromQuest = false;
         Test.NextArea = 0;
         Test.CurrentArea = 0;
         Test.LastArea = 0;
+        Test._questionsAnswered = null;
     }
 
     private void OnPauseButtonPressed()

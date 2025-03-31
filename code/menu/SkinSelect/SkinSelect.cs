@@ -25,7 +25,6 @@ public partial class SkinSelect : Control
 			Container.AddChild(skin);
 			skin.owned = Test.OwnedSkins[i];
 			skin.id = i;
-
 			if (skin.owned)
 			{
 				skin.TextureNormal = getTexture(i);
@@ -38,7 +37,7 @@ public partial class SkinSelect : Control
 			}
 			else
 			{
-				skin.TextureNormal = (Texture2D)ResourceLoader.Load("res://gfx/Skinmenu/RarityEsimerkkiSiluetilla2.png");;
+				skin.TextureNormal = getLockedTexture(i);
 			}
 
 			Scale = new Vector2(4, 4);
@@ -56,6 +55,7 @@ public partial class SkinSelect : Control
 			if (Skins[i].TextureNormal.GetWidth() > 32)
 			{
 				Skins[i].RarityBackground.GlobalPosition += Skins[i].TextureNormal.GetSize() / 2;
+				Skins[i].LockedBackground.GlobalPosition += Skins[i].TextureNormal.GetSize() / 2;
 			}
 		}
 
@@ -77,6 +77,14 @@ public partial class SkinSelect : Control
 	{
 		var skinData = Test.ItemData[id].AsGodotDictionary();
 		Texture2D textureInit = (Texture2D)ResourceLoader.Load((string)skinData["path"]);
+
+		return textureInit;
+	}
+
+	private Texture2D getLockedTexture(int id)
+	{
+		var skinData = Test.ItemData[id].AsGodotDictionary();
+		Texture2D textureInit = (Texture2D)ResourceLoader.Load((string)skinData["pathlock"]);
 
 		return textureInit;
 	}
