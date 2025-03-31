@@ -8,6 +8,7 @@ public abstract partial class Obstacle : Area2D
 	public float _speed = 0f;
 	public float _width;
 	public AnimatedSprite2D Animation;
+	// sound effects for the obstacles
 	private AudioStreamPlayer2D SoundEffect;
 	private AudioStreamPlayer2D SoundEffect2;
 	// Called when the node enters the scene tree for the first time.
@@ -28,7 +29,7 @@ public abstract partial class Obstacle : Area2D
 		Animation.Play();
 		GlobalPosition += (GameScene._speed + _speed) * Vector2.Down * (float)delta;
 	}
-
+	// checks if player collides with obstacle
 	private void onAreaEntered(Node2D body)
 	{
 		if (body is Player player)
@@ -49,6 +50,9 @@ public abstract partial class Obstacle : Area2D
 		int spawnPos = rand.Next(1, 4);
 		GlobalPosition = new Vector2(spawnPos * _width, -_width * 6);
 	}
+
+	// when obstacle appears on screen it palys a sound effect
+	// some obstacles have a sound effect which plays only if random number is 2
 	public void OnScreenEntered()
 	{
 		SoundEffect.Play();
@@ -61,7 +65,7 @@ public abstract partial class Obstacle : Area2D
 		else {return;}
 	}
 
-
+	// kills the obstacle sprite
 	public void screenExited()
 	{
 		QueueFree();

@@ -5,6 +5,8 @@ public partial class Obstacles : Node
 {
     public static float _changeWaitTime = 0.0001f;
     public Timer ObstacleSpawnTimer;
+
+    // paths to all obstacle scnes
     private PackedScene Walker = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Walker.tscn");
     private PackedScene Stroller = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Stroller.tscn");
     private PackedScene Scooter = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Scooter.tscn");
@@ -14,6 +16,7 @@ public partial class Obstacles : Node
     private PackedScene Dogwalker = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Puisto/Dogwalker.tscn");
     public override void _Ready()
     {
+        // timer for obstacle spawn frequency
         ObstacleSpawnTimer = GetNode<Timer>("ObstacleSpawnTimer");
 
         Start();
@@ -24,14 +27,17 @@ public partial class Obstacles : Node
         ObstacleSpawnTimer.WaitTime -= _changeWaitTime;
     }
 
+    // when timer runs out, an obstacle spawns
     private void onObstacleSpawnTimerTimeout()
     {
+        // checks area for different obstacles
         if (Test.CurrentArea == 0)
         {
             Random rand = new Random();
             int obstacleNum = rand.Next(1, 9);
             Obstacle obs;
 
+            // cases for spawning obstacles.
             switch(obstacleNum)
             {
                 case 1:
@@ -104,6 +110,7 @@ public partial class Obstacles : Node
         }
     }
 
+    // start timer
     private void Start()
     {
         ObstacleSpawnTimer.Start();

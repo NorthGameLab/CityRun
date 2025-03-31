@@ -3,14 +3,18 @@ using System;
 
 public partial class Shop : Control
 {
+	// button for buying a case
 	TextureButton BuyButton;
 	PackedScene CaseOpening = ResourceLoader.Load<PackedScene>("res://scene/menu/Shop/CaseOpening/CaseOpening.tscn");
 	CaseOpening Opening;
+	// window for all the rarity odds
 	private Window InfoWindow;
 	public static AnimatedSprite2D ChestOpen;
 
+	// coin count
 	public Label CoinsLabel;
 
+	// button for exiting the shop
 	private TextureButton ExitButton;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -30,7 +34,7 @@ public partial class Shop : Control
 		ChestOpen.AnimationLooped += chestOpened;
 		ChestOpen.Frame = 0;
 	}
-
+	// checks the money count and opens a case if coin count is over 10
 	private void onButtonPressed()
 	{
 		if (Test.Money >= 10)
@@ -40,21 +44,21 @@ public partial class Shop : Control
 			ChestOpen.Play();
 		}
 	}
-
+	// exits the shop
 	private void ExitButtonPressed()
 	{
 		GetTree().ChangeSceneToFile("res://scene/menu/MainMenu.tscn");
 	}
+	// shows rarity info
 	private void OnInfoPressed()
 	{
 		InfoWindow.Show();
 	}
-
+	// hides the info window
 	private void OnExitPressed()
 	{
 		InfoWindow.Hide();
 	}
-
 	private void chestOpened()
 	{
 		ChestOpen.Stop();

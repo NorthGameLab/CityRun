@@ -4,9 +4,13 @@ using System;
 public partial class GameScene : Node
 {
     public Hud Hud;
+    // pause menu
     public Control PauseMenu;
+    // pause menu background
     public ColorRect Background;
-    private AudioStreamPlayer2D _sound;
+    // soundeffect for coin
+    private AudioStreamPlayer2D _coinSound;
+    // soundeffect for correct answer
     private AudioStreamPlayer2D _correct;
 
 
@@ -32,7 +36,7 @@ public partial class GameScene : Node
 
     public override void _Ready()
     {
-        _sound = GetNode<AudioStreamPlayer2D>("Collect");
+        _coinSound = GetNode<AudioStreamPlayer2D>("Collect");
         _correct = GetNode<AudioStreamPlayer2D>("Correct");
         environment = GetNode<Environment>("Environment");
         Hud = GetNode<Hud>("Hud");
@@ -56,6 +60,8 @@ public partial class GameScene : Node
         {
             Test.NextArea = 0;
         }
+
+        // plays the audio if answered correctly to a question
 
         if (Global._isCorrect == true)
         {
@@ -171,6 +177,7 @@ public partial class GameScene : Node
         Test._questionsAnswered = null;
     }
 
+    // open pause menu
     private void OnPauseButtonPressed()
     {
         GetTree().Paused = true;
@@ -178,12 +185,14 @@ public partial class GameScene : Node
         Background.Show();
         Background.Color = new Color(0,0,0,0.5f);
     }
+    // game continues
     private void OnResumePressed()
     {
         PauseMenu.Hide();
         GetTree().Paused = false;
         Background.Hide();
     }
+    // return to main menu
     private void OnMainMenuPressed()
     {
         PauseMenu.Hide();
@@ -192,6 +201,7 @@ public partial class GameScene : Node
         Test.saveGame();
         GetTree().ChangeSceneToFile("res://scene/menu/MainMenu.tscn");
     }
+    // starts game over
     private void OnRetryPressed()
     {
         PauseMenu.Hide();
@@ -204,12 +214,13 @@ public partial class GameScene : Node
     {
         return environment;
     }
-
+    // plays sound for a picked coin
     public void PlaySound(AudioStream sound)
     {
-        _sound.Stream = sound;
-        _sound.Play();
+        _coinSound.Stream = sound;
+        _coinSound.Play();
     }
+    // method for playin the correct sound
     public void PlayCorrectSound()
     {
         _correct.Play();

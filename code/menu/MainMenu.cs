@@ -3,13 +3,16 @@ using System;
 
 public partial class MainMenu : Node
 {
+    // soundeffects
     public enum EffectType
     {
         none = 0,
         Select,
         Back,
     }
+    // settings window
     [Export] public Window PopupWindow;
+    // Buttons for sound and audio effects for select and back
     [Export] private AudioStreamPlayer2D _selectButton = null;
     [Export] private AudioStreamPlayer2D _backButton = null;
     [Export] private TextureButton _MusicPlus = null;
@@ -43,6 +46,7 @@ public partial class MainMenu : Node
         _texture2.Position = _texture.Position - new Vector2(540, 0);
         GetNode<Control>("Menu/Control").AddChild(_texture2);
         */
+        // hides settings in start
         PopupWindow = GetNode<Window>("SettingsPopup");
         PopupWindow.Visible = false;
 
@@ -52,12 +56,13 @@ public partial class MainMenu : Node
         TestSkinSelectButton = GetNode<TextureButton>("Menu/TestSkinSelectButton");
         TestSkinSelectButton.Pressed += TestSkinSelectButtonPressed;
     }
-
+    // shows settings popup
     private void OnSettingsButtonPressed()
     {
         PopupWindow.Visible = true;
         PlayAudioEffect(EffectType.Select);
     }
+    // exit settings
     private void OnExitButtonPressed()
     {
         if(settings == null)
@@ -68,7 +73,7 @@ public partial class MainMenu : Node
         PlayAudioEffect(EffectType.Back);
         PopupWindow.Visible = false;
     }
-
+    // changes language to finnish
     private void OnFinnishFlagPressed()
     {
         if(settings == null)
@@ -79,6 +84,7 @@ public partial class MainMenu : Node
         settings.SetLanguage("fi");
         PlayAudioEffect(EffectType.Select);
     }
+    // changes language to english
     private void OnEnglishFlagPressed()
     {
         if(settings == null)
@@ -105,7 +111,7 @@ public partial class MainMenu : Node
         }
         */
     }
-
+    // start game
     private void onStartButtonPressed()
     {
         GameScene.resetGame();
@@ -116,16 +122,16 @@ public partial class MainMenu : Node
     {
         GetTree().ChangeSceneToFile("res://scene/menu/Shop/Shop.tscn");
     }
-
     private void TestSkinSelectButtonPressed()
     {
         GetTree().ChangeSceneToFile("res://scene/menu/SkinSelect/SkinSelect.tscn");
     }
-
+    // exits the game
     private void OnQuitButtonPressed()
     {
         GetTree().Quit();
     }
+    // method for playing the audio effects
     public void PlayAudioEffect(EffectType effectType)
     {
         switch (effectType)
