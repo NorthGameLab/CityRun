@@ -134,7 +134,7 @@ sprite_frames = SubResource("SpriteFrames_gt0p5")
 [node name="info" type="Window" parent="CanvasLayer"]
 process_mode = 3
 mode = 3
-position = Vector2i(70, 0)
+position = Vector2i(70, 414)
 size = Vector2i(400, 500)
 unresizable = true
 borderless = true

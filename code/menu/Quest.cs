@@ -1,6 +1,7 @@
 using Godot;
 // using Microsoft.VisualBasic;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 public partial class Quest : Node
@@ -19,6 +20,7 @@ public partial class Quest : Node
     private static string QuestPath = "res://data/QuestData.json";
     private AudioStreamPlayer2D CorrectSound;
 	private AudioStreamPlayer2D WrongSound;
+    private Random rand = new Random();
 
     [Export] Window InfoWindow;
 
@@ -57,11 +59,14 @@ public partial class Quest : Node
         Label text2 = option2.GetNode<Label>("Label");
         Label question = GetNode<Label>("CanvasLayer/Label");
 
-        Random rand = new Random();
         questionNum = 0;
 
         Godot.Collections.Dictionary data = File.getDictionary(QuestPath);
-        questionNum = rand.Next(0, data["questions"].AsGodotArray().Count);
+
+        if(Test._questionsAnswered == null)
+        Test._questionsAnswered = new bool[data["questions"].AsGodotArray().Count];
+
+        questionNum = rollQuestionNum();
         // questionNum = 4;
         var questionData = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary();
 
@@ -192,5 +197,47 @@ public partial class Quest : Node
         scoreAdd.speed = -scoreAdd.speed;
         scoreAdd.duration = 1.0f;
         scoreAdd.GlobalPosition = new Vector2(200, 60);
+    }
+
+    private int rollQuestionNum()
+    {
+        List<int> ids = new List<int>();
+        if(isAllAnswered())
+        {
+            for (int i = 0; i < Test._questionsAnswered.Length; i++)
+            {
+                Test._questionsAnswered[i] = false;
+            }
+        }
+        for (int i = 0; i < Test._questionsAnswered.Length; i ++)
+        {
+            if (Test._questionsAnswered[i] == false)
+            {
+                ids.Add(i);
+            }
+        }
+
+        int index = rand.Next(0, ids.Count);
+        int id = ids[index];
+        Test._questionsAnswered[id] = true;
+
+        for (int i = 0; i <  Test._questionsAnswered.Length; i++)
+        {
+            GD.Print( Test._questionsAnswered[i]);
+        }
+
+        return id;
+    }
+
+    private bool isAllAnswered()
+    {
+        for (int i = 0; i < Test._questionsAnswered.Length; i++)
+        {
+            if (Test._questionsAnswered[i] == false)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
