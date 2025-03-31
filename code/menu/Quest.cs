@@ -50,6 +50,7 @@ public partial class Quest : Node
 		WrongSound = GetNode<AudioStreamPlayer2D>("Wrong");
 
         InfoWindow.Hide();
+        InfoWindow.Position = new Vector2I(70,430);
 
         TextureButton option1 = GetNode<TextureButton>("CanvasLayer/VBoxContainer/Option1");
         TextureButton option2 = GetNode<TextureButton>("CanvasLayer/VBoxContainer/Option2");
