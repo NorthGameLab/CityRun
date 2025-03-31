@@ -116,7 +116,7 @@ public partial class Quest : Node
     // Info popup, jos vastaa väärin
     private void ShowInfo()
     {
-
+        //GetTree().Paused = true;
         GD.Print("Infowindow called");
         InfoWindow.Visible = true;
 
@@ -128,6 +128,7 @@ public partial class Quest : Node
 
     private void OnInfoExitPressed()
     {
+        //GetTree().Paused = false;
         GD.Print("close called");
         InfoWindow.QueueFree();
         test = testA.Instantiate<TestA>();

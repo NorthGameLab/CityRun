@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://4nxh2t2tgqfg"]
+[gd_scene load_steps=32 format=3 uid="uid://4nxh2t2tgqfg"]
 
 [ext_resource type="Script" path="res://code/menu/Shop/Shop.cs" id="1_k2k7k"]
 [ext_resource type="Texture2D" uid="uid://ljkom1ljs111" path="res://gfx/Skinmenu/CaseMenuTaustaTausta.png" id="2_ppyes"]
@@ -9,10 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://773xyeeor8xy" path="res://gfx/Skinmenu/napit/ExitNappi.png" id="4_yt1o0"]
 [ext_resource type="Texture2D" uid="uid://dx8ar6q34lh14" path="res://gfx/Skinmenu/napit/ExitNappiPainettu.png" id="5_gfrh3"]
 [ext_resource type="Texture2D" uid="uid://bw455tlba3rqb" path="res://gfx/Skinmenu/napit/BuyNappi.png" id="6_ycq60"]
+[ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="7_20rg2"]
 [ext_resource type="Texture2D" uid="uid://b2m3hv0hrnsq4" path="res://gfx/Skinmenu/Case.png" id="7_epcgp"]
 [ext_resource type="Texture2D" uid="uid://2ke7vn84n63p" path="res://gfx/Skinmenu/napit/BuyNappiPainettu.png" id="7_r3uyf"]
 [ext_resource type="Texture2D" uid="uid://c0hhu3rard68b" path="res://gfx/Skinmenu/napit/HintNappiV2.png" id="11_pcbes"]
 [ext_resource type="Texture2D" uid="uid://bpbab5o6unceq" path="res://gfx/Skinmenu/napit/HintNappiV2Painettu.png" id="12_jl8xo"]
+[ext_resource type="Texture2D" uid="uid://dyvwdypkxpeun" path="res://gfx/RaksiNappi.png" id="15_d8dog"]
+[ext_resource type="Texture2D" uid="uid://x0u5e2oenguy" path="res://gfx/RaksiNappiPainettu.png" id="16_owf7c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20cq8"]
 atlas = ExtResource("6_ycq60")
@@ -143,11 +146,12 @@ anchor_top = 0.351
 anchor_right = 1.0
 anchor_bottom = 0.645
 offset_left = -2.288
-offset_top = -31.239
+offset_top = -24.239
 offset_right = -2.216
-offset_bottom = 25.595
+offset_bottom = 36.595
+theme = ExtResource("7_20rg2")
 theme_override_font_sizes/font_size = 60
-text = "BUY"
+text = "20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -170,15 +174,16 @@ stretch_mode = 0
 
 [node name="Label" type="Label" parent="ExitButton"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.152
-anchor_top = 0.34
-anchor_right = 0.822
-anchor_bottom = 0.641
-offset_left = -0.152008
-offset_top = -27.36
-offset_right = 5.79797
-offset_bottom = 24.336
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_20rg2")
 theme_override_font_sizes/font_size = 60
 text = "EXIT"
 horizontal_alignment = 1
@@ -224,7 +229,7 @@ stretch_mode = 0
 [node name="Window" type="Window" parent="."]
 position = Vector2i(70, 36)
 size = Vector2i(400, 400)
-visible = false
+borderless = true
 
 [node name="CanvasGroup" type="CanvasGroup" parent="Window"]
 position = Vector2(47, 271)
@@ -251,5 +256,19 @@ offset_bottom = 173.0
 theme_override_font_sizes/font_size = 28
 text = "duplicate skins give +1 coins"
 
+[node name="ExitButton" type="TextureButton" parent="Window"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 20.0
+offset_right = 239.0
+offset_bottom = 339.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("15_d8dog")
+texture_pressed = ExtResource("16_owf7c")
+
 [connection signal="pressed" from="InfoButton" to="." method="OnInfoPressed"]
 [connection signal="close_requested" from="Window" to="." method="onWindowCloseRequested"]
+[connection signal="pressed" from="Window/ExitButton" to="." method="OnExitPressed"]
