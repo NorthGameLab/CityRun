@@ -12,11 +12,6 @@ public partial class File : Node
     public static string ItemPath = "res://data/ItemData.json";
     public static string UserSaveItemPath = OS.GetUserDataDir() + "/ItemSaveData.json";
 
-    public override void _Ready()
-    {
-
-    }
-
     public static Godot.Collections.Dictionary getDictionary(string path)
     {
         string loadedData = LoadText(path);

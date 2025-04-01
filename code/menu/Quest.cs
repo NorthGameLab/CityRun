@@ -114,11 +114,6 @@ public partial class Quest : Node
         }
     }
 
-    public override void _Process(double delta)
-    {
-
-    }
-
     // Info popup, jos vastaa väärin
     private void ShowInfo()
     {

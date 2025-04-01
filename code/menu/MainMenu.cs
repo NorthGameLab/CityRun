@@ -20,8 +20,6 @@ public partial class MainMenu : Node
     [Export] private TextureButton _sfxPlus = null;
     [Export] private TextureButton _sfxMinus = null;
 
-    private Sprite2D _texture = null;
-    private Sprite2D _texture2 = null;
     public CanvasLayer Menu;
     public Label HighScore;
     private Settings settings;
@@ -39,13 +37,6 @@ public partial class MainMenu : Node
 
         HighScore.Text = "HighScore: " + Test.HighScore;
 
-        /*
-        _texture2 = new Sprite2D();
-        _texture2.Texture = _texture.Texture;
-        _texture2.Scale = _texture.Scale;
-        _texture2.Position = _texture.Position - new Vector2(540, 0);
-        GetNode<Control>("Menu/Control").AddChild(_texture2);
-        */
         // hides settings in start
         PopupWindow = GetNode<Window>("SettingsPopup");
         PopupWindow.Visible = false;
@@ -95,22 +86,6 @@ public partial class MainMenu : Node
         PlayAudioEffect(EffectType.Select);
     }
 
-    public override void _Process(double delta)
-    {
-        /*
-        _texture.Position += new Vector2(1, 0);
-        _texture2.Position += new Vector2(1, 0);
-
-        if (_texture.Position.X >= 540)
-        {
-            _texture.Position = new Vector2(-540, 0);
-        }
-        if (_texture2.Position.X >= 540)
-        {
-            _texture2.Position = new Vector2(-540, 0);
-        }
-        */
-    }
     // start game
     private void onStartButtonPressed()
     {
