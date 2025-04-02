@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dt32cqvyqxoqo"]
+[gd_scene load_steps=17 format=3 uid="uid://dt32cqvyqxoqo"]
 
 [ext_resource type="Script" path="res://code/menu/Quest.cs" id="1_6xibc"]
 [ext_resource type="PackedScene" uid="uid://sxu2ulifuq2p" path="res://scene/TestA.tscn" id="2_cpbey"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cbe4igpoa5fs4" path="res://gfx/InfoPopupV2.png" id="9_8bv58"]
 [ext_resource type="AudioStream" uid="uid://c8vwpvih2j223" path="res://Audio/SFX/CorrectSound.mp3" id="9_pupce"]
 [ext_resource type="AudioStream" uid="uid://3spn4r3jgorn" path="res://Audio/SFX/WrongSound.mp3" id="10_r0mbp"]
+[ext_resource type="PackedScene" uid="uid://dkrsrb1xm8vho" path="res://scene/menu/Settings.tscn" id="14_gg02f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gt0p5"]
 
@@ -191,6 +192,8 @@ bus = &"SFX"
 [node name="Wrong" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_r0mbp")
 bus = &"SFX"
+
+[node name="Settings" parent="." instance=ExtResource("14_gg02f")]
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Option1" to="." method="button1Pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Option2" to="." method="button2Pressed"]

@@ -14,34 +14,23 @@ public partial class Quest : Node
     public TestA scoreAdd = null;
     public int _scoreAdded = 1000;
     public TextEdit AnsInfo;
-    string language = Global.Language;
+    private string language;
 
     private int questionNum;
     private static string QuestPath = "res://data/QuestData.json";
     private AudioStreamPlayer2D CorrectSound;
 	private AudioStreamPlayer2D WrongSound;
     private Random rand = new Random();
+    private Settings settings;
 
     [Export] Window InfoWindow;
 
     public override void _Ready()
     {
-        // Random rand = new Random();
-        // int randomNum = rand.Next(1, 3);
-        // switch(randomNum)
-        // {
-        //     case 1:
-        //         oneIsCorrect = true;
-        //         break;
 
-        //     case 2:
-        //         oneIsCorrect = false;
-        //         break;
-
-        //     default:
-        //         GD.Print("broken");
-        //         break;
-        // }
+        settings = GetNode<Settings>("Settings");
+        language = settings.GetLanguage();
+        GD.Print(language);
 
         Test.fromQuest = true;
         Test.LastArea = Test.CurrentArea;
