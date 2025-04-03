@@ -3,9 +3,6 @@ using System;
 // global script to be used all around
 public partial class Global : Node
 {
-	// string for language code
-	public static string Language = "fi";
-
 	// boolean for correct answer
 	public static bool _isCorrect = false;
 
