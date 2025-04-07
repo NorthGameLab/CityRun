@@ -90,20 +90,18 @@ texture_pressed = ExtResource("5_w68y0")
 
 [node name="Label" type="Label" parent="MainMenuButton"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -402.798
-offset_top = -157.318
-offset_right = 371.202
-offset_bottom = 101.682
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 46.6666
+offset_right = -62.0
+offset_bottom = -107.333
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_dirqc")
 theme_override_font_sizes/font_size = 180
 text = "Main_Menu"
+horizontal_alignment = 1
 
 [node name="RetryButton" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -123,20 +121,17 @@ texture_pressed = ExtResource("5_jynun")
 
 [node name="Label2" type="Label" parent="RetryButton"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -161.937
-offset_top = -106.375
-offset_right = 191.063
-offset_bottom = 123.625
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 46.75
+offset_bottom = -35.25
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_dirqc")
-theme_override_font_sizes/font_size = 160
+theme_override_font_sizes/font_size = 130
 text = "RETRY"
+horizontal_alignment = 1
 
 [node name="Collision" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_pn42c")
