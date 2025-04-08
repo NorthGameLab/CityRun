@@ -3,6 +3,7 @@ using System;
 
 public partial class GameScene : Node
 {
+    // hud
     public Hud Hud;
     // pause menu
     public Control PauseMenu;
@@ -15,23 +16,34 @@ public partial class GameScene : Node
 
 
 
-    //VAIKUTTAA KAIKEN NOPEUTEEN
+    //game speed
     public static float _speed = 0f;
+    //starting max game speed
     public static float _maxSpeed = 500f;
+    //max max game speed
     public static float _maxMaxSpeed = 1000f;
-
+    //acceleration of game speed
     public static float _acceleration = 200f;
-
+    //Is the game lost
     public static bool _lose = false;
-
+    //distance traveled
     public static float _distance = 0f;
-    public static float _distanceToNext = 1000;
+    //initial distance to next question
+    public static float _distanceToNextInit = 1000;
+    //distance to next question
+    public static float _distanceToNext = _distanceToNextInit;
+    //how much distance to next question increases with each question
     private float _distanceToNextUp = 1000;
+    //how many questions have happened
     public static int _timesQuest = 0;
-
+    //is next question coming triggered
     private bool _goingToQuest = false;
+    //deceleration of game speed
     private float _deceleration;
+    //distance to question when going to question
     private float _distanceToQuest = 650;
+    //increase to max speed
+    private float _maxSpeedIncrease = 6f;
     private static Environment environment;
 
     public override void _Ready()
@@ -41,6 +53,7 @@ public partial class GameScene : Node
         environment = GetNode<Environment>("Environment");
         Hud = GetNode<Hud>("Hud");
 
+        //resets game if player lost
         if (_lose)
         {
             resetGame();
@@ -51,7 +64,7 @@ public partial class GameScene : Node
         Background = GetNode<ColorRect>("Background");
         Background.Hide();
 
-
+        //changes area
         if (_timesQuest != 0 && _timesQuest % 2 == 0 && Test.NextArea == 0)
         {
             Test.NextArea = 1;
@@ -81,19 +94,22 @@ public partial class GameScene : Node
             Hud.changeDistance(((int)_distanceToNext + 700) / 100);
         }
 
+
+        //if not going to question speed increases and if going to question speed decreases
         if (!_goingToQuest)
         {
             if (_maxSpeed < _maxMaxSpeed)
             {
                 if (_speed == _maxSpeed)
                 {
-                    _maxSpeed += 0.1f;
+                    _maxSpeed += _maxSpeedIncrease * (float)delta;
                     _speed = _maxSpeed;
                 }
                 else
                 {
-                    _maxSpeed += 0.1f;
+                    _maxSpeed += _maxSpeedIncrease * (float)delta;;
                 }
+                GD.Print(_maxSpeed);
             }
 
             if (_speed < _maxSpeed)
@@ -111,14 +127,8 @@ public partial class GameScene : Node
             _speed += _deceleration * (float)delta;
         }
 
-        //GD.Print("Speed: " + _speed);
-        //GD.Print("distanceToQuest: " + _distanceToQuest);
-
         _distance += _speed * (float)delta;
-
         _distanceToNext -= _speed * (float)delta;
-        // GD.Print("Speed: " + _speed);
-        // GD.Print("maxSpeed: " + _maxSpeed);
 
         if(_goingToQuest && _speed <= 0)
         {
@@ -131,6 +141,7 @@ public partial class GameScene : Node
             Test.ObjectPositions.Clear();
             Test.Object2Positions.Clear();
 
+            //Stores environment objects to spawn them again
             foreach (Node node in GetNode<Node>("Environment").GetChildren())
             {
                 if (node is Building b)
@@ -161,6 +172,7 @@ public partial class GameScene : Node
         }
     }
 
+    //resets variables to original values
     public static void resetGame()
     {
         Test.Score = 0;
@@ -168,7 +180,7 @@ public partial class GameScene : Node
         _distance = 0;
         _speed = 0;
         _maxSpeed = 500f;
-        _distanceToNext = 3050;
+        _distanceToNext = _distanceToNextInit;
         _timesQuest = 0;
         Test.fromQuest = false;
         Test.NextArea = 0;

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+//Class for items in a case
 public partial class CaseItem : Sprite2D
 {
 

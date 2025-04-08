@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eqnnf20tfion"
-path="res://.godot/imported/TieValmis.png-9b4e67efbdf1afd05d97894343d828ca.ctex"
+uid="uid://b7r4glr23xljo"
+path="res://.godot/imported/PäähahmoSivulta.png-269ee8ca0bc57265acf82ba934126175.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/TieValmis.png"
-dest_files=["res://.godot/imported/TieValmis.png-9b4e67efbdf1afd05d97894343d828ca.ctex"]
+source_file="res://gfx/Skins/PäähahmoSivulta.png"
+dest_files=["res://.godot/imported/PäähahmoSivulta.png-269ee8ca0bc57265acf82ba934126175.ctex"]
 
 [params]
 

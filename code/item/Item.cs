@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+//Class for items(coin)
 public abstract partial class Item : Area2D
 {
 

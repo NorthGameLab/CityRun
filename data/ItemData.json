@@ -2,7 +2,7 @@
 	"items": [
 	{
 		"animPath": "res://gfx/Skins/Skin1.png",
-		"path": "res://gfx/Skins/Skin1Icon.png",
+		"path": "res://gfx/Skins/PäähahmoSivulta.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -12,7 +12,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin2.png",
-		"path": "res://gfx/Skins/Skin2Icon.png",
+		"path": "res://gfx/Skins/PäähahmoSivulta.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -22,7 +22,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin3.png",
-		"path": "res://gfx/Skins/Skin3Icon.png",
+		"path": "res://gfx/Skins/PäähahmoSivulta.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -32,7 +32,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin4.png",
-		"path": "res://gfx/Skins/Skin4Icon.png",
+		"path": "res://gfx/Skins/PäähahmoSivulta.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -42,7 +42,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin5.png",
-		"path": "res://gfx/Skins/Skin5Icon.png",
+		"path": "res://gfx/Skins/PäähahmoSivulta.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -52,7 +52,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin6.png",
-		"path": "res://gfx/Skins/Skin6Icon.png",
+		"path": "res://gfx/Skins/PäähahmoSivulta.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -62,7 +62,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin7.png",
-		"path": "res://gfx/Skins/Skin7Icon.png",
+		"path": "res://gfx/Skins/PäähahmoSivulta.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -72,7 +72,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin8.png",
-		"path": "res://gfx/Skins/Skin8Icon.png",
+		"path": "res://gfx/Skins/PäähahmoSivulta.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -82,7 +82,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin9.png",
-		"path": "res://gfx/Skins/Skin9Icon.png",
+		"path": "res://gfx/Skins/PäähahmoSivulta.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -92,7 +92,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin10.png",
-		"path": "res://gfx/Skins/Skin10Icon.png",
+		"path": "res://gfx/Skins/PäähahmoSivulta.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo8476cigo26m"
-path="res://.godot/imported/image-1.png (1).png-a5a96ea3d95285a4a11bb26a8cab78ad.ctex"
+uid="uid://xitr8gtl8wro"
+path="res://.godot/imported/cityrun (1).png-f5f33d87e46e77c7d40f03886f431f37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/image-1.png (1).png"
-dest_files=["res://.godot/imported/image-1.png (1).png-a5a96ea3d95285a4a11bb26a8cab78ad.ctex"]
+source_file="res://gfx/cityrun (1).png"
+dest_files=["res://.godot/imported/cityrun (1).png-f5f33d87e46e77c7d40f03886f431f37.ctex"]
 
 [params]
 

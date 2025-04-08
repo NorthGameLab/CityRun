@@ -22,8 +22,10 @@ public partial class Player : Area2D
 	// speed for changing lanes
 	private float _laneChangeSpeed = 1100f;
 
+	//Distance to move x axis when changing lanes
 	private float _xToGo;
 
+	//Is player moving lanes
 	private bool _moving = false;
 
 	private AnimatedSprite2D _animation = null;
@@ -32,6 +34,7 @@ public partial class Player : Area2D
 	{
 		_width = GetViewport().GetVisibleRect().Size.X / 5;
 
+		//SKIN
 		_animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		var currentSkinData = Test.ItemData[Test.CurrentSkinId].AsGodotDictionary();
 		SpriteFrames frames = new SpriteFrames();

@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 
+//Class for creating environment
 public partial class Environment : Node
 {
     public PackedScene Road = ResourceLoader.Load<PackedScene>("res://scene/Environment/Roads/RoadArea1.tscn");
@@ -10,15 +11,15 @@ public partial class Environment : Node
     public PackedScene TrafficLightGreen = ResourceLoader.Load<PackedScene>("res://scene/Environment/TrafficLightGreen.tscn");
     public PackedScene Objects = ResourceLoader.Load<PackedScene>("res://scene/Environment/Obects.tscn");
     public PackedScene Area2Objects = ResourceLoader.Load<PackedScene>("res://scene/Environment/Area2Objects.tscn");
+    //when reaches certain value a road spawns
     public float _yRoad;
-    public float _lastDistanceObjects, _lastDistanceBuildings, _lastDistanceObjects2;
-    private float _crosswalkY;
-    private Random rand = new Random();
+    //Has crosswalk been spawned
     private bool _spawnedCrosswalk = false;
+    public float _lastDistanceObjects, _lastDistanceBuildings, _lastDistanceObjects2;
 
+    //Creates initial environment
     public override void _Ready()
     {
-
         for (int i = -2; i < 6; i++)
         {
             Road r = Road.Instantiate<Road>();
@@ -99,10 +100,10 @@ public partial class Environment : Node
 
     }
 
+    //Creates environment as game goes on
     public override void _Process(double delta)
     {
 
-        //spawnstuff
         _yRoad += GameScene._speed * (float)delta;
         if (_yRoad >= 520)
         {

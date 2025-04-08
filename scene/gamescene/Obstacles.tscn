@@ -6,6 +6,6 @@
 script = ExtResource("1_lbobd")
 
 [node name="ObstacleSpawnTimer" type="Timer" parent="."]
-wait_time = 2.488
+wait_time = 5.0
 
 [connection signal="timeout" from="ObstacleSpawnTimer" to="." method="onObstacleSpawnTimerTimeout"]

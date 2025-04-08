@@ -3,8 +3,9 @@ using System;
 
 public partial class Obstacles : Node
 {
-    public static float _changeWaitTime = 0.0001f;
     public Timer ObstacleSpawnTimer;
+    //Initial time for obstacle spawn timer
+    private float _time = 5f;
 
     // paths to all obstacle scnes
     private PackedScene Walker = ResourceLoader.Load<PackedScene>("res://scene/obstacles/Walker.tscn");
@@ -24,7 +25,12 @@ public partial class Obstacles : Node
 
     public override void _Process(double delta)
     {
-        ObstacleSpawnTimer.WaitTime -= _changeWaitTime;
+        ObstacleSpawnTimer.WaitTime = _time - 3 * (GameScene._speed / 1000);
+        //GD.Print(ObstacleSpawnTimer.WaitTime);
+        if (GameScene.GetEnvironment().getSpawnedCrosswalk())
+        {
+            ObstacleSpawnTimer.Stop();
+        }
     }
 
     // when timer runs out, an obstacle spawns

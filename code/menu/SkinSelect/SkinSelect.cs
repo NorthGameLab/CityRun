@@ -21,10 +21,16 @@ public partial class SkinSelect : Control
 		Skins = new SkinSelectButton[Test.ItemData.Count];
 		for (int i = 0; i < Skins.Length; i++)
 		{
+			MarginContainer margin = new MarginContainer();
+			margin.AddThemeConstantOverride("margin_top", 15);
+			margin.AddThemeConstantOverride("margin_left", 22);
+
 			SkinSelectButton skin = SkinButton.Instantiate<SkinSelectButton>();
-			Container.AddChild(skin);
+			margin.AddChild(skin);
+			Container.AddChild(margin);
 			skin.owned = Test.OwnedSkins[i];
 			skin.id = i;
+			//skin.TextureNormal = getTexture(i);
 			if (skin.owned)
 			{
 				skin.TextureNormal = getTexture(i);
@@ -37,6 +43,7 @@ public partial class SkinSelect : Control
 			}
 			else
 			{
+				//skin.LockedBackground.Show();
 				skin.TextureNormal = getLockedTexture(i);
 			}
 
@@ -65,6 +72,15 @@ public partial class SkinSelect : Control
 		AddChild(selectedSquare);
 		selectedSquare.Texture = (Texture2D)ResourceLoader.Load("res://gfx/Skinmenu/SkiniValittuIndikaattori.png");
 		selectedSquare.Scale += new Vector2(0.15f, 0.15f);
+
+		foreach (Node child in Container.GetChildren())
+		{
+			if (child is TextureButton tb)
+			{
+
+
+			}
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

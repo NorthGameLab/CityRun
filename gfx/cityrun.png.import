@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3ma0qha47nkk"
-path="res://.godot/imported/square.png-503eacbeaf3e6169dc478091a318fbf5.ctex"
+uid="uid://svmxviigra2j"
+path="res://.godot/imported/cityrun.png-1bcb46333eb1c498050250b1edc5907c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/square.png"
-dest_files=["res://.godot/imported/square.png-503eacbeaf3e6169dc478091a318fbf5.ctex"]
+source_file="res://gfx/cityrun.png"
+dest_files=["res://.godot/imported/cityrun.png-1bcb46333eb1c498050250b1edc5907c.ctex"]
 
 [params]
 

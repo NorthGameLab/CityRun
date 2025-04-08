@@ -4,13 +4,16 @@ using System;
 public abstract partial class Obstacle : Area2D
 {
 
+	//Speed of obstacle
 	[Export]
 	public float _speed = 0f;
+	//width of a lane
 	public float _width;
 	public AnimatedSprite2D Animation;
 	// sound effects for the obstacles
 	private AudioStreamPlayer2D SoundEffect;
 	private AudioStreamPlayer2D SoundEffect2;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

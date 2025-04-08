@@ -4,19 +4,25 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+//Class for questions
 public partial class Quest : Node
 {
+    //is option 1 correct
     public bool oneIsCorrect = false;
 
     [Export]
     public PackedScene testA = null;
     public TestA test = null;
     public TestA scoreAdd = null;
+
+    //how much score player gets for answering correctly to a question
     public int _scoreAdded = 1000;
     public TextEdit AnsInfo;
     private string language;
 
+    //Question's id in the game's question data
     private int questionNum;
+    //Path to question data
     private static string QuestPath = "res://data/QuestData.json";
     private AudioStreamPlayer2D CorrectSound;
 	private AudioStreamPlayer2D WrongSound;
@@ -184,6 +190,7 @@ public partial class Quest : Node
         scoreAdd.GlobalPosition = new Vector2(200, 60);
     }
 
+    //gets random question id from question that hasn't been answered
     private int rollQuestionNum()
     {
         List<int> ids = new List<int>();
@@ -214,6 +221,7 @@ public partial class Quest : Node
         return id;
     }
 
+    //checks if all questions have been answered
     private bool isAllAnswered()
     {
         for (int i = 0; i < Test._questionsAnswered.Length; i++)

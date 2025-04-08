@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+//Class of opening of treasure box
 public partial class CaseOpening : Control
 {
 	private PackedScene CaseItem = ResourceLoader.Load<PackedScene>("res://scene/menu/Shop/CaseOpening/CaseItem.tscn");
@@ -8,22 +9,24 @@ public partial class CaseOpening : Control
 	private PackedScene AddCoins = ResourceLoader.Load<PackedScene>("res://scene/TestA.tscn");
 	private PackedScene fireworksTest = ResourceLoader.Load<PackedScene>("res://scene/menu/Shop/CaseOpening/Fireworks.tscn");
 	private ColorRect BackGround;
+	//speed of spinning of items
 	public float Speed = 2500;
+	//acceleration of spinning of items
 	public float Acceleration = -500f;
-	public float time = 0;
-	private int cases = 0;
-
+	//is spinning happening
 	public bool _spinning = true;
+	//is spinnign completed
 	private bool _completed = false;
-
 	private Random Rand = new Random();
+
+	//id of the item that player gets
 	private int _getItemId;
 	private TextureButton ExitButton;
 	private ColorRect Line;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-
+		//Sets up spin
 		BackGround = GetNode<ColorRect>("BackGround");
 		BackGround.Show();
 		_getItemId = roll();
@@ -137,6 +140,7 @@ public partial class CaseOpening : Control
 		}
 	}
 
+	//Gets random skin based on probabilities
 	private int roll()
 	{
 		int itemId = 0;
@@ -173,6 +177,7 @@ public partial class CaseOpening : Control
 		return itemId;
 	}
 
+	//gets texture of skin icon
 	private Texture2D getTexture(int id)
 	{
 		var skinData = Test.ItemData[id].AsGodotDictionary();
