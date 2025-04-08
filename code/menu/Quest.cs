@@ -36,7 +36,6 @@ public partial class Quest : Node
 
         settings = GetNode<Settings>("Settings");
         language = settings.GetLanguage();
-        GD.Print(language);
 
         Test.fromQuest = true;
         Test.LastArea = Test.CurrentArea;
@@ -63,7 +62,7 @@ public partial class Quest : Node
         Test._questionsAnswered = new bool[data["questions"].AsGodotArray().Count];
 
         questionNum = rollQuestionNum();
-        // questionNum = 4;
+        // questionNum = 2;
         var questionData = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary();
 
         question.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["question"].AsGodotDictionary()[language].AsString();
@@ -112,8 +111,6 @@ public partial class Quest : Node
     // Info popup, jos vastaa väärin
     private void ShowInfo()
     {
-
-        GD.Print("Infowindow called");
         InfoWindow.Visible = true;
 
         Godot.Collections.Dictionary data = File.getDictionary(QuestPath);
@@ -124,7 +121,6 @@ public partial class Quest : Node
 
     private void OnInfoExitPressed()
     {
-        GD.Print("close called");
         InfoWindow.QueueFree();
         test = testA.Instantiate<TestA>();
         test.Text = "VÄÄRIN";
