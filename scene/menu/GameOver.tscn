@@ -124,12 +124,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 46.75
-offset_bottom = -35.25
+offset_left = -1.5625
+offset_top = 57.8124
+offset_right = -1.5625
+offset_bottom = -39.1876
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_dirqc")
-theme_override_font_sizes/font_size = 130
+theme_override_font_sizes/font_size = 120
 text = "RETRY"
 horizontal_alignment = 1
 

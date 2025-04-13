@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://hejkmvjuwhjc"]
+
+[ext_resource type="AudioStream" uid="uid://dam3n3fjetf2s" path="res://Audio/music/game-over-252897.mp3" id="1_rduue"]
+[ext_resource type="Script" path="res://code/MusicManager.cs" id="1_s2pm0"]
+[ext_resource type="AudioStream" uid="uid://5ci6rs4owtv7" path="res://Audio/music/energetic-chiptune-video-game-music-platformer-8-bit-318348.mp3" id="2_6br5j"]
+
+[node name="MusicManager" type="Node" node_paths=PackedStringArray("MenuMusic", "GameMusic")]
+script = ExtResource("1_s2pm0")
+MenuMusic = NodePath("MenuMusic")
+GameMusic = NodePath("GameMusic")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_rduue")
+bus = &"Music"
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6br5j")
+bus = &"Music"

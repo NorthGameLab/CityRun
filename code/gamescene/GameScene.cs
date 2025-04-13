@@ -50,6 +50,7 @@ public partial class GameScene : Node
 
     public override void _Ready()
     {
+        MusicManager.Instance.PlayGameMusic();
         _coinSound = GetNode<AudioStreamPlayer2D>("Collect");
         _correct = GetNode<AudioStreamPlayer2D>("Correct");
         environment = GetNode<Environment>("Environment");

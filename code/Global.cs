@@ -3,7 +3,7 @@ using System;
 // global script to be used all around
 public partial class Global : Node
 {
-	// boolean for correct answer
+	// variable for storing correct answer
 	public static bool _isCorrect = false;
 
 	// settings config file
