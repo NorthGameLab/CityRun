@@ -16,7 +16,6 @@ using System;
 		private float _originalVolume = 1.0f;
 		//Linear range [0, 1]
 		private float _currentVolumeLinear;
-
 		// max and min values for sound linear
 		private const float MinValue = 0.01f;
 		private const float MaxValue = 1.0f;

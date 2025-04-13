@@ -8,6 +8,7 @@ public partial class GameOver : CanvasLayer
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		MusicManager.Instance.PlayMenuMusic();
 		// plays the collision sound when game over
 		Collision = GetNode<AudioStreamPlayer2D>("Collision");
 		Collision.Play();

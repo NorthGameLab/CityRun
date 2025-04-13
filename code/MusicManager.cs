@@ -11,10 +11,13 @@ public partial class MusicManager : Node
     public override void _Ready()
     {
         Instance = this; // Ensure we have a singleton instance
+
+        /*
         if (MenuMusic != null && !MenuMusic.Playing)
         {
             PlayMenuMusic(); // Start with menu music
         }
+        */
     }
 
     public void PlayMenuMusic()

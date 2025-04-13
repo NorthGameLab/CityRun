@@ -30,7 +30,7 @@ public partial class MainMenu : Node
 
     public override void _Ready()
     {
-        // MusicManager.Instance.PlayMenuMusic();
+        MusicManager.Instance.PlayMenuMusic();
         settings = GetNode<Settings>("Settings");
         Test.loadGame();
         Menu = GetNode<CanvasLayer>("Menu");

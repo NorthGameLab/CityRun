@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://hejkmvjuwhjc"]
+[gd_scene load_steps=4 format=3 uid="uid://blyg3jqxc1urc"]
 
 [ext_resource type="AudioStream" uid="uid://dam3n3fjetf2s" path="res://Audio/music/game-over-252897.mp3" id="1_rduue"]
 [ext_resource type="Script" path="res://code/MusicManager.cs" id="1_s2pm0"]
