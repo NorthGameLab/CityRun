@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Runtime.ConstrainedExecution;
 
 public partial class GameScene : Node
 {
@@ -29,11 +30,12 @@ public partial class GameScene : Node
     //distance traveled
     public static float _distance = 0f;
     //initial distance to next question
-    public static float _distanceToNextInit = 1000;
+    public static float _distanceToNextInit = 10000;
     //distance to next question
     public static float _distanceToNext = _distanceToNextInit;
     //how much distance to next question increases with each question
-    private float _distanceToNextUp = 1000;
+    private float _distanceToNextUp = 5000;
+    private float _distanceToNextMax = 30000;
     //how many questions have happened
     public static int _timesQuest = 0;
     //is next question coming triggered
@@ -43,7 +45,7 @@ public partial class GameScene : Node
     //distance to question when going to question
     private float _distanceToQuest = 650;
     //increase to max speed
-    private float _maxSpeedIncrease = 6f;
+    private float _maxSpeedIncrease = 1.5f;
     private static Environment environment;
 
     public override void _Ready()
@@ -89,12 +91,6 @@ public partial class GameScene : Node
         Hud.changeScore(Test.Score);
         Hud.changeCoins(Test.Money);
 
-        if(!_goingToQuest)
-        {
-            Hud.changeDistance(((int)_distanceToNext + 700) / 100);
-        }
-
-
         //if not going to question speed increases and if going to question speed decreases
         if (!_goingToQuest)
         {
@@ -109,7 +105,6 @@ public partial class GameScene : Node
                 {
                     _maxSpeed += _maxSpeedIncrease * (float)delta;;
                 }
-                GD.Print(_maxSpeed);
             }
 
             if (_speed < _maxSpeed)
@@ -133,7 +128,9 @@ public partial class GameScene : Node
         if(_goingToQuest && _speed <= 0)
         {
             _timesQuest++;
-            _distanceToNext = 3000 + (_timesQuest * _distanceToNextUp);
+            _distanceToNext = _distanceToNextInit + (_timesQuest * _distanceToNextUp);
+            if (_distanceToNext > _distanceToNextMax)
+                _distanceToNext = _distanceToNextMax;
             _goingToQuest = false;
 
             Test.BuildingPositions.Clear();

@@ -104,8 +104,9 @@ public partial class Environment : Node
     public override void _Process(double delta)
     {
 
+        //Creates road
         _yRoad += GameScene._speed * (float)delta;
-        if (_yRoad >= 520)
+        if (_yRoad >= 500)
         {
             Road road = Road.Instantiate<Road>();
             AddChild(road);
@@ -122,6 +123,7 @@ public partial class Environment : Node
 
         }
 
+        //Creates objects
         if (Test.CurrentArea == 0 && !_spawnedCrosswalk)
         {
             if (_lastDistanceObjects - GameScene._distanceToNext >= 925 && GameScene._distanceToNext > 500)
@@ -186,7 +188,7 @@ public partial class Environment : Node
 
         }
 
-        //spawncrosswalk
+        //Spawns a crosswalk
         if (GameScene._distanceToNext <= -60 && !_spawnedCrosswalk)
         {
             Road crossing = Road.Instantiate<Road>();

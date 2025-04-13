@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+//Test class for a text label that moves and fades away
 public partial class TestA : Label
 {
 	public float speed = 100.0f;

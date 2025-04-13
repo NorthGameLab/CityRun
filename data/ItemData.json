@@ -12,17 +12,17 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin2.png",
-		"path": "res://gfx/Skins/PäähahmoSivulta.png",
+		"path": "res://gfx/Skins/Skin2Icon.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
 		"framesY": 4,
 		"name": "Skin2",
-		"rarity": "rare"
+		"rarity": "common"
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin3.png",
-		"path": "res://gfx/Skins/PäähahmoSivulta.png",
+		"path": "res://gfx/Skins/Skin3Icon.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -32,7 +32,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin4.png",
-		"path": "res://gfx/Skins/PäähahmoSivulta.png",
+		"path": "res://gfx/Skins/Skin4Icon.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -42,7 +42,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin5.png",
-		"path": "res://gfx/Skins/PäähahmoSivulta.png",
+		"path": "res://gfx/Skins/Skin5Icon.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -52,7 +52,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin6.png",
-		"path": "res://gfx/Skins/PäähahmoSivulta.png",
+		"path": "res://gfx/Skins/Skin6Icon.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -62,7 +62,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin7.png",
-		"path": "res://gfx/Skins/PäähahmoSivulta.png",
+		"path": "res://gfx/Skins/Skin7Icon.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -72,7 +72,7 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin8.png",
-		"path": "res://gfx/Skins/PäähahmoSivulta.png",
+		"path": "res://gfx/Skins/Skin8Icon.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
@@ -82,23 +82,13 @@
 	},
 	{
 		"animPath": "res://gfx/Skins/Skin9.png",
-		"path": "res://gfx/Skins/PäähahmoSivulta.png",
+		"path": "res://gfx/Skins/Skin9Icon.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 2,
 		"framesY": 4,
 		"name": "Skin9",
-		"rarity": "rare"
-	},
-	{
-		"animPath": "res://gfx/Skins/Skin10.png",
-		"path": "res://gfx/Skins/PäähahmoSivulta.png",
-		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
-		"frames": 8,
-		"framesX": 2,
-		"framesY": 4,
-		"name": "Skin10",
-		"rarity": "epic"
+		"rarity": "common"
 	},
 	{
 		"animPath": "res://gfx/Skins/Pingviini.png",
@@ -108,11 +98,71 @@
 		"framesX": 3,
 		"framesY": 3,
 		"name": "Penguin",
-		"rarity": "epic"
+		"rarity": "rare"
 	},
 	{
 		"animPath": "res://gfx/Skins/YhtäHahmo.png",
 		"path": "res://gfx/Skins/YhtäHahmoSivulta.png",
+		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
+		"frames": 8,
+		"framesX": 3,
+		"framesY": 3,
+		"name": "Yhtä",
+		"rarity": "rare"
+	},
+	{
+		"animPath": "res://gfx/Skins/Klovni.png",
+		"path": "res://gfx/Skins/KlovniSivulta.png",
+		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
+		"frames": 8,
+		"framesX": 3,
+		"framesY": 3,
+		"name": "Yhtä",
+		"rarity": "rare"
+	},
+	{
+		"animPath": "res://gfx/Skins/KultainenHahmo.png",
+		"path": "res://gfx/Skins/KultainenHahmoSivulta.png",
+		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
+		"frames": 8,
+		"framesX": 3,
+		"framesY": 3,
+		"name": "Yhtä",
+		"rarity": "epic"
+	},
+	{
+		"animPath": "res://gfx/Skins/Luuranko.png",
+		"path": "res://gfx/Skins/LuurankoSivulta.png",
+		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
+		"frames": 8,
+		"framesX": 3,
+		"framesY": 3,
+		"name": "Yhtä",
+		"rarity": "epic"
+	},
+	{
+		"animPath": "res://gfx/Skins/PipoHahmo.png",
+		"path": "res://gfx/Skins/PipoHahmoSivulta.png",
+		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
+		"frames": 8,
+		"framesX": 3,
+		"framesY": 3,
+		"name": "Yhtä",
+		"rarity": "rare"
+	},
+	{
+		"animPath": "res://gfx/Skins/Robotti.png",
+		"path": "res://gfx/Skins/RobottiSivulta.png",
+		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
+		"frames": 8,
+		"framesX": 3,
+		"framesY": 3,
+		"name": "Yhtä",
+		"rarity": "epic"
+	},
+	{
+		"animPath": "res://gfx/Skins/TörmäysNukke.png",
+		"path": "res://gfx/Skins/TörmäysNukkeSivulta.png",
 		"pathlock": "res://gfx/Skins/PingviiniSivultaLOCK.png",
 		"frames": 8,
 		"framesX": 3,

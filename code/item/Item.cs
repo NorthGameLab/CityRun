@@ -19,6 +19,7 @@ public abstract partial class Item : Area2D
         GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play();
     }
 
+    //sets up item spawn
     public virtual void Start()
 	{
 		Random rand = new Random();

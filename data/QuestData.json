@@ -106,7 +106,50 @@
 			"en": "There is a bicycle lane on the crosswalk"
 
 		}
-	}
+	},
+	{
+		"path":"res://gfx/Kysymyskuvia/TestiKysymskuva.png",
+		"frames": "1",
 
+		"question": {
+			"fi": "Saako suojatien ylittää, jos liikennevalo on punainen?",
+			"en": "Are you allowed to cross a crosswalk if the traffic light is red?"
+		},
+		"correctAnswer": {
+			"fi": "ei",
+			"en": "no"
+		},
+		"wrongAnswer": {
+			"fi": "kyllä saa",
+			"en": "yes"
+		},
+		"info": {
+			"fi": "Suomen lain mukaan liikennevalon ollessa punainen on pysähdyttävä",
+			"en": "According to finnish law you must stop when the traffic light is red"
+
+		}
+	},
+	{
+		"path":"res://gfx/Kysymyskuvia/testiKysymysKuvaTie.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Jos kävelet autotiellä, kummalla puolella tietä kuuluu kävellä?",
+			"en": "If you are walking on a motor road, which side of the road should you walk?"
+		},
+		"correctAnswer": {
+			"fi": "Vasemmalla",
+			"en": "Left"
+		},
+		"wrongAnswer": {
+			"fi": "Oikealla",
+			"en": "Right"
+		},
+		"info": {
+			"fi": "Suomen lain mukaan kävelijän on kuljettava autotien vasenta reunaa",
+			"en": "According to finnish law a walker must walk on the left side of a motor road"
+
+		}
+	}
 	]
 }

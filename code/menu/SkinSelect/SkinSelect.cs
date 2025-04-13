@@ -4,20 +4,20 @@ using System;
 public partial class SkinSelect : Control
 {
 	private PackedScene SkinButton = ResourceLoader.Load<PackedScene>("res://scene/menu/SkinSelect/SkinSelectButton.tscn");
+	//Array of buttons that select skins
 	private SkinSelectButton[] Skins;
-	private string[] paths;
 	private ScrollContainer Scroll;
 	private GridContainer Container;
 	private Sprite2D selectedSquare = new Sprite2D();
 
 	private TextureButton ExitButton;
-	// Called when the node enters the scene tree for the first time.
+
+	// Sets up skin items for the shop
 	public override void _Ready()
 	{
 		Scroll = GetNode<ScrollContainer>("ScrollContainer");
 		Container = GetNode<GridContainer>("ScrollContainer/GridContainer");
 
-		paths = Test.getItemPaths();
 		Skins = new SkinSelectButton[Test.ItemData.Count];
 		for (int i = 0; i < Skins.Length; i++)
 		{
@@ -30,10 +30,10 @@ public partial class SkinSelect : Control
 			Container.AddChild(margin);
 			skin.owned = Test.OwnedSkins[i];
 			skin.id = i;
-			//skin.TextureNormal = getTexture(i);
+			skin.TextureNormal = getTexture(i);
 			if (skin.owned)
 			{
-				skin.TextureNormal = getTexture(i);
+				//skin.TextureNormal = getTexture(i);
 				if (Test.ItemData[i].AsGodotDictionary()["rarity"].ToString() == "common")
 					skin.RarityBackground.Frame = 1;
 				else if (Test.ItemData[i].AsGodotDictionary()["rarity"].ToString() == "rare")
@@ -43,8 +43,8 @@ public partial class SkinSelect : Control
 			}
 			else
 			{
-				//skin.LockedBackground.Show();
-				skin.TextureNormal = getLockedTexture(i);
+				skin.LockedBackground.Show();
+				//skin.TextureNormal = getLockedTexture(i);
 			}
 
 			Scale = new Vector2(4, 4);
@@ -72,15 +72,6 @@ public partial class SkinSelect : Control
 		AddChild(selectedSquare);
 		selectedSquare.Texture = (Texture2D)ResourceLoader.Load("res://gfx/Skinmenu/SkiniValittuIndikaattori.png");
 		selectedSquare.Scale += new Vector2(0.15f, 0.15f);
-
-		foreach (Node child in Container.GetChildren())
-		{
-			if (child is TextureButton tb)
-			{
-
-
-			}
-		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -89,6 +80,7 @@ public partial class SkinSelect : Control
 		selectedSquare.GlobalPosition = Skins[Test.CurrentSkinId].GlobalPosition + new Vector2(Skins[Test.CurrentSkinId].TextureNormal.GetWidth() * 2, Skins[Test.CurrentSkinId].TextureNormal.GetHeight() * 2);
 	}
 
+	//Gets the texture of an item icon with the id id
 	private Texture2D getTexture(int id)
 	{
 		var skinData = Test.ItemData[id].AsGodotDictionary();
@@ -97,6 +89,7 @@ public partial class SkinSelect : Control
 		return textureInit;
 	}
 
+	//Gets the texture of an item's locked icon with the id id
 	private Texture2D getLockedTexture(int id)
 	{
 		var skinData = Test.ItemData[id].AsGodotDictionary();

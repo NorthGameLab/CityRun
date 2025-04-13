@@ -26,8 +26,8 @@ script = ExtResource("1_1c8tt")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
-offset_right = 542.0
-offset_bottom = 400.0
+offset_right = 535.0
+offset_bottom = 254.0
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
@@ -41,8 +41,8 @@ columns = 2
 
 [node name="Background" type="Sprite2D" parent="ScrollContainer/GridContainer"]
 z_index = -5
-position = Vector2(0, 4.76837e-07)
-scale = Vector2(1.5, 2.5125)
+position = Vector2(0, -1)
+scale = Vector2(1.5, 3.05)
 texture = ExtResource("2_wbuy5")
 centered = false
 

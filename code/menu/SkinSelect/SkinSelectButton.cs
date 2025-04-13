@@ -17,6 +17,7 @@ public partial class SkinSelectButton : TextureButton
 		Pressed += onPressed;
 	}
 
+	//When this button is pressed, changes skin to this buttons id
 	private void onPressed()
 	{
 		if (owned)

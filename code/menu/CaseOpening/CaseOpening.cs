@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 //Class of opening of treasure box
 public partial class CaseOpening : Control
@@ -23,9 +25,29 @@ public partial class CaseOpening : Control
 	private int _getItemId;
 	private TextureButton ExitButton;
 	private ColorRect Line;
+
+	private List<int> Commons = new List<int>();
+	private List<int> Rares = new List<int>();
+	private List<int> Epics = new List<int>();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		for (int i = 0; i < Test.ItemData.Count; i++)
+		{
+			if (Test.ItemData[i].AsGodotDictionary()["rarity"].ToString() == "common")
+			{
+				Commons.Add(i);
+			}
+			else if(Test.ItemData[i].AsGodotDictionary()["rarity"].ToString() == "rare")
+			{
+				Rares.Add(i);
+			}
+			else if(Test.ItemData[i].AsGodotDictionary()["rarity"].ToString() == "epic")
+			{
+				Epics.Add(i);
+			}
+		}
+
 		//Sets up spin
 		BackGround = GetNode<ColorRect>("BackGround");
 		BackGround.Show();
@@ -89,9 +111,10 @@ public partial class CaseOpening : Control
 			}
 			else
 			{
-				Test.Money += 1;
+				Test.Money += 5;
 				GetParent().GetNode<Label>("coinCont/coins").Text = Test.Money.ToString();
 				TestA addCoins = AddCoins.Instantiate<TestA>();
+				addCoins.Text = "5";
 				AddChild(addCoins);
 				addCoins.GetNode<Sprite2D>("Sprite2D").Show();
 			}
@@ -146,27 +169,23 @@ public partial class CaseOpening : Control
 		int itemId = 0;
 		int randomNumber;
 		int randomSkinNumber;
-		int[] commons = {0, 2, 3, 4, 5, 6, 7};
-		int[] rares = {1, 8, 11};
-		int[] superRares = {9, 10};
 
 		randomNumber = Rand.Next(0, 100);
-		GD.Print(randomNumber);
 		switch(randomNumber)
 		{
 			case int n when (n >= 0 && n <= 75):
-				randomSkinNumber = Rand.Next(0, commons.Length);
-				itemId = commons[randomSkinNumber];
+				randomSkinNumber = Rand.Next(0, Commons.Count);
+				itemId = Commons[randomSkinNumber];
 				break;
 
 			case int n when (n >= 76 && n <= 98):
-				randomSkinNumber = Rand.Next(0, rares.Length);
-				itemId = rares[randomSkinNumber];
+				randomSkinNumber = Rand.Next(0, Rares.Count);
+				itemId = Rares[randomSkinNumber];
 				break;
 
 			case int n when (n >= 99 && n <= 100):
-				randomSkinNumber = Rand.Next(0, superRares.Length);
-				itemId = superRares[randomSkinNumber];
+				randomSkinNumber = Rand.Next(0, Epics.Count);
+				itemId = Epics[randomSkinNumber];
 				break;
 
 			default:

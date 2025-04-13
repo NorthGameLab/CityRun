@@ -62,7 +62,7 @@ public partial class Quest : Node
         Test._questionsAnswered = new bool[data["questions"].AsGodotArray().Count];
 
         questionNum = rollQuestionNum();
-        // questionNum = 2;
+         //questionNum = 6;
         var questionData = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary();
 
         question.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["question"].AsGodotDictionary()[language].AsString();
@@ -70,14 +70,25 @@ public partial class Quest : Node
         int frameCount = Int32.Parse(data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["frames"].AsString());
         Texture2D texture = (Texture2D)ResourceLoader.Load(data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["path"].AsString());
         Image image = texture.GetImage();
-        Vector2 size = image.GetSize();
+        Vector2 size;
+
+         if (frameCount > 1)
+        {
+            size = image.GetSize();
+            size = new Vector2(size.X, size.Y / frameCount);
+        }
+        else
+        {
+            size = image.GetSize();
+        }
+
         SpriteFrames frames = new SpriteFrames();
         for (int i = 0; i < frameCount; i++)
         {
             var frameRegion = new Rect2I();
             if (frameCount > 1)
             {
-                frameRegion = new Rect2I(0, i * 1600, 2240, 1600);
+                frameRegion = new Rect2I(0, i * (int)size.Y, (int)size.X, (int)size.Y);
             }
             else
             {
@@ -87,7 +98,10 @@ public partial class Quest : Node
 
             frames.AddFrame("default", frameTexture);
         }
-
+        if (image.GetSize().X < 2240)
+        {
+            GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated").Scale *= 14;
+        }
         GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated").SpriteFrames = frames;
         GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated").Show();
         GetNode<AnimatedSprite2D>("CanvasLayer/Control/QuestionPicAnimated").Play();

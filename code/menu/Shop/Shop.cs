@@ -37,9 +37,9 @@ public partial class Shop : Control
 	// checks the money count and opens a case if coin count is over 10
 	private void onButtonPressed()
 	{
-		if (Test.Money >= 10)
+		if (Test.Money >= 20)
 		{
-			Test.Money -= 10;
+			Test.Money -= 20;
 			CoinsLabel.Text = Test.Money.ToString();
 			ChestOpen.Play();
 		}
@@ -59,6 +59,8 @@ public partial class Shop : Control
 	{
 		InfoWindow.Hide();
 	}
+
+	//Called when chestopen animation loops to open the chest
 	private void chestOpened()
 	{
 		ChestOpen.Stop();
