@@ -178,12 +178,12 @@ public partial class CaseOpening : Control
 				itemId = Commons[randomSkinNumber];
 				break;
 
-			case int n when (n >= 76 && n <= 98):
+			case int n when (n >= 76 && n <= 94):
 				randomSkinNumber = Rand.Next(0, Rares.Count);
 				itemId = Rares[randomSkinNumber];
 				break;
 
-			case int n when (n >= 99 && n <= 100):
+			case int n when (n >= 95 && n <= 100):
 				randomSkinNumber = Rand.Next(0, Epics.Count);
 				itemId = Epics[randomSkinNumber];
 				break;

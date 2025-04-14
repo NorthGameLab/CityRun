@@ -62,7 +62,7 @@ public partial class Quest : Node
         Test._questionsAnswered = new bool[data["questions"].AsGodotArray().Count];
 
         questionNum = rollQuestionNum();
-         //questionNum = 6;
+        //questionNum = 9;
         var questionData = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary();
 
         question.Text = data["questions"].AsGodotArray()[questionNum].AsGodotDictionary()["question"].AsGodotDictionary()[language].AsString();

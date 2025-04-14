@@ -89,15 +89,6 @@ public partial class SkinSelect : Control
 		return textureInit;
 	}
 
-	//Gets the texture of an item's locked icon with the id id
-	private Texture2D getLockedTexture(int id)
-	{
-		var skinData = Test.ItemData[id].AsGodotDictionary();
-		Texture2D textureInit = (Texture2D)ResourceLoader.Load((string)skinData["pathlock"]);
-
-		return textureInit;
-	}
-
 	private void ExitButtonPressed()
 	{
 		GetTree().ChangeSceneToFile("res://scene/menu/MainMenu.tscn");

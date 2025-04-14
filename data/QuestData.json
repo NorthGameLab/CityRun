@@ -116,12 +116,12 @@
 			"en": "Are you allowed to cross a crosswalk if the traffic light is red?"
 		},
 		"correctAnswer": {
-			"fi": "ei",
-			"en": "no"
+			"fi": "Ei",
+			"en": "No"
 		},
 		"wrongAnswer": {
-			"fi": "kyllä saa",
-			"en": "yes"
+			"fi": "Kyllä saa",
+			"en": "Yes"
 		},
 		"info": {
 			"fi": "Suomen lain mukaan liikennevalon ollessa punainen on pysähdyttävä",
@@ -135,7 +135,7 @@
 
 		"question": {
 			"fi": "Jos kävelet autotiellä, kummalla puolella tietä kuuluu kävellä?",
-			"en": "If you are walking on a motor road, which side of the road should you walk?"
+			"en": "If you are walking on a car road, which side of the road should you walk?"
 		},
 		"correctAnswer": {
 			"fi": "Vasemmalla",
@@ -147,7 +147,73 @@
 		},
 		"info": {
 			"fi": "Suomen lain mukaan kävelijän on kuljettava autotien vasenta reunaa",
-			"en": "According to finnish law a walker must walk on the left side of a motor road"
+			"en": "According to finnish law a walker must walk on the left side of a car road"
+
+		}
+	},
+	{
+		"path":"res://gfx/Kysymyskuvia/KysymysJuoksu.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Kannattaako autotielle juosta?",
+			"en": "Should you run on a car road?"
+		},
+		"correctAnswer": {
+			"fi": "Ei",
+			"en": "No"
+		},
+		"wrongAnswer": {
+			"fi": "Kyllä",
+			"en": "Yes"
+		},
+		"info": {
+			"fi": "Autotielle juokseminen voi aiheuttaa onnettomuuksia",
+			"en": "Running on a car road may cause accidents"
+
+		}
+	},
+	{
+		"path":"res://gfx/Kysymyskuvia/SuojatieAutoKävelijäTesti.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Kumman kuuluu väistää suojatiellä?",
+			"en": "Which one should give way at a pedestrian crossing?"
+		},
+		"correctAnswer": {
+			"fi": "Autoilijan",
+			"en": "Car"
+		},
+		"wrongAnswer": {
+			"fi": "Kävelijän",
+			"en": "Walker"
+		},
+		"info": {
+			"fi": "Liikennesääntöjen mukaan autoilijan kuuluu väistää kävelijää",
+			"en": "According to traffic rules a car must give way to a walker"
+
+		}
+	},
+	{
+		"path":"res://gfx/Kysymyskuvia/KysymysNopeusTesti.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Laskeeko liikenteen suuri nopeus onnettomuuksien riskiä vai nostaako se sitä?",
+			"en": "Does the high speed of traffic increase risk of accidents or reduce it?"
+		},
+		"correctAnswer": {
+			"fi": "Nostaa",
+			"en": "Increases"
+		},
+		"wrongAnswer": {
+			"fi": "Laskee",
+			"en": "Reduces"
+		},
+		"info": {
+			"fi": "Suuressa nopeudessa on esimerkiksi vaikeampi reagoida ajoissa yllättäviin tilanteisiin",
+			"en": "High speed can for example make it difficult to react to unexpected situations in time"
 
 		}
 	}
