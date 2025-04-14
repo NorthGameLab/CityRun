@@ -12,53 +12,47 @@ using System;
 		// step size for how much sound is altered with one click
 		[Export] private float _stepSize = 0.05f;
 
-		// starting volume
-		private float _originalVolume = 1.0f;
 		//Linear range [0, 1]
-		private float _currentVolumeLinear;
+		private float _currentVolumeDB;
 		// max and min values for sound linear
-		private const float MinValue = 0.01f;
-		private const float MaxValue = 1.0f;
+		private const float MinDecibel = -60.0f;
+		private const float MaxDecibel = 0.0f; // 0 dB is full volume
+
 		private Settings settings;
 
 		public override void _Ready()
 		{
 			base._Ready();
-			// checks if the audio is assigned, prints error if not
 			settings = GetParent().GetNode<Settings>("Settings");
 			if (_volumeUpButton == null || _volumeDownButton == null)
 			{
 				GD.PrintErr("Audio not assigned");
 				return;
 			}
-			// signals for buttons
 			_volumeUpButton.Pressed += OnPlusButtonPressed;
 			_volumeDownButton.Pressed += OnMinusButtonPressed;
-			// alters sound to user previous settings
-			if(settings.GetVolume(_busName, out float volumeDB) == true)
-			{
-				_currentVolumeLinear = volumeDB;
-			}
+
+			// 🔥 GET the *saved* volume, NOT live bus volume
+			_currentVolumeDB = settings.GetSavedVolume(_busName);
 		}
 		// updates colume to higher
 		private void OnPlusButtonPressed()
 		{
-			_currentVolumeLinear = Mathf.Clamp(_currentVolumeLinear + _stepSize, MinValue, MaxValue);
+			_currentVolumeDB = Mathf.Clamp(_currentVolumeDB + (_stepSize * 20.0f), MinDecibel, MaxDecibel);
 			UpdateVolume();
-			GD.Print(_currentVolumeLinear);
+			GD.Print($"Volume (dB): {_currentVolumeDB}");
 		}
 		// updates volume to lower
 		private void OnMinusButtonPressed()
 		{
-			_currentVolumeLinear = Mathf.Clamp(_currentVolumeLinear - _stepSize, MinValue, MaxValue);
+			_currentVolumeDB = Mathf.Clamp(_currentVolumeDB - (_stepSize * 20.0f), MinDecibel, MaxDecibel);
 			UpdateVolume();
-			GD.Print(_currentVolumeLinear);
+			GD.Print($"Volume (dB): {_currentVolumeDB}");
 		}
 		// updates volume and sets it
 		private void UpdateVolume()
 		{
-			float decibelVolume = Mathf.LinearToDb(_currentVolumeLinear);
-			settings.SetVolume(_busName, decibelVolume);
-
+			settings.SetVolume(_busName, _currentVolumeDB);
+			settings.SaveSettings();
 		}
 	}

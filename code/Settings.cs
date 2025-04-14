@@ -123,6 +123,16 @@ using System;
 			volumeDB = AudioServer.GetBusVolumeDb(busIndex);
 			return true;
 		}
+		public float GetSavedVolume(string busName)
+		{
+			return busName switch
+			{
+				"Master" => _data.MasterVolume,
+				"Music" => _data.MusicVolume,
+				"SFX" => _data.SfxVolume,
+				_ => -6.0f // default value if unknown
+			};
+		}
 		public string GetLanguage()
 		{
 			return TranslationServer.GetLocale();
