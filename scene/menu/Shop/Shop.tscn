@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://4nxh2t2tgqfg"]
+[gd_scene load_steps=33 format=3 uid="uid://4nxh2t2tgqfg"]
 
 [ext_resource type="Script" path="res://code/menu/Shop/Shop.cs" id="1_k2k7k"]
 [ext_resource type="Texture2D" uid="uid://ljkom1ljs111" path="res://gfx/Skinmenu/CaseMenuTaustaTausta.png" id="2_ppyes"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bg1lrqjmhvgk8" path="res://gfx/Skinmenu/CaseMenuTaustaKolikot.png" id="4_exu3a"]
 [ext_resource type="Texture2D" uid="uid://773xyeeor8xy" path="res://gfx/Skinmenu/napit/ExitNappi.png" id="4_yt1o0"]
 [ext_resource type="Texture2D" uid="uid://dx8ar6q34lh14" path="res://gfx/Skinmenu/napit/ExitNappiPainettu.png" id="5_gfrh3"]
-[ext_resource type="Texture2D" uid="uid://bw455tlba3rqb" path="res://gfx/Skinmenu/napit/BuyNappi.png" id="6_ycq60"]
+[ext_resource type="Texture2D" uid="uid://djkfsdhh7jfw1" path="res://gfx/BuyNappiV2.png" id="5_sjv3p"]
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="7_20rg2"]
 [ext_resource type="Texture2D" uid="uid://b2m3hv0hrnsq4" path="res://gfx/Skinmenu/Case.png" id="7_epcgp"]
 [ext_resource type="Texture2D" uid="uid://2ke7vn84n63p" path="res://gfx/Skinmenu/napit/BuyNappiPainettu.png" id="7_r3uyf"]
@@ -18,10 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://x0u5e2oenguy" path="res://gfx/RaksiNappiPainettu.png" id="16_owf7c"]
 [ext_resource type="AudioStream" uid="uid://sc5rq13lv7ks" path="res://Audio/CaseReel.mp3" id="17_242an"]
 [ext_resource type="AudioStream" uid="uid://cqu3ksm266h12" path="res://Audio/CaseOpen.mp3" id="18_86vde"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_20cq8"]
-atlas = ExtResource("6_ycq60")
-region = Rect2(0, 20.8699, 64, 21.2416)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkd3m"]
 atlas = ExtResource("7_r3uyf")
@@ -135,7 +131,7 @@ offset_left = 130.0
 offset_top = 552.0
 offset_right = 404.0
 offset_bottom = 641.0
-texture_normal = SubResource("AtlasTexture_20cq8")
+texture_normal = ExtResource("5_sjv3p")
 texture_pressed = SubResource("AtlasTexture_nkd3m")
 ignore_texture_size = true
 stretch_mode = 0
