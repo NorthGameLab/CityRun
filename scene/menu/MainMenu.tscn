@@ -62,6 +62,9 @@ _musicMinus = NodePath("SettingsPopup/MiinusNappi2")
 _sfxPlus = NodePath("SettingsPopup/PlusNappi")
 _sfxMinus = NodePath("SettingsPopup/MiinusNappi")
 
+[node name="Settings" type="Node" parent="."]
+script = ExtResource("29_r75ej")
+
 [node name="Menu" type="CanvasLayer" parent="."]
 
 [node name="HighScore" type="Label" parent="Menu"]
@@ -369,9 +372,6 @@ script = ExtResource("30_pwe1f")
 _volumeUpButton = NodePath("../SettingsPopup/PlusNappi")
 _volumeDownButton = NodePath("../SettingsPopup/MiinusNappi")
 _busName = "SFX"
-
-[node name="Settings" type="Node" parent="."]
-script = ExtResource("29_r75ej")
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]
 [connection signal="pressed" from="Menu/Settings" to="." method="OnSettingsButtonPressed"]

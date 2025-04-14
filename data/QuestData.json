@@ -1,27 +1,6 @@
 {
 	"questions": [
 	{
-		"path": "res://gfx/KysymysKuvaPotkuVaiPyörä.png",
-		"frames": "1",
-
-		"question": {
-			"fi": "Mikä on kevyenliikenteen yleisin onnettomuustyyppi?",
-			"en": "Which kind of accident is the most common in the walkway?"
-		},
-		"correctAnswer": {
-			"fi": "Polkupyöräonnettomuus",
-			"en": "Bicycle accident"
-		},
-		"wrongAnswer": {
-			"fi": "sähköpotkulauta onnettomuus",
-			"en": "Electic scooter accident"
-		},
-		"info": {
-			"fi": "ei vielä",
-			"en": "not yet"
-		}
-		},
-	{
 		"path": "res://gfx/KysymysKuvaPolkNR.png",
 		"frames": "1",
 
