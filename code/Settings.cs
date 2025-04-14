@@ -64,7 +64,7 @@ using System;
 					LangCode = (string)settingsConfig.GetValue("Localization", "LangCode", "fi"),
 					MasterVolume = (float)settingsConfig.GetValue("Audio", "MasterVolume", -6.0f),
 					MusicVolume = (float)settingsConfig.GetValue("Audio", "MusicVolume", -6.0f),
-					SfxVolume = (float)settingsConfig.GetValue("Audio", "SfxVolume", -6.0f)
+					SfxVolume = (float)settingsConfig.GetValue("Audio", "SfxVolume", -6.0f),
 				};
 			}
 			else
@@ -133,6 +133,7 @@ using System;
 				_ => -6.0f // default value if unknown
 			};
 		}
+
 		public string GetLanguage()
 		{
 			return TranslationServer.GetLocale();

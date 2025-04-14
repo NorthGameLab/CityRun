@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cttpgoer0vrcl"]
+[gd_scene load_steps=42 format=3 uid="uid://cttpgoer0vrcl"]
 
 [ext_resource type="Script" path="res://code/menu/MainMenu.cs" id="1_dwcms"]
 [ext_resource type="Theme" uid="uid://if6n0d37bars" path="res://scene/menu/test.tres" id="2_tjppq"]
@@ -35,6 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://g61wenycagm0" path="res://scene/menu/MainMenuBackground/MainMenuBackground.tscn" id="28_bxub2"]
 [ext_resource type="Script" path="res://code/Settings.cs" id="29_r75ej"]
 [ext_resource type="Script" path="res://code/AudioControl.cs" id="30_pwe1f"]
+[ext_resource type="Texture2D" uid="uid://c4m2a5sni53c" path="res://gfx/PunainenNappi.png" id="32_00vgg"]
+[ext_resource type="Texture2D" uid="uid://bh7lqor3ekdsy" path="res://gfx/PunainenNappiPainettu.png" id="33_mx858"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ix3h0"]
 atlas = ExtResource("11_4v20u")
@@ -81,7 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_tjppq")
 theme_override_fonts/font = ExtResource("2_x6agq")
-text = "HSC"
+theme_override_font_sizes/font_size = 80
 horizontal_alignment = 1
 
 [node name="StartButton" type="TextureButton" parent="Menu"]
@@ -235,7 +237,6 @@ offset_top = 230.0
 offset_right = 419.0
 offset_bottom = 589.0
 scale = Vector2(0.14, 0.14)
-toggle_mode = true
 action_mode = 0
 texture_normal = ExtResource("13_q3tco")
 texture_pressed = ExtResource("14_phfrw")
@@ -264,7 +265,6 @@ offset_top = 300.0
 offset_right = 425.0
 offset_bottom = 651.0
 scale = Vector2(0.12, 0.12)
-toggle_mode = true
 action_mode = 0
 texture_normal = ExtResource("15_0jcil")
 texture_pressed = ExtResource("16_c0ycw")
@@ -296,34 +296,6 @@ scale = Vector2(0.15, 0.15)
 texture_normal = ExtResource("24_hknia")
 texture_pressed = ExtResource("25_ycjpa")
 
-[node name="SFXVolume" type="Label" parent="SettingsPopup"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = -100.0
-offset_right = 64.0
-offset_bottom = 43.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-
-[node name="MusicVolume" type="Label" parent="SettingsPopup"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = -35.0
-offset_right = 64.0
-offset_bottom = 108.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-
 [node name="Control" type="Control" parent="SettingsPopup"]
 layout_mode = 3
 anchors_preset = 0
@@ -341,6 +313,28 @@ theme = ExtResource("2_tjppq")
 theme_override_font_sizes/font_size = 0
 text = "SETTINGS"
 
+[node name="TextureButton" type="TextureButton" parent="SettingsPopup"]
+offset_left = 120.0
+offset_top = 360.0
+offset_right = 1021.0
+offset_bottom = 701.0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("32_00vgg")
+texture_pressed = ExtResource("33_mx858")
+
+[node name="Label" type="Label" parent="SettingsPopup/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tjppq")
+theme_override_font_sizes/font_size = 150
+text = "RESTORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="SelectButton" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_26ri3")
 volume_db = -7.975
@@ -353,7 +347,7 @@ bus = &"SFX"
 
 [node name="MainMenuBackground" parent="." instance=ExtResource("28_bxub2")]
 
-[node name="MusicControl" type="Control" parent="." node_paths=PackedStringArray("_volumeUpButton", "_volumeDownButton")]
+[node name="MusicControl" type="Control" parent="." node_paths=PackedStringArray("_volumeUpButton", "_volumeDownButton", "_muteButton", "_restoreButton")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -361,9 +355,11 @@ offset_bottom = 40.0
 script = ExtResource("30_pwe1f")
 _volumeUpButton = NodePath("../SettingsPopup/PlusNappi2")
 _volumeDownButton = NodePath("../SettingsPopup/MiinusNappi2")
+_muteButton = NodePath("../SettingsPopup/Musiikki")
+_restoreButton = NodePath("../SettingsPopup/TextureButton")
 _busName = "Music"
 
-[node name="SFXControl" type="Control" parent="." node_paths=PackedStringArray("_volumeUpButton", "_volumeDownButton")]
+[node name="SFXControl" type="Control" parent="." node_paths=PackedStringArray("_volumeUpButton", "_volumeDownButton", "_muteButton", "_restoreButton")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -371,6 +367,8 @@ offset_bottom = 40.0
 script = ExtResource("30_pwe1f")
 _volumeUpButton = NodePath("../SettingsPopup/PlusNappi")
 _volumeDownButton = NodePath("../SettingsPopup/MiinusNappi")
+_muteButton = NodePath("../SettingsPopup/TextureButton")
+_restoreButton = NodePath("../SettingsPopup/TextureButton")
 _busName = "SFX"
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="onStartButtonPressed"]

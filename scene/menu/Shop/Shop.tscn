@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://4nxh2t2tgqfg"]
+[gd_scene load_steps=34 format=3 uid="uid://4nxh2t2tgqfg"]
 
 [ext_resource type="Script" path="res://code/menu/Shop/Shop.cs" id="1_k2k7k"]
 [ext_resource type="Texture2D" uid="uid://ljkom1ljs111" path="res://gfx/Skinmenu/CaseMenuTaustaTausta.png" id="2_ppyes"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://bpbab5o6unceq" path="res://gfx/Skinmenu/napit/HintNappiV2Painettu.png" id="12_jl8xo"]
 [ext_resource type="Texture2D" uid="uid://dyvwdypkxpeun" path="res://gfx/RaksiNappi.png" id="15_d8dog"]
 [ext_resource type="Texture2D" uid="uid://x0u5e2oenguy" path="res://gfx/RaksiNappiPainettu.png" id="16_owf7c"]
+[ext_resource type="AudioStream" uid="uid://sc5rq13lv7ks" path="res://Audio/CaseReel.mp3" id="17_242an"]
+[ext_resource type="AudioStream" uid="uid://cqu3ksm266h12" path="res://Audio/CaseOpen.mp3" id="18_86vde"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_20cq8"]
 atlas = ExtResource("6_ycq60")
@@ -292,6 +294,12 @@ grow_horizontal = 0
 scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("15_d8dog")
 texture_pressed = ExtResource("16_owf7c")
+
+[node name="CaseReel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_242an")
+
+[node name="OpenBox" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_86vde")
 
 [connection signal="pressed" from="InfoButton" to="." method="OnInfoPressed"]
 [connection signal="close_requested" from="Window" to="." method="onWindowCloseRequested"]

@@ -35,8 +35,7 @@ public partial class MainMenu : Node
         Test.loadGame();
         Menu = GetNode<CanvasLayer>("Menu");
         HighScore = Menu.GetNode<Label>("HighScore");
-
-        HighScore.Text = "HighScore: " + Test.HighScore;
+        HighScore.Text = Tr("HSC") + ": " + Test.HighScore;
 
         // hides settings in start
         PopupWindow = GetNode<Window>("SettingsPopup");

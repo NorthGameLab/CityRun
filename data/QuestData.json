@@ -195,6 +195,184 @@
 			"en": "High speed can for example make it difficult to react to unexpected situations in time"
 
 		}
+	},
+	{
+		"path":"res://gfx/KysymysKuvaRatikka.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Pitääkö kävelijän väistää raitiovaunua?",
+			"en": "Does the pedestrian need to let the tram go first?"
+		},
+		"correctAnswer": {
+			"fi": "Kyllä",
+			"en": "Yes"
+		},
+		"wrongAnswer": {
+			"fi": "Ei",
+			"en": "No"
+		},
+		"info": {
+			"fi": "Kävelijän täytyy antaa raitiovaunulle tilaa, jos ylityksessä ei ole liikennevaloja",
+			"en": "The pedestrian needs to let the tram pass if there is no traffic lights"
+
+		}
+	},
+	{
+		"path":"res://gfx/KysymysKuvaRatikkaValot.png",
+		"frames": "2",
+
+		"question": {
+			"fi": "Pitääkö kävelijän väistää raitiovaunua?",
+			"en": "Does the pedestrian need to let the tram go first?"
+		},
+		"correctAnswer": {
+			"fi": "Ei",
+			"en": "No"
+		},
+		"wrongAnswer": {
+			"fi": "Kyllä",
+			"en": "Yes"
+		},
+		"info": {
+			"fi": "Vihreillä valoilla saat ylittää tien",
+			"en": "If the light is green you can cross the road"
+
+		}
+	},
+	{
+		"path":"res://gfx/KysymysKuvaHämeenkatu.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Saako hämeenkadun ylittää mistä vain?",
+			"en": "Are you allowed to cross Hämeenkatu anywhere?"
+		},
+		"correctAnswer": {
+			"fi": "Kyllä",
+			"en": "Yes"
+		},
+		"wrongAnswer": {
+			"fi": "Et saa",
+			"en": "No"
+		},
+		"info": {
+			"fi": "Hämeenkadun saa ylittää muuaallakin kuin suojatiellä, mutta silloin tulee väistää kaikkia ajoneuvoja",
+			"en": "You can cross Hämeenkatu everywhere but you are obligated to give lane to every vehicle"
+
+		}
+	},
+	{
+		"path":"res://gfx/KysymysKuvaPyöräKaista1.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Onko pyöräilijä oikealla kaistalla?",
+			"en": "Is the cyclist on the correct lane?"
+		},
+		"correctAnswer": {
+			"fi": "Ei",
+			"en": "No"
+		},
+		"wrongAnswer": {
+			"fi": "Kyllä",
+			"en": "yes"
+		},
+		"info": {
+			"fi": "Pyöräilijä kulkee kävelykaistalla",
+			"en": "The cyclist is on the walk way"
+
+		}
+	},
+
+	{
+		"path":"res://gfx/KysymysKuvaPyöräKaista2.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Onko pyöräilijä sallitulla kaistalla?",
+			"en": "Is the cyclist on the correct lane?"
+		},
+		"correctAnswer": {
+			"fi": "Kyllä",
+			"en": "Yes"
+		},
+		"wrongAnswer": {
+			"fi": "Ei",
+			"en": "No"
+		},
+		"info": {
+			"fi": "Pyöräilijä kulkee sallittua pyöräkaistaa",
+			"en": "The cyclist is on the correct lane"
+
+		}
+	},
+	{
+		"path":"res://gfx/KysymysKuvaPyöräKaista3.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Onko pyöräilijä sallitulla kaistalla?",
+			"en": "Is the cyclist on the correct lane?"
+		},
+		"correctAnswer": {
+			"fi": "Ei",
+			"en": "No"
+		},
+		"wrongAnswer": {
+			"fi": "Kyllä",
+			"en": "Yes"
+		},
+		"info": {
+			"fi": "Pyöräilijä kulkee väärään suuntaan",
+			"en": "The cyclist is going in the wrong direction"
+
+		}
+	},
+	{
+		"path":"res://gfx/KysymysKuvaPyöräKaista4.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Onko pyöräilijä sallitulla kaistalla?",
+			"en": "Is the cyclist on the correct lane?"
+		},
+		"correctAnswer": {
+			"fi": "Kyllä",
+			"en": "Yes"
+		},
+		"wrongAnswer": {
+			"fi": "Ei",
+			"en": "No"
+		},
+		"info": {
+			"fi": "kulkuväylä on tarkoitettu pyöräilijöille ja kävelijöille",
+			"en": "The lane is ment for cyclists and pedestrians"
+
+		}
+	},
+	{
+		"path":"res://gfx/KysymysKuvaPolk.png",
+		"frames": "1",
+
+		"question": {
+			"fi": "Mihin ikään asti polkupyörää saa ajaa kävelytiellä?",
+			"en": "Is the cyclist on the correct lane?"
+		},
+		"correctAnswer": {
+			"fi": "12",
+			"en": "12"
+		},
+		"wrongAnswer": {
+			"fi": "14",
+			"en": "14"
+		},
+		"info": {
+			"fi": "Yli 12-vuotiaat eivät saa ajaa enää kävelytiellä polkupörää.",
+			"en": "The children over 12 years old are not allowed to cycle on the walk way"
+
+		}
 	}
+
 	]
 }

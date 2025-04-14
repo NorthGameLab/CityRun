@@ -5,6 +5,9 @@ public partial class Shop : Control
 {
 	// button for buying a case
 	TextureButton BuyButton;
+
+	private AudioStreamPlayer CaseReel;
+	private AudioStreamPlayer CaseOpen;
 	PackedScene CaseOpening = ResourceLoader.Load<PackedScene>("res://scene/menu/Shop/CaseOpening/CaseOpening.tscn");
 	CaseOpening Opening;
 	// window for all the rarity odds
@@ -19,6 +22,9 @@ public partial class Shop : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		CaseReel = GetNode<AudioStreamPlayer>("CaseReel");
+		CaseOpen = GetNode<AudioStreamPlayer>("OpenBox");
+
 		InfoWindow = GetNode<Window>("Window");
 		InfoWindow.Hide();
 		BuyButton = GetNode<TextureButton>("BuyButton");
@@ -41,6 +47,7 @@ public partial class Shop : Control
 		{
 			Test.Money -= 20;
 			CoinsLabel.Text = Test.Money.ToString();
+			CaseOpen.Play();
 			ChestOpen.Play();
 		}
 	}
@@ -63,6 +70,7 @@ public partial class Shop : Control
 	//Called when chestopen animation loops to open the chest
 	private void chestOpened()
 	{
+		CaseReel.Play();
 		ChestOpen.Stop();
 		ChestOpen.Frame = 8;
 		Opening = CaseOpening.Instantiate<CaseOpening>();

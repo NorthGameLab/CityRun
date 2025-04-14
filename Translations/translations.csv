@@ -1,6 +1,6 @@
 keys,en,fi
 SCORE,Score:,Pisteet:
-HSC,Highscore:,Ennätyspisteet
+HSC,Highscore,Ennätyspisteet
 START,Start,Aloita
 RESUME,Resume,Jatka
 RETRY,Retry,Uudestaan
@@ -13,3 +13,4 @@ DUPLICATE,Duplicate skin gives +5 coins,Kaksoiskappale palauttaa 5 kolikkoa
 EPIC,Epic,Eeppinen
 RARE,Rare,Harvinainen
 COMMON,Common,Yleinen
+RESTORE,Restore Sound,Palauta äänet

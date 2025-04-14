@@ -5,6 +5,7 @@ public partial class Global : Node
 {
 	// variable for storing correct answer
 	public static bool _isCorrect = false;
+	public static bool _isMuted = false;
 
 	// settings config file
 	public const string SettingsFile = "user://settings.cfg";
