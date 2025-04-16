@@ -7,7 +7,9 @@ using System;
 		// volume buttons
 		[Export] private TextureButton _volumeUpButton = null;
 		[Export] private TextureButton _volumeDownButton = null;
+		// mute
 		[Export] private TextureButton _muteButton = null;
+		// restores
 		[Export] private TextureButton _restoreButton = null;
 		[Export] private string _busName = "Master";
 
@@ -17,8 +19,9 @@ using System;
 		//Linear range [0, 1]
 		private float _currentVolumeDB;
 		private bool _isMuted = false;
-		// max and min values for sound linear
+		// float for saving last volume before mute
 		private float _lastVolumeBeforeMute = 0.0f;
+		// max and min values for sound linear
 		private const float MinDecibel = -60.0f;
 		private const float MaxDecibel = 0.0f; // 0 dB is full volume
 
@@ -28,16 +31,18 @@ using System;
 		{
 			base._Ready();
 			settings = GetParent().GetNode<Settings>("Settings");
+			// check if buttons are assigned
 			if (_volumeUpButton == null || _volumeDownButton == null || _muteButton == null)
 			{
 				GD.PrintErr("Audio not assigned");
 				return;
 			}
+			// signals for buttons
 			_volumeUpButton.Pressed += OnPlusButtonPressed;
 			_volumeDownButton.Pressed += OnMinusButtonPressed;
 			_restoreButton.Pressed += OnRestorePressed;
 
-			// 🔥 GET the *saved* volume, NOT live bus volume
+			// Get saved volume when starting game
 			_currentVolumeDB = settings.GetSavedVolume(_busName);
 
 			if (_muteButton != null)
@@ -49,35 +54,42 @@ using System;
 				GD.PrintErr("Mute button not assigned.");
 			}
 		}
-		// updates colume to higher
+		// adjust volume higher linearly
 		private void OnPlusButtonPressed()
 		{
 			_currentVolumeDB = Mathf.Clamp(_currentVolumeDB + (_stepSize * 20.0f), MinDecibel, MaxDecibel);
 			UpdateVolume();
 			GD.Print($"Volume (dB): {_currentVolumeDB}");
 		}
-		// updates volume to lower
 		private void OnMinusButtonPressed()
 		{
+			// lowers volume linearly
 			_currentVolumeDB = Mathf.Clamp(_currentVolumeDB - (_stepSize * 20.0f), MinDecibel, MaxDecibel);
 			UpdateVolume();
 			GD.Print($"Volume (dB): {_currentVolumeDB}");
 		}
+
+		// Method for muting audio
 		private void OnMuteButtonPressed()
 		{
+			// checks if audio is not muted
 			if (Global._isMuted = !Global._isMuted)
 			{
 				// Save the last non-muted volume
 				_lastVolumeBeforeMute = _currentVolumeDB;
-				_currentVolumeDB = MinDecibel; // Fully mute
+				// fully muted
+				_currentVolumeDB = MinDecibel;
 			}
 			else
 			{
-				_currentVolumeDB = _lastVolumeBeforeMute; // Restore
+				// Restore audio to last saved
+				_currentVolumeDB = _lastVolumeBeforeMute;
 			}
 
 			UpdateVolume();
 		}
+
+		// Button for restoring audio to full
 		private void OnRestorePressed()
 		{
 			_currentVolumeDB = 1.0f;

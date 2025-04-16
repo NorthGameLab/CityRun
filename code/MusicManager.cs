@@ -3,22 +3,19 @@ using System;
 
 public partial class MusicManager : Node
 {
-    [Export] public AudioStreamPlayer MenuMusic; // assigned menu music
-    [Export] public AudioStreamPlayer GameMusic; // assigned game music
+     // assigned menu music
+    [Export] public AudioStreamPlayer MenuMusic;
+    // assigned game music
+    [Export] public AudioStreamPlayer GameMusic;
 
+    // singleton
     public static MusicManager Instance;
 
     public override void _Ready()
     {
-        Instance = this; // Ensure we have a singleton instance
-        /*
-        if (MenuMusic != null && !MenuMusic.Playing)
-        {
-            PlayMenuMusic(); // Start with menu music
-        }
-        */
+        Instance = this;
     }
-
+    // plays menu music in all menus without cutting the audio
     public void PlayMenuMusic()
     {
         GD.Print("Playing menu music...");
@@ -28,7 +25,7 @@ public partial class MusicManager : Node
         if (MenuMusic != null && !MenuMusic.Playing)
             MenuMusic.Play();
     }
-
+    // plays game music in GameScene
     public void PlayGameMusic()
     {
         if (MenuMusic != null && MenuMusic.Playing)

@@ -123,6 +123,8 @@ using System;
 			volumeDB = AudioServer.GetBusVolumeDb(busIndex);
 			return true;
 		}
+
+		// Method to get saved audio volumes in the file
 		public float GetSavedVolume(string busName)
 		{
 			return busName switch
