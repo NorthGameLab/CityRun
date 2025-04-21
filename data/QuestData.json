@@ -103,7 +103,7 @@
 			"en": "Yes"
 		},
 		"info": {
-			"fi": "Suomen lain mukaan liikennevalon ollessa punainen on pysähdyttävä",
+			"fi": "Suomen lain mukaan liikennevalon ollessa punainen, sinun on pysähdyttävä",
 			"en": "According to finnish law you must stop when the traffic light is red"
 
 		}
@@ -126,7 +126,7 @@
 		},
 		"info": {
 			"fi": "Suomen lain mukaan kävelijän on kuljettava autotien vasenta reunaa",
-			"en": "According to finnish law a walker must walk on the left side of a car road"
+			"en": "According to finnish law the pedestrian must walk on the left side of a car road"
 
 		}
 	},
@@ -136,7 +136,7 @@
 
 		"question": {
 			"fi": "Kannattaako autotielle juosta?",
-			"en": "Should you run on a car road?"
+			"en": "Should you run to the car road?"
 		},
 		"correctAnswer": {
 			"fi": "Ei",
@@ -148,7 +148,7 @@
 		},
 		"info": {
 			"fi": "Autotielle juokseminen voi aiheuttaa onnettomuuksia",
-			"en": "Running on a car road may cause accidents"
+			"en": "Running to the car road may cause accidents"
 
 		}
 	},
@@ -169,8 +169,8 @@
 			"en": "Walker"
 		},
 		"info": {
-			"fi": "Liikennesääntöjen mukaan autoilijan kuuluu väistää kävelijää",
-			"en": "According to traffic rules a car must give way to a walker"
+			"fi": "Liikennesääntöjen mukaan autoilijan kuuluu väistää kävelijää, jos riesteyksessä ei ole valoja",
+			"en": "According to the finnish traffic regulations, a car must give way to the walker when there are no traffic lights"
 
 		}
 	},
@@ -179,20 +179,20 @@
 		"frames": "1",
 
 		"question": {
-			"fi": "Laskeeko liikenteen suuri nopeus onnettomuuksien riskiä vai nostaako se sitä?",
-			"en": "Does the high speed of traffic increase risk of accidents or reduce it?"
+			"fi": "Nostaako liikenteen suuri nopeus onnettomuusriskiä?",
+			"en": "Does a high speed traffic increase the risk of accidents?"
 		},
 		"correctAnswer": {
-			"fi": "Nostaa",
-			"en": "Increases"
+			"fi": "Kyllä",
+			"en": "Yes"
 		},
 		"wrongAnswer": {
-			"fi": "Laskee",
-			"en": "Reduces"
+			"fi": "Ei",
+			"en": "No"
 		},
 		"info": {
 			"fi": "Suuressa nopeudessa on esimerkiksi vaikeampi reagoida ajoissa yllättäviin tilanteisiin",
-			"en": "High speed can for example make it difficult to react to unexpected situations in time"
+			"en": "High speed can for example make it difficult to react in time to unexpected situations"
 
 		}
 	},

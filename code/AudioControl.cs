@@ -14,7 +14,7 @@ using System;
 		[Export] private string _busName = "Master";
 
 		// step size for how much sound is altered with one click
-		[Export] private float _stepSize = 0.05f;
+		[Export] private float _stepSize = 0.20f;
 
 		//Linear range [0, 1]
 		private float _currentVolumeDB;
